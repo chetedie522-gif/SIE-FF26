@@ -26,8 +26,8 @@ def admin_headers(prefer=None):
     if prefer: h["Prefer"] = prefer
     return h
 
-REG = SIE + r"\tablero_economico\compras_reg.json"
-TREE = SIE + r"\tablero_economico\partidas_insumos.json"
+REG = os.path.join(SIE, "tablero_economico", "compras_reg.json")
+TREE = os.path.join(SIE, "tablero_economico", "partidas_insumos.json")
 
 def n(x):
     try: return float(x)

@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
-import json
+import json, os
 from _paths import SIE, SYS
-base = SIE + r"\tablero_economico"
-DATA = open(base + r"\economia.json", encoding="utf-8").read()
+base = os.path.join(SIE, "tablero_economico")
+DATA = open(os.path.join(base, "economia.json"), encoding="utf-8").read()
 
 CSS = """
 :root{--bg:#12161c;--card:#1b212a;--card2:#212a35;--line:#2c3540;--txt:#e8ecf1;--mut:#8c98a8;--ok:#2fa76a;--warn:#d9a020;--bad:#e0555f;--acc:#5b8fd6}
@@ -111,12 +111,12 @@ full = ('<!DOCTYPE html>\n<html lang="es"><head><meta charset="utf-8">'
  + HEAD_BODY +
  '<script>\nconst DATA = ' + DATA + ';\n' + JS +
  "\nfetch('economia.json?'+Date.now()).then(r=>r.json()).then(render).catch(()=>render(DATA));\n</script></body></html>")
-open(base + r"\index.html", "w", encoding="utf-8").write(full)
+open(os.path.join(base, "index.html"), "w", encoding="utf-8").write(full)
 
 art = ('<title>Control economico FF26</title><style>' + CSS + '</style>'
  + HEAD_BODY +
  '<script>\nconst DATA = ' + DATA + ';\n' + JS + '\nrender(DATA);\n</script>')
-sp = SYS + r"\economico_ff26.html"
+sp = os.path.join(SYS, "economico_ff26.html")
 open(sp, "w", encoding="utf-8").write(art)
 print("OK -> index.html (OneDrive) y economico_ff26.html (artifact)")
 print("full bytes:", len(full), "| art bytes:", len(art))
