@@ -178,7 +178,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 64.8,
      "unidad": "un",
      "total": 4633200,
@@ -252,7 +252,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 16.704,
      "unidad": "un",
      "total": 1194336,
@@ -342,7 +342,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 38.5,
      "unidad": "un",
      "total": 2752750,
@@ -400,7 +400,7 @@
     },
     {
      "cod": "IN.EMVG.0013",
-     "desc": "Fabricación de Estructura tipo Cabriada Segun detalle FF26",
+     "desc": "Fabricación de Estructura tipo Cabriada Según detalle FF26",
      "cant": null,
      "unidad": "",
      "total": 0,
@@ -408,7 +408,7 @@
     },
     {
      "cod": "IN.MAPI.0007",
-     "desc": "Fondo antioxido",
+     "desc": "Fondo antióxido",
      "cant": 65.7,
      "unidad": "lts",
      "total": 2856308,
@@ -432,7 +432,7 @@
     },
     {
      "cod": "IN.SBCA.0009",
-     "desc": "Sub. MO VIGAS O CABRIADAS FABRICACION PEDRO BURGOS",
+     "desc": "Sub. MO VIGAS O CABRIADAS FABRICACIÓN PEDRO BURGOS",
      "cant": 180,
      "unidad": "ml",
      "total": 14400000,
@@ -464,7 +464,7 @@
     },
     {
      "cod": "IN.MAPI.0007",
-     "desc": "Fondo antioxido",
+     "desc": "Fondo antióxido",
      "cant": 20.075,
      "unidad": "lts",
      "total": 872761,
@@ -821,12 +821,12 @@
    "cod": "RU.ABLD.0003",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
-   "desc": "Aislación horizontal 0,15 con pintura asfaltica",
+   "desc": "Aislación horizontal 0,15 con pintura asfáltica",
    "obj": 2086700,
    "insumos": [
     {
      "cod": "IN.MOIM.0001",
-     "desc": "SUB. Aislación Horizontal c/ pintura asfaltica. OSCAR FRANCO",
+     "desc": "SUB. Aislación Horizontal c/ pintura asfáltica. OSCAR FRANCO",
      "cant": 55,
      "unidad": "ml",
      "total": 1375000,
@@ -834,7 +834,7 @@
     },
     {
      "cod": "IN.MAIM.0002",
-     "desc": "Pintura asfaltica tipo Negrolin para aislacion",
+     "desc": "Pintura asfáltica tipo Negrolin para aislación",
      "cant": 27.5,
      "unidad": "lts",
      "total": 488125,
@@ -842,7 +842,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 1.65,
      "unidad": "un",
      "total": 117975,
@@ -863,7 +863,7 @@
    "cod": "RU.ABLD.0015",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
-   "desc": "Mamposteria 0.15 con ladrillo hueco.",
+   "desc": "Mampostería 0.15 con ladrillo hueco.",
    "obj": 6547888,
    "insumos": [
     {
@@ -900,7 +900,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 10,
      "unidad": "un",
      "total": 715000,
@@ -934,7 +934,7 @@
     },
     {
      "cod": "IN.MEEM.0008",
-     "desc": "Placa Vibradora para Compactación - 250kg x dias",
+     "desc": "Placa Vibradora para Compactación - 250kg x días",
      "cant": 7,
      "unidad": "d",
      "total": 1750000,
@@ -947,12 +947,12 @@
    "cod": "RU.INSA.0007",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
-   "desc": "Canal de desague con rejilla galvanizada",
+   "desc": "Canal de desagüe con rejilla galvanizada",
    "obj": 104805420,
    "insumos": [
     {
      "cod": "IN.MOEH.0044",
-     "desc": "SUB. Mano de obra para canaleta hormigon OSCAR FRANCO",
+     "desc": "SUB. Mano de obra para canaleta hormigón OSCAR FRANCO",
      "cant": 77.5,
      "unidad": "m",
      "total": 27125000,
@@ -992,7 +992,7 @@
     },
     {
      "cod": "IN.MAVR.0007",
-     "desc": "Rejillas Estandar Galvanizadas - 0.30x1.00 metro",
+     "desc": "Rejillas Estándar Galvanizadas - 0.30x1.00 metro",
      "cant": 155,
      "unidad": "un",
      "total": 41241935,
@@ -1000,7 +1000,7 @@
     },
     {
      "cod": "IN.MAHG.0014",
-     "desc": "Hormigon elab fck=300 kg/cm2 As= 18 Descarga directa",
+     "desc": "Hormigón elab fck=300 kg/cm2 As= 18 Descarga directa",
      "cant": 18.599999999999998,
      "unidad": "m3",
      "total": 23064000,
@@ -1034,7 +1034,7 @@
     },
     {
      "cod": "IN.SBSA.0004",
-     "desc": "Rejilla de tapa para canal de desague",
+     "desc": "Rejilla de tapa para canal de desagüe",
      "cant": 16,
      "unidad": "ud",
      "total": 4000000,
@@ -1066,7 +1066,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 4.48,
      "unidad": "un",
      "total": 320320,
@@ -1087,7 +1087,7 @@
    "cod": "RU.PINT.0005",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
-   "desc": "Pintura de paredes exterior al latex con enduido",
+   "desc": "Pintura de paredes exterior al látex con enduido",
    "obj": 8048500,
    "insumos": [
     {
@@ -1100,7 +1100,7 @@
     },
     {
      "cod": "IN.MAPI.0003",
-     "desc": "Sellador acrilico",
+     "desc": "Sellador acrílico",
      "cant": 32.896,
      "unidad": "lt",
      "total": 310670,
@@ -1132,7 +1132,7 @@
     },
     {
      "cod": "IN.MAPI.0010",
-     "desc": "Pintura latex para exterior",
+     "desc": "Pintura látex para exterior",
      "cant": 16.448,
      "unidad": "lt",
      "total": 319815,
@@ -1182,7 +1182,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 5.3999999999999995,
      "unidad": "un",
      "total": 386100,
@@ -1224,7 +1224,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 12,
      "unidad": "un",
      "total": 858000,
@@ -1266,7 +1266,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 6,
      "unidad": "un",
      "total": 429000,
@@ -1292,7 +1292,7 @@
    "insumos": [
     {
      "cod": "IN.MAHG.0014",
-     "desc": "Hormigon elab fck=300 kg/cm2 As= 18 Descarga directa",
+     "desc": "Hormigón elab fck=300 kg/cm2 As= 18 Descarga directa",
      "cant": 77,
      "unidad": "m3",
      "total": 95480000,
@@ -1308,7 +1308,7 @@
     },
     {
      "cod": "IN.SBEH.0011",
-     "desc": "SUB. M.O. PISO H°A° - INLUYE JUNTAS TERMINACION, ROMBOS.",
+     "desc": "SUB. M.O. PISO H°A° - INLUYE JUNTAS TERMINACIÓN, ROMBOS.",
      "cant": 700,
      "unidad": "m2",
      "total": 35000000,
@@ -1316,7 +1316,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 28,
      "unidad": "un",
      "total": 2002000,
@@ -1332,7 +1332,7 @@
     },
     {
      "cod": "IN.SBPI.0008",
-     "desc": "SUB. PISO DE ALTO TRAFICO DE POLIURETANO,SISTEMA DE 2 CAPAS. (Provisión e instalación)",
+     "desc": "SUB. PISO DE ALTO TRÁFICO DE POLIURETANO,SISTEMA DE 2 CAPAS. (Provisión e instalación)",
      "cant": 700,
      "unidad": "m2",
      "total": 143500000,
@@ -1441,7 +1441,7 @@
    "cod": "RU.ESHA.0005",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
-   "desc": "Platea de hormigon para reservorios.",
+   "desc": "Platea de hormigón para reservorios.",
    "obj": 6793812,
    "insumos": [
     {
@@ -1462,7 +1462,7 @@
     },
     {
      "cod": "IN.MOEH.0014",
-     "desc": "SUB. Mano de obra Platea de Hormigon Armado. OSCAR FRANCO",
+     "desc": "SUB. Mano de obra Platea de Hormigón Armado. OSCAR FRANCO",
      "cant": 4,
      "unidad": "m3",
      "total": 3400000,
@@ -1470,7 +1470,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 24,
      "unidad": "un",
      "total": 1716000,
@@ -1499,7 +1499,7 @@
    "cod": "RU.ESHA.0006",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
-   "desc": "Vigas invertidas hormigon para tapa de reservorio.",
+   "desc": "Vigas invertidas hormigón para tapa de reservorio.",
    "obj": 760874,
    "insumos": [
     {
@@ -1520,7 +1520,7 @@
     },
     {
      "cod": "IN.MAHG.0005",
-     "desc": "Hormigon elab fck=210 kg/cm2 As= 18 Bombeado en asuncion",
+     "desc": "Hormigón elab fck=210 kg/cm2 As= 18 Bombeado en Asunción",
      "cant": 1,
      "unidad": "m3",
      "total": 1110000,
@@ -1528,7 +1528,7 @@
     },
     {
      "cod": "IN.MOEH.0001",
-     "desc": "SUB. Mano de obra losas y vigas de hormigon armado.",
+     "desc": "SUB. Mano de obra losas y vigas de hormigón armado.",
      "cant": 1,
      "unidad": "m3",
      "total": 750000,
@@ -1573,7 +1573,7 @@
    "cod": "RU.ESHA.0007",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
-   "desc": "Losa hormigon para tapa de reservorio.",
+   "desc": "Losa hormigón para tapa de reservorio.",
    "obj": 6028590,
    "insumos": [
     {
@@ -1586,7 +1586,7 @@
     },
     {
      "cod": "IN.MOEH.0001",
-     "desc": "SUB. Mano de obra losas y vigas de hormigon armado.",
+     "desc": "SUB. Mano de obra losas y vigas de hormigón armado.",
      "cant": 3,
      "unidad": "m3",
      "total": 2250000,
@@ -1618,7 +1618,7 @@
     },
     {
      "cod": "IN.MAHG.0005",
-     "desc": "Hormigon elab fck=210 kg/cm2 As= 18 Bombeado en Asunción",
+     "desc": "Hormigón elab fck=210 kg/cm2 As= 18 Bombeado en Asunción",
      "cant": 3,
      "unidad": "m3",
      "total": 3330000,
@@ -1631,7 +1631,7 @@
    "cod": "RU.ESHA.0008",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
-   "desc": "Tapas  para inspeccion de hormigon reservorio.",
+   "desc": "Tapas  para inspección de hormigón reservorio.",
    "obj": 738541,
    "insumos": [
     {
@@ -1652,7 +1652,7 @@
     },
     {
      "cod": "IN.MOEH.0016",
-     "desc": "SUB. Tapas de hormigon armado pre fabricadas",
+     "desc": "SUB. Tapas de hormigón armado pre fabricadas",
      "cant": 1,
      "unidad": "un",
      "total": 300000,
@@ -1660,7 +1660,7 @@
     },
     {
      "cod": "IN.MAHG.0005",
-     "desc": "Hormigon elab fck=210 kg/cm2 As= 18 Bombeado en asuncion",
+     "desc": "Hormigón elab fck=210 kg/cm2 As= 18 Bombeado en Asunción",
      "cant": 1,
      "unidad": "m3",
      "total": 1110000,
@@ -1718,7 +1718,7 @@
     },
     {
      "cod": "IN.MOOP.0003",
-     "desc": "SUB. Marcacion y replanteo. OSCAR FRANCO",
+     "desc": "SUB. Marcación y replanteo. OSCAR FRANCO",
      "cant": 39,
      "unidad": "m2",
      "total": 249600,
@@ -1726,7 +1726,7 @@
     },
     {
      "cod": "IN.MOOP.0001",
-     "desc": "SUB. Perfilacion de excavacion OSCAR FRANCO",
+     "desc": "SUB. Perfilación de excavación OSCAR FRANCO",
      "cant": 45,
      "unidad": "m2",
      "total": 900000,
@@ -1810,7 +1810,7 @@
     },
     {
      "cod": "IN.MACE.0001",
-     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "desc": "Cemento Yguazú CP32 BOLSA:50kg",
      "cant": 6,
      "unidad": "un",
      "total": 429000,
@@ -1852,7 +1852,7 @@
     },
     {
      "cod": "IN.MAHG.0005",
-     "desc": "Hormigon elab fck=210 kg/cm2 As= 18 Bombeado en asuncion",
+     "desc": "Hormigón elab fck=210 kg/cm2 As= 18 Bombeado en Asunción",
      "cant": 6,
      "unidad": "m3",
      "total": 6660000,
@@ -1876,7 +1876,7 @@
     },
     {
      "cod": "IN.MOEH.0013",
-     "desc": "SUB. Mano de obra Pantalla de Hormigon Armado e=15cm.",
+     "desc": "SUB. Mano de obra Pantalla de Hormigón Armado e=15cm.",
      "cant": 6,
      "unidad": "m3",
      "total": 4500000,
@@ -1936,7 +1936,7 @@
     },
     {
      "cod": "C.I - PROY - CE1",
-     "desc": "CALCULO ESTRUCTURAL",
+     "desc": "CÁLCULO ESTRUCTURAL",
      "cant": 1,
      "unidad": "gl",
      "total": 9350000,
@@ -1944,7 +1944,7 @@
     },
     {
      "cod": "C.I -  PROY - TOP",
-     "desc": "TOPOGRAFIA",
+     "desc": "TOPOGRAFÍA",
      "cant": 1,
      "unidad": "gl",
      "total": 2400000,
@@ -1968,7 +1968,7 @@
     },
     {
      "cod": "C.I -  PROY - GEST1",
-     "desc": "GESTION MUNICIPAL",
+     "desc": "GESTIÓN MUNICIPAL",
      "cant": 1,
      "unidad": "gl",
      "total": 2789000,
