@@ -401,9 +401,9 @@
     {
      "cod": "IN.EMVG.0013",
      "desc": "Fabricación de Estructura tipo Cabriada Según detalle FF26",
-     "cant": null,
-     "unidad": "",
-     "total": 0,
+     "cant": 180,
+     "unidad": "ml",
+     "total": 4959040,
      "tipo": ""
     },
     {
@@ -457,9 +457,9 @@
     {
      "cod": "IN.EMVG.0014",
      "desc": "Fabricación de VIGA RIOSTRA FF26",
-     "cant": null,
-     "unidad": "",
-     "total": 0,
+     "cant": 55,
+     "unidad": "ml",
+     "total": 11888580,
      "tipo": ""
     },
     {
