@@ -1,0 +1,48 @@
+{
+ "obra": "FF26",
+ "actualizado": "2026-08-19",
+ "compras": [
+  {
+   "codigo": "FF26.CP.0001",
+   "fecha": "2026-08-17",
+   "proveedor": "Lacerie",
+   "cap": "D",
+   "partida": "RU.EMPL.0015",
+   "insumo": "IN.MAAN.0086",
+   "detalle": "PERFIL U 150 X 50 X 2.00 X 6 MT -KILOS- 522",
+   "cant": "24",
+   "unidad": "un",
+   "monto": "3569376",
+   "tipo": "Material",
+   "cond": "Crédito 30 días (cheque)",
+   "estadoPago": "Autorizada",
+   "beneficiario": "LACERIE",
+   "medio": "Cheque",
+   "refPago": "",
+   "factura": "003-001-0017357",
+   "quien": "Nacho",
+   "fcarga": "2026-08-18"
+  },
+  {
+   "codigo": "FF26.CP.0002",
+   "fecha": "2026-08-17",
+   "proveedor": "Lacerie",
+   "cap": "D",
+   "partida": "RU.EMPL.0014",
+   "insumo": "IN.MAAN.0084",
+   "detalle": "ANGULO 1 1/2'' X 1/8'' X 6 MT -KILOS- 592.5",
+   "cant": "50",
+   "unidad": "un",
+   "monto": "4245650",
+   "tipo": "Material",
+   "cond": "Crédito 30 días (cheque)",
+   "estadoPago": "Autorizada",
+   "beneficiario": "LACERIE",
+   "medio": "Cheque",
+   "refPago": "",
+   "factura": "003-001-0017357",
+   "quien": "Nacho",
+   "fcarga": "2026-08-18"
+  }
+ ]
+}

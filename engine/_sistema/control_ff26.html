@@ -1,0 +1,137 @@
+<title>Control FF26</title>
+<style>
+:root{--bg:#12161c;--card:#1b212a;--card2:#212a35;--line:#2c3540;--txt:#e8ecf1;--mut:#8c98a8;--ok:#2fa76a;--warn:#d9a020;--bad:#e0555f;--acc:#5b8fd6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--txt);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:14px;max-width:1050px;margin:0 auto}
+.conf{background:rgba(224,85,95,.12);border:1px solid rgba(224,85,95,.35);color:#f0a8ad;border-radius:8px;padding:8px 12px;font-size:12px;font-weight:600;margin-bottom:12px;text-align:center}
+h1{font-size:19px}.sub{color:var(--mut);font-size:12.5px;margin:2px 0 12px}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
+.kpi .l{color:var(--mut);font-size:10px;text-transform:uppercase;letter-spacing:.5px}.kpi .v{font-size:18px;font-weight:800;margin-top:4px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}
+h2{font-size:12px;text-transform:uppercase;letter-spacing:.7px;color:var(--mut);margin-bottom:12px}
+.grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
+label{display:block;font-size:11px;color:var(--mut);text-transform:uppercase;margin-bottom:3px}
+input,select{width:100%;background:var(--card2);border:1px solid var(--line);color:var(--txt);border-radius:8px;padding:9px 10px;font-size:14px}
+button.main{background:var(--acc);color:#fff;border:none;border-radius:8px;padding:10px 16px;font-size:14px;font-weight:700;cursor:pointer;margin-top:10px}
+table{width:100%;border-collapse:collapse;font-size:12px;white-space:nowrap}
+th{text-align:right;color:var(--mut);font-weight:600;padding:6px 8px;border-bottom:1px solid var(--line);font-size:10px}
+th:nth-child(-n+3){text-align:left}
+td{padding:6px 8px;border-bottom:1px solid var(--card2);text-align:right;font-variant-numeric:tabular-nums}
+td:nth-child(-n+3){text-align:left}
+.pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700}
+.ok{background:rgba(47,167,106,.16);color:var(--ok)}.warn{background:rgba(217,160,32,.16);color:var(--warn)}.bad{background:rgba(224,85,95,.16);color:var(--bad)}.new{background:rgba(91,143,214,.16);color:var(--acc)}
+.del{background:transparent;color:var(--mut);border:none;cursor:pointer;font-size:13px;padding:0 4px}
+.wrap{overflow-x:auto}.empty{color:var(--mut);font-style:italic;font-size:13px;margin-top:6px}.note{color:var(--mut);font-size:11.5px;margin-top:8px}
+</style>
+
+<div class="conf">🔒 CONFIDENCIAL · Solo dirección (Nacho / Elias) — cobros, costos y objetivos. No compartir.</div>
+<h1>📊 Control FF26 · Cobros y material</h1>
+<div class="sub">Nave Ampliación 20x35</div>
+<div class="kpis" id="kpis"></div>
+
+<div class="card">
+  <h2>🎯 Consumo de material CONSOLIDADO en toda la obra (alarma real)</h2>
+  <div class="wrap"><table id="tconsol"></table></div>
+  <div class="note">Suma lo comprado de cada insumo contra su objetivo en TODAS las partidas. Es la alarma correcta para materiales transversales (varilla, cemento, arena) que sirven a varias partidas.</div>
+</div>
+
+<div class="card">
+  <h2>📄 Detalle por línea de compra (imputación a la partida)</h2>
+  <div class="wrap"><table id="tins"></table></div>
+  <div class="note" id="insnote"></div>
+</div>
+
+<div class="card">
+  <h2>💵 Depósitos del cliente (cobros)</h2>
+  <div class="wrap"><table id="tcob"></table></div>
+  <div class="note">Registro durable en OneDrive. Para sumar un depósito, avisale a Claude (fecha + concepto + monto) → queda guardado y NO se borra al actualizar el tablero.</div>
+</div>
+
+<div class="card">
+  <h2>💸 Devoluciones a rendir (efectivo puesto por una persona)</h2>
+  <div class="wrap"><table id="tdev"></table></div>
+  <div class="note">Compras pagadas en efectivo por Nacho/Elias/otro → la empresa debe reintegrarles. La tarjeta de crédito de los socios NO genera devolución.</div>
+</div>
+
+<div class="card">
+  <h2>💰 Comprometido por partida (vs objetivo)</h2>
+  <div class="wrap"><table id="tpart"></table></div>
+</div>
+
+<script>
+const D={"partidas": [{"cod": "RU.OBPL.0010", "cap": "A", "desc": "Marcación y Replanteo", "obj": 16450000, "comp": 0}, {"cod": "A.1", "cap": "A", "desc": "Movimiento de Suelo", "obj": 56000000, "comp": 0}, {"cod": "RU.OBPL.0005", "cap": "A", "desc": "Relleno y Compactación - arena gorda", "obj": 12337500, "comp": 0}, {"cod": "RU.OBPL.0008", "cap": "C", "desc": "Excavación para fundaciones - con minipala", "obj": 2824320, "comp": 0}, {"cod": "RU.ESHA.00118", "cap": "C", "desc": "Tubulones. Campana 120. H°A° + 30% PB", "obj": 26129232, "comp": 0}, {"cod": "RU.ESHA.0120", "cap": "C", "desc": "Fustes de H°A°20X60", "obj": 4532155, "comp": 0}, {"cod": "RU.ESHA.0121", "cap": "C", "desc": "VigasFundación H°A°. fck= 210 kg/cm2", "obj": 17322140, "comp": 0}, {"cod": "RU.EMPL.0014", "cap": "D", "desc": "Pilares metálicos RETICULADO 50X15", "obj": 14148960, "comp": 4245650}, {"cod": "RU.TEEM.0013", "cap": "D", "desc": "Cubierta de Chapa Kingspan e=40mm", "obj": 188100500, "comp": 0}, {"cod": "RU.EMPL.0015", "cap": "D", "desc": "Pilares metálicos RETICULADO 40X15 - DET: FF26", "obj": 2554980, "comp": 3569376}, {"cod": "RU.STME.0006", "cap": "D", "desc": "Placa de Anclaje 200x600", "obj": 3470614, "comp": 0}, {"cod": "RU.CATE.0001", "cap": "F", "desc": "Canaletas", "obj": 5295500, "comp": 0}, {"cod": "RU.CATE.0003", "cap": "F", "desc": "Boqueta", "obj": 1916736, "comp": 0}, {"cod": "RU.CATE.0005", "cap": "F", "desc": "CAÑOS DE BAJADA DE 150MM", "obj": 1695520, "comp": 0}, {"cod": "RU.STME.0005", "cap": "F", "desc": "CRUCE SAN ANDRES", "obj": 4185396, "comp": 0}, {"cod": "RU.TEEM.0014", "cap": "F", "desc": "Cerramiento de chapa de +1,2 a +5,00. Chapa EPS30mm.", "obj": 48417990, "comp": 0}, {"cod": "RU.ABLD.0003", "cap": "G", "desc": "Aislación horizontal 0,15 con pintura asfaltica", "obj": 2086700, "comp": 0}, {"cod": "RU.ABLD.0015", "cap": "G", "desc": "Mamposteria 0.15 con ladrillo hueco.", "obj": 6547888, "comp": 0}, {"cod": "RU.OBPL.0007", "cap": "G", "desc": "Relleno y Compactación", "obj": 9100000, "comp": 0}, {"cod": "RU.INSA.0007", "cap": "G", "desc": "Canal de desague con rejilla galvanizada", "obj": 104805420, "comp": 0}, {"cod": "RU.INSA.0008", "cap": "G", "desc": "Registro 40x40x40", "obj": 8880432, "comp": 0}, {"cod": "RU.PINT.0005", "cap": "G", "desc": "Pintura de paredes exterior al latex con enduido", "obj": 8048500, "comp": 0}, {"cod": "RU.ABRE.0023", "cap": "G", "desc": "Contrapiso de H° de cascotes e=10 act", "obj": 2418660, "comp": 0}, {"cod": "RU.ABRE.0028", "cap": "G", "desc": "Alisada de Cemento para Vereda perimetral", "obj": 2711520, "comp": 0}, {"cod": "RU.ABRE.0012", "cap": "G", "desc": "Revoque fino de paredes Exteriores", "obj": 4882004, "comp": 0}, {"cod": "RU.ESHA.0221", "cap": "G", "desc": "Piso de H° liso c/epoxy e=12cm", "obj": 344156400, "comp": 0}, {"cod": "RU.ESHA.0005", "cap": "H", "desc": "Platea de hormigon para reservorios.", "obj": 6793812, "comp": 0}, {"cod": "RU.ESHA.0006", "cap": "H", "desc": "Vigas invertidas hormigon para tapa de reservorio.", "obj": 760874, "comp": 0}, {"cod": "RU.ESHA.0007", "cap": "H", "desc": "Losa hormigon para tapa de reservorio.", "obj": 6028590, "comp": 0}, {"cod": "RU.ESHA.0008", "cap": "H", "desc": "Tapas  para inspeccion de hormigon reservorio.", "obj": 738541, "comp": 0}, {"cod": "RU.OBPL.0002", "cap": "H", "desc": "Excavación para fundaciones (zapatas para cartel)", "obj": 4959918, "comp": 0}, {"cod": "RU.AISL.0001", "cap": "H", "desc": "Aisalación  en planta de tratamiento", "obj": 12684739, "comp": 0}, {"cod": "RU.ABRE.0012", "cap": "H", "desc": "Revoque fino de paredes Exteriores", "obj": 4968600, "comp": 0}, {"cod": "RU.ESHA.00122", "cap": "H", "desc": "Paredes de tanque reservorio e=15cm", "obj": 14211600, "comp": 0}, {"cod": "RU.CATE.0005", "cap": "H", "desc": "CAÑOS DE BAJADA DE 150MM", "obj": 847760, "comp": 0}, {"cod": "CI.GEN", "cap": "CI", "desc": "Costes indirectos", "obj": 53550000, "comp": 0}, {"cod": "A.GEN", "cap": "A", "desc": "(genérico del capítulo)", "obj": 0, "comp": 0}, {"cod": "C.GEN", "cap": "C", "desc": "(genérico del capítulo)", "obj": 0, "comp": 0}, {"cod": "D.GEN", "cap": "D", "desc": "(genérico del capítulo)", "obj": 0, "comp": 0}, {"cod": "F.GEN", "cap": "F", "desc": "(genérico del capítulo)", "obj": 0, "comp": 0}, {"cod": "G.GEN", "cap": "G", "desc": "(genérico del capítulo)", "obj": 0, "comp": 0}, {"cod": "H.GEN", "cap": "H", "desc": "(genérico del capítulo)", "obj": 0, "comp": 0}], "insumos": [{"codigo": "FF26.CP.0001", "partida": "RU.EMPL.0015", "insumo": "IN.MAAN.0086", "detalle": "PERFIL U 150 X 50 X 2.00 X 6 MT -KILOS- 522", "cantC": 24.0, "un": "un", "montoC": 3569376.0, "nuevo": false, "objCant": 6.0, "objMonto": 1071654.0, "dCant": 3.0, "dMonto": 2.330716817181665}, {"codigo": "FF26.CP.0002", "partida": "RU.EMPL.0014", "insumo": "IN.MAAN.0084", "detalle": "ANGULO 1 1/2'' X 1/8'' X 6 MT -KILOS- 592.5", "cantC": 50.0, "un": "un", "montoC": 4245650.0, "nuevo": false, "objCant": 24.5, "objMonto": 2022132.0, "dCant": 1.0408163265306123, "dMonto": 1.099590926803987}], "consol": [{"cod": "IN.MAAN.0086", "desc": "U 150x50x2.0mm Perfil laminado de chapa plegada ASTM-A36", "un": "un", "cCant": 24.0, "cMonto": 3569376.0, "oCant": 28.0, "oMonto": 5001052.0, "nP": 2, "dCant": -0.1428571428571429, "dMonto": -0.28627496774678607}, {"cod": "IN.MAAN.0084", "desc": "L 1 1/2\"x1/8\" de 6mts ASTM-A36 Perfiles laminados", "un": "un", "cCant": 50.0, "cMonto": 4245650.0, "oCant": 123.75, "oMonto": 10213830.0, "nP": 4, "dCant": -0.595959595959596, "dMonto": -0.5843234124711298}], "devol": [], "cobros": [{"fecha": "2026-08-14", "concepto": "Anticipo (pago inicial)", "monto": 287950230}], "cobrado": 287950230, "contrato": 1439751150, "objTotal": 1004563501, "comprometido": 7815026, "umAm": 0.08, "umRo": 0.15};
+const f2=n=>new Intl.NumberFormat('es-PY').format(Math.round(n));
+const g=n=>Number(n).toLocaleString('es-PY',{maximumFractionDigits:1});
+const hoy=()=>new Date().toISOString().slice(0,10);
+
+// consolidado por insumo (toda la obra)
+(function(){
+  let h='<thead><tr><th>Insumo</th><th>Descripción</th><th></th><th>Comprado (obra)</th><th>Objetivo (obra)</th><th>Desvío cant.</th><th>Desvío $</th></tr></thead><tbody>';
+  if(!D.consol.length){h+='<tr><td colspan="7" class="empty">Sin insumos previstos con compras.</td></tr>';}
+  D.consol.forEach(i=>{
+    const dc=i.dCant,dm=i.dMonto;
+    const cc=dc==null?'ok':dc>D.umRo?'bad':dc>D.umAm?'warn':'ok';
+    const cm=dm==null?'ok':dm>D.umRo?'bad':dm>D.umAm?'warn':'ok';
+    const pc=`<span class="pill ${cc}">${dc==null?'—':(dc>=0?'+':'')+(dc*100).toFixed(0)+'%'}</span>`;
+    const pm=`<span class="pill ${cm}">${dm==null?'—':(dm>=0?'+':'')+(dm*100).toFixed(0)+'%'}</span>`;
+    h+=`<tr><td>${i.cod}</td><td>${i.desc.slice(0,34)} <span style="color:var(--mut)">(${i.nP} part.)</span></td><td></td>`+
+       `<td>${g(i.cCant)} ${i.un} · ${f2(i.cMonto)}</td><td>${g(i.oCant)} ${i.un} · ${f2(i.oMonto)}</td><td>${pc}</td><td>${pm}</td></tr>`;
+  });
+  h+='</tbody>';document.getElementById('tconsol').innerHTML=h;
+})();
+
+// insumos
+(function(){
+  let h='<thead><tr><th>Partida</th><th>Insumo / detalle</th><th></th><th>Comprado</th><th>Objetivo</th><th>Desvío cant.</th><th>Desvío $</th></tr></thead><tbody>';
+  if(!D.insumos.length){h+='<tr><td colspan="7" class="empty">Sin compras sincronizadas todavía.</td></tr>';}
+  D.insumos.forEach(i=>{
+    let cant,cost;
+    if(i.nuevo){cant='<span class="pill new">🆕 no previsto</span>';cost='<span class="pill new">🆕</span>';}
+    else{
+      const dc=i.dCant, dm=i.dMonto;
+      const cc=dc==null?'ok':dc>D.umRo?'bad':dc>D.umAm?'warn':'ok';
+      const cm=dm==null?'ok':dm>D.umRo?'bad':dm>D.umAm?'warn':'ok';
+      cant=`<span class="pill ${cc}">${dc==null?'—':(dc>=0?'+':'')+(dc*100).toFixed(0)+'%'}</span>`;
+      cost=`<span class="pill ${cm}">${dm==null?'—':(dm>=0?'+':'')+(dm*100).toFixed(0)+'%'}</span>`;
+    }
+    h+=`<tr><td>${i.partida}</td><td>${(i.insumo==='NUEVO'?'':i.insumo+' · ')}${i.detalle}</td><td></td>`+
+       `<td>${g(i.cantC)} ${i.un} · ${f2(i.montoC)}</td>`+
+       `<td>${i.nuevo?'—':g(i.objCant)+' '+i.un+' · '+f2(i.objMonto)}</td><td>${cant}</td><td>${cost}</td></tr>`;
+  });
+  h+='</tbody>';document.getElementById('tins').innerHTML=h;
+  document.getElementById('insnote').textContent='🔴 rojo = se pasó +'+(D.umRo*100)+'% · 🟡 amarillo = +'+(D.umAm*100)+'% · 🆕 = insumo no previsto. Ojo: si una compra de varilla sirve a varias partidas, conviene repartirla o comparar contra el objetivo total del insumo en la obra.';
+})();
+
+// devoluciones a rendir
+(function(){
+  let h='<thead><tr><th>Persona</th><th></th><th>A devolver (Gs)</th></tr></thead><tbody>';
+  if(!D.devol.length){h+='<tr><td colspan="3" class="empty">Sin devoluciones pendientes (nada pagado en efectivo por una persona).</td></tr>';}
+  let t=0; D.devol.forEach(d=>{t+=d.monto;h+=`<tr><td>${d.persona}</td><td></td><td>${f2(d.monto)}</td></tr>`;});
+  if(D.devol.length)h+=`<tr style="font-weight:800"><td>TOTAL a rendir</td><td></td><td>${f2(t)}</td></tr>`;
+  h+='</tbody>';document.getElementById('tdev').innerHTML=h;
+})();
+
+// partidas con movimiento
+(function(){
+  const mov=D.partidas.filter(p=>p.comp>0);
+  let h='<thead><tr><th>Cap</th><th>Partida</th><th></th><th>Objetivo</th><th>Comprometido</th><th>% cons.</th></tr></thead><tbody>';
+  (mov.length?mov:[]).forEach(p=>{const pc=p.obj?p.comp/p.obj*100:0;const col=pc>100?'var(--bad)':pc>90?'var(--warn)':'var(--ok)';
+    h+=`<tr><td>${p.cap}</td><td>${p.cod} · ${p.desc.slice(0,30)}</td><td></td><td>${f2(p.obj)}</td><td>${f2(p.comp)}</td><td style="color:${col}">${pc.toFixed(1)}%</td></tr>`;});
+  if(!mov.length)h+='<tr><td colspan="6" class="empty">Sin comprometido todavía.</td></tr>';
+  h+='</tbody>';document.getElementById('tpart').innerHTML=h;
+})();
+
+// cobros (durable, embebido — sin estado compartido → no se borra al republicar)
+(function(){
+  let h='<thead><tr><th>Fecha</th><th>Concepto</th><th>Monto Gs</th></tr></thead><tbody>';
+  if(!D.cobros.length){h+='<tr><td colspan="3" class="empty">Sin depósitos registrados aún.</td></tr>';}
+  D.cobros.forEach(c=>{h+=`<tr><td>${c.fecha}</td><td>${c.concepto}</td><td>${f2(c.monto)}</td></tr>`;});
+  if(D.cobros.length)h+=`<tr style="font-weight:800"><td>TOTAL cobrado</td><td></td><td>${f2(D.cobrado)}</td></tr>`;
+  h+='</tbody>';document.getElementById('tcob').innerHTML=h;
+})();
+function kpi(l,v){return `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`;}
+document.getElementById('kpis').innerHTML=
+  kpi('Contrato',f2(D.contrato)+' Gs')+kpi('Cobrado',f2(D.cobrado)+' Gs · '+(D.contrato?(D.cobrado/D.contrato*100).toFixed(0):0)+'%')+kpi('Por cobrar',f2(D.contrato-D.cobrado)+' Gs')+
+  kpi('Objetivo material',f2(D.objTotal)+' Gs')+kpi('Comprometido',f2(D.comprometido)+' Gs · '+(D.objTotal?(D.comprometido/D.objTotal*100).toFixed(1):0)+'%')+kpi('Compras sincronizadas',D.insumos.length);
+</script>

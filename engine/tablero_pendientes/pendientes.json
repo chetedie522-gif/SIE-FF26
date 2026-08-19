@@ -1,0 +1,30 @@
+{
+  "obra": "Ampliación nave refrigerada 20x35",
+  "codigo": "FF26",
+  "actualizado": "2026-08-17",
+  "hoy": "2026-08-17",
+  "alertas": [
+    {
+      "tipo": "info",
+      "titulo": "Anticipo cobrado (20%) el 14/08 · obra iniciada hoy 17/08",
+      "detalle": "287.950.230 Gs recibidos. Plan de pagos semanal confirmado. La obra se autofinancia (caja siempre positiva).",
+      "responsable": "Nacho",
+      "prioridad": "baja"
+    },
+    {
+      "tipo": "info",
+      "titulo": "Semana 1: limpieza, replanteo y preparación del terreno",
+      "detalle": "En paralelo en taller: placas de anclaje y cabriadas de cubierta. Cargar avance y primeras OC.",
+      "responsable": "Meli",
+      "prioridad": "media"
+    }
+  ],
+  "pedidos": [],
+  "tareas": [
+    {"titulo": "Emitir OC de perfiles de acero para cabriadas (a crédito, cheque 30 días)", "responsable": "Nancy", "capitulo": "D · Estructura metálica", "prioridad": "alta", "vence": "2026-08-21", "estado": "Pendiente"},
+    {"titulo": "Cotizar chapa Kingspan 40mm — 735 m² (se paga 15 días antes del montaje)", "responsable": "Nancy", "capitulo": "D · Estructura metálica", "prioridad": "alta", "vence": "2026-08-25", "estado": "Pendiente"},
+    {"titulo": "Cargar primer avance físico de Trabajos Preliminares", "responsable": "Meli", "capitulo": "A · Preliminares", "prioridad": "alta", "vence": "2026-08-24", "estado": "Pendiente"},
+    {"titulo": "Definir qué documento respalda una certificación", "responsable": "Nacho", "capitulo": "Certificaciones", "prioridad": "media", "vence": "2026-08-22", "estado": "Pendiente"},
+    {"titulo": "Relevar consumo de hormigón de fundaciones vs cómputo", "responsable": "Meli", "capitulo": "C · Estructura H°A°", "prioridad": "media", "vence": "2026-09-05", "estado": "Pendiente"}
+  ]
+}

@@ -1,0 +1,2075 @@
+{
+ "partidas": [
+  {
+   "id": "P01",
+   "cod": "RU.OBPL.0010",
+   "cap": "A",
+   "cap_nom": "A · Trabajos preliminares",
+   "desc": "Marcación y Replanteo",
+   "obj": 16450000,
+   "insumos": [
+    {
+     "cod": "IN.MOOP.0005",
+     "desc": "MO. Marcación y replanteo. Oscar Franco",
+     "cant": 700,
+     "unidad": "m2",
+     "total": 4900000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "INSBOP.0009",
+     "desc": "SUB. Marcación y Replanteo. SubContrata - Topografía.",
+     "cant": 700,
+     "unidad": "m2",
+     "total": 11550000,
+     "tipo": "CD"
+    }
+   ]
+  },
+  {
+   "id": "P02",
+   "cod": "A.1",
+   "cap": "A",
+   "cap_nom": "A · Trabajos preliminares",
+   "desc": "Movimiento de Suelo",
+   "obj": 56000000,
+   "insumos": [
+    {
+     "cod": "IN.SBMS.0008",
+     "desc": "SUB. Relleno, compactación y preparación de terreno para piso.",
+     "cant": 800,
+     "unidad": "m2",
+     "total": 56000000,
+     "tipo": "CD"
+    }
+   ]
+  },
+  {
+   "id": "P03",
+   "cod": "RU.OBPL.0005",
+   "cap": "A",
+   "cap_nom": "A · Trabajos preliminares",
+   "desc": "Relleno y Compactación - arena gorda",
+   "obj": 12337500,
+   "insumos": [
+    {
+     "cod": "IN.MOMO.0004",
+     "desc": "MO. Relleno y Compactación . OSCAR FRANCO",
+     "cant": 52.5,
+     "unidad": "m3",
+     "total": 1837500,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.SBMS.0012",
+     "desc": "Esparcida de Relleno con mini pala",
+     "cant": 105,
+     "unidad": "m3",
+     "total": 2100000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MEEM.0002",
+     "desc": "Martillete 16 kg Equirenta",
+     "cant": 5.25,
+     "unidad": "d",
+     "total": 1050000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAAR.00012",
+     "desc": "Arena Gorda para Relleno tumba sencillo ( 5m3)",
+     "cant": 21,
+     "unidad": "un",
+     "total": 7350000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.SBDE.0006",
+     "desc": "SUB. Demolición de muro lindero. OSCAR FRANCO",
+     "cant": 16800,
+     "unidad": "m2",
+     "total": 201600000,
+     "tipo": "CD"
+    }
+   ]
+  },
+  {
+   "id": "P04",
+   "cod": "RU.OBPL.0008",
+   "cap": "C",
+   "cap_nom": "C · Estructura H°A°",
+   "desc": "Excavación para fundaciones - con minipala",
+   "obj": 2824320,
+   "insumos": [
+    {
+     "cod": "IN.SBMS.0001",
+     "desc": "Excavación con mini pala.",
+     "cant": 32,
+     "unidad": "m3",
+     "total": 1280000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.SBMS.0002",
+     "desc": "Retiro en contenedores tierra normal",
+     "cant": 16,
+     "unidad": "u",
+     "total": 704000,
+     "tipo": "CI"
+    },
+    {
+     "cod": "IN.SBMS.0003",
+     "desc": "Traslado mini pala.",
+     "cant": 0.8,
+     "unidad": "u",
+     "total": 240000,
+     "tipo": "CI"
+    },
+    {
+     "cod": "IN.MOOP.0001",
+     "desc": "MO. Perfilación. OSCAR FRANCO",
+     "cant": 30.016,
+     "unidad": "m2",
+     "total": 600320,
+     "tipo": "CD"
+    }
+   ]
+  },
+  {
+   "id": "P05",
+   "cod": "RU.ESHA.00118",
+   "cap": "C",
+   "cap_nom": "C · Estructura H°A°",
+   "desc": "Tubulones. Campana 120. H°A° + 30% PB",
+   "obj": 26129232,
+   "insumos": [
+    {
+     "cod": "IN.SBFU.0014",
+     "desc": "SUB. EXCAVACIÓN MANUAL DE TUBULONES. OSCAR FRANCO",
+     "cant": 36,
+     "unidad": "ml",
+     "total": 14400000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAAR.0005",
+     "desc": "Piedra Triturada",
+     "cant": 18,
+     "unidad": "tn",
+     "total": 3114000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 10.799999999999999,
+     "unidad": "m3",
+     "total": 691200,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAAR.0006",
+     "desc": "Piedra bruta",
+     "cant": 14.4,
+     "unidad": "m3",
+     "total": 1656000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 64.8,
+     "unidad": "un",
+     "total": 4633200,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAVA.0001",
+     "desc": "Varillas Estriada e= 6mm AP 500 Ac Py",
+     "cant": 36,
+     "unidad": "kg",
+     "total": 316800,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAVA.0005",
+     "desc": "Varillas Estriada e= 12mm AP 500 Ac Py",
+     "cant": 162,
+     "unidad": "kg",
+     "total": 1318032,
+     "tipo": "CD"
+    }
+   ]
+  },
+  {
+   "id": "P06",
+   "cod": "RU.ESHA.0120",
+   "cap": "C",
+   "cap_nom": "C · Estructura H°A°",
+   "desc": "Fustes de H°A°20X60",
+   "obj": 4532155,
+   "insumos": [
+    {
+     "cod": "IN.MAFI.0001",
+     "desc": "Alambre de atar",
+     "cant": 14.4,
+     "unidad": "kg",
+     "total": 72000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.SBFU.0013",
+     "desc": "Sub. MO. FUSTES H°A°. Oscar Franco",
+     "cant": 14.4,
+     "unidad": "ml",
+     "total": 2016000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAVA.0001",
+     "desc": "Varillas Estriada e= 6mm AP 500 Ac Py",
+     "cant": 45.504000000000005,
+     "unidad": "kg",
+     "total": 400435,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAAR.0005",
+     "desc": "Piedra Triturada",
+     "cant": 3.096,
+     "unidad": "tn",
+     "total": 535608,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 1.4400000000000002,
+     "unidad": "m3",
+     "total": 92160,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 16.704,
+     "unidad": "un",
+     "total": 1194336,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAVA.0002",
+     "desc": "Varillas Estriada e= 8mm AP 500 Ac Py",
+     "cant": 17.28,
+     "unidad": "kg",
+     "total": 139968,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAVA.0004",
+     "desc": "Varillas Estriada e= 10mm AP 500 Ac Py",
+     "cant": 10.08,
+     "unidad": "kg",
+     "total": 81648,
+     "tipo": "CD"
+    }
+   ]
+  },
+  {
+   "id": "P07",
+   "cod": "RU.ESHA.0121",
+   "cap": "C",
+   "cap_nom": "C · Estructura H°A°",
+   "desc": "VigasFundación H°A°. fck= 210 kg/cm2",
+   "obj": 17322140,
+   "insumos": [
+    {
+     "cod": "IN.MAFI.0013",
+     "desc": "Clavo 2x11\" gallo",
+     "cant": 5.5,
+     "unidad": "kg",
+     "total": 62860,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAFI.0001",
+     "desc": "Alambre de atar",
+     "cant": 110,
+     "unidad": "kg",
+     "total": 550000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAVA.0001",
+     "desc": "Varillas Estriada e= 6mm AP 500 Ac Py",
+     "cant": 55,
+     "unidad": "kg",
+     "total": 484000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAVA.0004",
+     "desc": "Varillas Estriada e= 10mm AP 500 Ac Py",
+     "cant": 374,
+     "unidad": "kg",
+     "total": 3029400,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAVA.0005",
+     "desc": "Varillas Estriada e= 12mm AP 500 Ac Py",
+     "cant": 9.350000000000001,
+     "unidad": "kg",
+     "total": 76072,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAVA.0006",
+     "desc": "Varillas Estriada e= 16mm AP 500 Ac Py",
+     "cant": 72.60000000000001,
+     "unidad": "kg",
+     "total": 588060,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.SBEH.0008",
+     "desc": "SUB. M.O. Vigas H°A° - Oscar Franco",
+     "cant": 55,
+     "unidad": "ml",
+     "total": 7700000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 38.5,
+     "unidad": "un",
+     "total": 2752750,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAAR.0005",
+     "desc": "Piedra Triturada",
+     "cant": 11,
+     "unidad": "tn",
+     "total": 1903000,
+     "tipo": "CD"
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 2.75,
+     "unidad": "m3",
+     "total": 176000,
+     "tipo": "CD"
+    }
+   ]
+  },
+  {
+   "id": "P08",
+   "cod": "RU.EMPL.0014",
+   "cap": "D",
+   "cap_nom": "D · Estructura metálica + cubierta",
+   "desc": "Pilares metálicos RETICULADO 50X15",
+   "obj": 14148960,
+   "insumos": [
+    {
+     "cod": "IN.SBEM.0012",
+     "desc": "Sub. MO Montaje de Pilares RET. PEDRO BURGOS",
+     "cant": 70,
+     "unidad": "ml",
+     "total": 4900000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0083",
+     "desc": "U 150x50x3.2mm Perfil laminado de chapa plegada ASTM-A36",
+     "cant": 28,
+     "unidad": "un",
+     "total": 7226828,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0084",
+     "desc": "L 1 1/2\"x1/8\" de 6mts ASTM-A36 Perfiles laminados",
+     "cant": 24.5,
+     "unidad": "un",
+     "total": 2022132,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.EMVG.0013",
+     "desc": "Fabricación de Estructura tipo Cabriada Segun detalle FF26",
+     "cant": null,
+     "unidad": "",
+     "total": 0,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAPI.0007",
+     "desc": "Fondo antioxido",
+     "cant": 65.7,
+     "unidad": "lts",
+     "total": 2856308,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0004",
+     "desc": "Electrodo 3.25mm p/ acero",
+     "cant": 28.8,
+     "unidad": "kg",
+     "total": 374400,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.OT.0003",
+     "desc": "FLETE",
+     "cant": 9900,
+     "unidad": "gs/km.kg",
+     "total": 2475000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBCA.0009",
+     "desc": "Sub. MO VIGAS O CABRIADAS FABRICACION PEDRO BURGOS",
+     "cant": 180,
+     "unidad": "ml",
+     "total": 14400000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0083",
+     "desc": "U 150x50x3.2mm Perfil laminado de chapa plegada ASTM-A36",
+     "cant": 72,
+     "unidad": "un",
+     "total": 18583272,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0084",
+     "desc": "L 1 1/2\"x1/8\" de 6mts ASTM-A36 Perfiles laminados",
+     "cant": 72,
+     "unidad": "un",
+     "total": 5942592,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.EMVG.0014",
+     "desc": "Fabricación de VIGA RIOSTRA FF26",
+     "cant": null,
+     "unidad": "",
+     "total": 0,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAPI.0007",
+     "desc": "Fondo antioxido",
+     "cant": 20.075,
+     "unidad": "lts",
+     "total": 872761,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0004",
+     "desc": "Electrodo 3.25mm p/ acero",
+     "cant": 8.8,
+     "unidad": "kg",
+     "total": 114400,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.OT.0003",
+     "desc": "FLETE",
+     "cant": 3025,
+     "unidad": "gs/km.kg",
+     "total": 756250,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBCA.0009",
+     "desc": "Sub. MO VIGAS O CABRIADAS FABRICACIÓN. PEDRO BURGOS",
+     "cant": 55,
+     "unidad": "ml",
+     "total": 4400000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0084",
+     "desc": "L 1 1/2\"x1/8\" de 6mts ASTM-A36 Perfiles laminados",
+     "cant": 22,
+     "unidad": "un",
+     "total": 1815792,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0086",
+     "desc": "U 150x50x2.0mm Perfil laminado de chapa plegada ASTM-A36",
+     "cant": 22,
+     "unidad": "un",
+     "total": 3929398,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P09",
+   "cod": "RU.TEEM.0013",
+   "cap": "D",
+   "cap_nom": "D · Estructura metálica + cubierta",
+   "desc": "Cubierta de Chapa Kingspan e=40mm",
+   "obj": 188100500,
+   "insumos": [
+    {
+     "cod": "IN.SBEM.0002",
+     "desc": "Sub. MO montaje, de techo.PEDRO BURGOS",
+     "cant": 700,
+     "unidad": "m2",
+     "total": 59500000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACU.0008",
+     "desc": "CHAPA SANDWICH - RB-ISOTELHA PIRAP 40MM-GALVALUME 0,33/RAL 9003 0,43",
+     "cant": 735,
+     "unidad": "m2",
+     "total": 86362500,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0087",
+     "desc": "C 125x50x20x2.5mm Perfil laminado de chapa plegada ASTM-A36",
+     "cant": 196.00000000000003,
+     "unidad": "un",
+     "total": 42238000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P10",
+   "cod": "RU.EMPL.0015",
+   "cap": "D",
+   "cap_nom": "D · Estructura metálica + cubierta",
+   "desc": "Pilares metálicos RETICULADO 40X15 - DET: FF26",
+   "obj": 2554980,
+   "insumos": [
+    {
+     "cod": "IN.SBEM.0012",
+     "desc": "Sub. MO Montaje de Pilares RET. PEDRO BURGOS",
+     "cant": 15,
+     "unidad": "ml",
+     "total": 1050000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0084",
+     "desc": "L 1 1/2\"x1/8\" de 6mts ASTM-A36 Perfiles laminados",
+     "cant": 5.25,
+     "unidad": "un",
+     "total": 433314,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0086",
+     "desc": "U 150x50x2.0mm Perfil laminado de chapa plegada ASTM-A36",
+     "cant": 6,
+     "unidad": "un",
+     "total": 1071654,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P11",
+   "cod": "RU.STME.0006",
+   "cap": "D",
+   "cap_nom": "D · Estructura metálica + cubierta",
+   "desc": "Placa de Anclaje 200x600",
+   "obj": 3470614,
+   "insumos": [
+    {
+     "cod": "IN.MAAN.0063",
+     "desc": "Chapa Negra 1/2\" - 1x2",
+     "cant": 0.252,
+     "unidad": "un",
+     "total": 327082,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0018",
+     "desc": "Tuerca de 1/2\" Hex tipo A307 - Atlantic",
+     "cant": 112,
+     "unidad": "un",
+     "total": 49616,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0019",
+     "desc": "Varilla Roscable -  1/2\" de 1mt- 12 hilos",
+     "cant": 14,
+     "unidad": "un",
+     "total": 184100,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0020",
+     "desc": "Arandela 1/2 Sencilla",
+     "cant": 112,
+     "unidad": "un",
+     "total": 18816,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBEM.0001",
+     "desc": "Sub. MO montaje, confección y colocación de anclaje. PEDRO BURGOS",
+     "cant": 7,
+     "unidad": "un",
+     "total": 2450000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAD.0021",
+     "desc": "Sika AnchorFix 3001 - 300ml",
+     "cant": 3.5,
+     "unidad": "ud",
+     "total": 441000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P12",
+   "cod": "RU.CATE.0001",
+   "cap": "F",
+   "cap_nom": "F · Canaletas y cerramientos",
+   "desc": "Canaletas",
+   "obj": 5295500,
+   "insumos": [
+    {
+     "cod": "IN.SBCA.0007",
+     "desc": "Sub. doblado de chapa para canaleta",
+     "cant": 35,
+     "unidad": "un",
+     "total": 700000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0026",
+     "desc": "Chapa galvanizada Nro 22 2,00 x 1,00 mts",
+     "cant": 35,
+     "unidad": "un",
+     "total": 2845500,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOCA.0001",
+     "desc": "MO. Canaleta Embutidas montaje",
+     "cant": 70,
+     "unidad": "ml",
+     "total": 1750000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P13",
+   "cod": "RU.CATE.0003",
+   "cap": "F",
+   "cap_nom": "F · Canaletas y cerramientos",
+   "desc": "Boqueta",
+   "obj": 1916736,
+   "insumos": [
+    {
+     "cod": "IN.SBCA.0007",
+     "desc": "Sub. doblado de chapa para canaleta",
+     "cant": 16,
+     "unidad": "un",
+     "total": 320000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0026",
+     "desc": "Chapa galvanizada Nro 22 2,00 x 1,00 mts",
+     "cant": 14.72,
+     "unidad": "un",
+     "total": 1196736,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOCA.0001",
+     "desc": "MO. Canaleta Embutidas montaje",
+     "cant": 16,
+     "unidad": "ml",
+     "total": 400000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P14",
+   "cod": "RU.CATE.0005",
+   "cap": "F",
+   "cap_nom": "F · Canaletas y cerramientos",
+   "desc": "CAÑOS DE BAJADA DE 150MM",
+   "obj": 1695520,
+   "insumos": [
+    {
+     "cod": "IN.MOCA.0001",
+     "desc": "MO. Canaleta Embutidas montaje",
+     "cant": 24,
+     "unidad": "ml",
+     "total": 600000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MASP.0001",
+     "desc": "Caño 150mm de PVC tira de 6mts",
+     "cant": 6.680000000000001,
+     "unidad": "un",
+     "total": 1095520,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P15",
+   "cod": "RU.STME.0005",
+   "cap": "F",
+   "cap_nom": "F · Canaletas y cerramientos",
+   "desc": "CRUCE SAN ANDRES",
+   "obj": 4185396,
+   "insumos": [
+    {
+     "cod": "IN.MAVA.00020",
+     "desc": "Varilla Lisa d=5/8\" L=6m",
+     "cant": 24,
+     "unidad": "un",
+     "total": 1673352,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0063",
+     "desc": "Chapa Negra 1/2\" - 1x2",
+     "cant": 0.516,
+     "unidad": "un",
+     "total": 669740,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBEM.0010",
+     "desc": "Sub. MO Doblar Pernos",
+     "cant": 48,
+     "unidad": "un",
+     "total": 1800000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBEM.0009",
+     "desc": "Sub. MO Corte de chapa",
+     "cant": 1.7999999999999998,
+     "unidad": "m2",
+     "total": 42300,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P16",
+   "cod": "RU.TEEM.0014",
+   "cap": "F",
+   "cap_nom": "F · Canaletas y cerramientos",
+   "desc": "Cerramiento de chapa de +1,2 a +5,00. Chapa EPS30mm.",
+   "obj": 48417990,
+   "insumos": [
+    {
+     "cod": "IN.MAVA.00017",
+     "desc": "Varilla fyk 420",
+     "cant": 10,
+     "unidad": "ml",
+     "total": 54310,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOCU.0003",
+     "desc": "MO. pared de chapa sandwich",
+     "cant": 230,
+     "unidad": "m2",
+     "total": 8050000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAN.0087",
+     "desc": "C 125x50x20x2.5mm Perfil laminado de chapa plegada ASTM-A36",
+     "cant": 42,
+     "unidad": "un",
+     "total": 9051000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACU.0006",
+     "desc": "Chapa sandwich relleno de poliuretano e=30mm",
+     "cant": 242,
+     "unidad": "m2",
+     "total": 31460000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P17",
+   "cod": "RU.ABLD.0003",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "Aislación horizontal 0,15 con pintura asfaltica",
+   "obj": 2086700,
+   "insumos": [
+    {
+     "cod": "IN.MOIM.0001",
+     "desc": "SUB. Aislación Horizontal c/ pintura asfaltica. OSCAR FRANCO",
+     "cant": 55,
+     "unidad": "ml",
+     "total": 1375000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAIM.0002",
+     "desc": "Pintura asfaltica tipo Negrolin para aislacion",
+     "cant": 27.5,
+     "unidad": "lts",
+     "total": 488125,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 1.65,
+     "unidad": "un",
+     "total": 117975,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 1.65,
+     "unidad": "m3",
+     "total": 105600,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P18",
+   "cod": "RU.ABLD.0015",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "Mamposteria 0.15 con ladrillo hueco.",
+   "obj": 6547888,
+   "insumos": [
+    {
+     "cod": "IN.MOMA.0006",
+     "desc": "SUB. Mampostería 0.30 ladrillo hueco. OSCAR FRANCO",
+     "cant": 69,
+     "unidad": "m2",
+     "total": 2760000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0009",
+     "desc": "Murokal",
+     "cant": 2,
+     "unidad": "lt",
+     "total": 28000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MALA.0009",
+     "desc": "Ladrillo Hueco de 25x18x18",
+     "cant": 1375,
+     "unidad": "un",
+     "total": 2818750,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 5,
+     "unidad": "m3",
+     "total": 320000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 10,
+     "unidad": "un",
+     "total": 715000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P19",
+   "cod": "RU.OBPL.0007",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "Relleno y Compactación",
+   "obj": 9100000,
+   "insumos": [
+    {
+     "cod": "IN.MOMO.0004",
+     "desc": "SUB. Relleno y Compactación. OSCAR FRANCO",
+     "cant": 70,
+     "unidad": "m3",
+     "total": 2450000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.00012",
+     "desc": "Arena Gorda para Relleno tumba sencillo ( 5m3)",
+     "cant": 14,
+     "unidad": "un",
+     "total": 4900000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MEEM.0008",
+     "desc": "Placa Vibradora para Compactación - 250kg x dias",
+     "cant": 7,
+     "unidad": "d",
+     "total": 1750000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P20",
+   "cod": "RU.INSA.0007",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "Canal de desague con rejilla galvanizada",
+   "obj": 104805420,
+   "insumos": [
+    {
+     "cod": "IN.MOEH.0044",
+     "desc": "SUB. Mano de obra para canaleta hormigon OSCAR FRANCO",
+     "cant": 77.5,
+     "unidad": "m",
+     "total": 27125000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0001",
+     "desc": "Alambre de atar",
+     "cant": 77.5,
+     "unidad": "kg",
+     "total": 387500,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0013",
+     "desc": "Clavo 2x11\" gallo",
+     "cant": 77.5,
+     "unidad": "kg",
+     "total": 885748,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0001",
+     "desc": "Varillas Estriada e= 6mm AP 500 Ac Py",
+     "cant": 930,
+     "unidad": "kg",
+     "total": 8184000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0002",
+     "desc": "Varillas Estriada e= 8mm AP 500 Ac Py",
+     "cant": 483.6,
+     "unidad": "kg",
+     "total": 3917160,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVR.0007",
+     "desc": "Rejillas Estandar Galvanizadas - 0.30x1.00 metro",
+     "cant": 155,
+     "unidad": "un",
+     "total": 41241935,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAHG.0014",
+     "desc": "Hormigon elab fck=300 kg/cm2 As= 18 Descarga directa",
+     "cant": 18.599999999999998,
+     "unidad": "m3",
+     "total": 23064000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P21",
+   "cod": "RU.INSA.0008",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "Registro 40x40x40",
+   "obj": 8880432,
+   "insumos": [
+    {
+     "cod": "IN.MAFI.0001",
+     "desc": "Alambre de atar",
+     "cant": 8,
+     "unidad": "kg",
+     "total": 40000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0013",
+     "desc": "Clavo 2x11\" gallo",
+     "cant": 8,
+     "unidad": "kg",
+     "total": 91432,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBSA.0004",
+     "desc": "Rejilla de tapa para canal de desague",
+     "cant": 16,
+     "unidad": "ud",
+     "total": 4000000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBSA.0005",
+     "desc": "SUB. ELABORACIÓN REGISTRO 45X45- OSCAR FRANCO",
+     "cant": 16,
+     "unidad": "ud",
+     "total": 2400000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MALA.0001",
+     "desc": "Ladrillo común. En Pallet",
+     "cant": 2560,
+     "unidad": "un",
+     "total": 1920000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 1.6,
+     "unidad": "m3",
+     "total": 102400,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 4.48,
+     "unidad": "un",
+     "total": 320320,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0009",
+     "desc": "Murokal",
+     "cant": 0.448,
+     "unidad": "lt",
+     "total": 6272,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P22",
+   "cod": "RU.PINT.0005",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "Pintura de paredes exterior al latex con enduido",
+   "obj": 8048500,
+   "insumos": [
+    {
+     "cod": "IN.MAPI.0002",
+     "desc": "Lija para pintor",
+     "cant": 164.48,
+     "unidad": "un",
+     "total": 493440,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAPI.0003",
+     "desc": "Sellador acrilico",
+     "cant": 32.896,
+     "unidad": "lt",
+     "total": 310670,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAPI.0005",
+     "desc": "Enduido nacional",
+     "cant": 74.01599999999999,
+     "unidad": "kg",
+     "total": 1332288,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBPI.0002",
+     "desc": "SUB. ENDUIDO",
+     "cant": 164.48,
+     "unidad": "m2",
+     "total": 2631680,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBPI.0003",
+     "desc": "SUB. PINTURA MUROS INTERIOR",
+     "cant": 164.48,
+     "unidad": "m2",
+     "total": 2960640,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAPI.0010",
+     "desc": "Pintura latex para exterior",
+     "cant": 16.448,
+     "unidad": "lt",
+     "total": 319815,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P23",
+   "cod": "RU.ABRE.0023",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "Contrapiso de H° de cascotes e=10 act",
+   "obj": 2418660,
+   "insumos": [
+    {
+     "cod": "IN.MACE.0009",
+     "desc": "Murokal",
+     "cant": 1.0799999999999998,
+     "unidad": "lt",
+     "total": 15120,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MALA.0006",
+     "desc": "Cascotes para contrapiso",
+     "cant": 4.8,
+     "unidad": "m3",
+     "total": 25440,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOMA.0018",
+     "desc": "SUB. CONTRAPISO -OSCAR FRANCO",
+     "cant": 60,
+     "unidad": "m2",
+     "total": 1800000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 3,
+     "unidad": "m3",
+     "total": 192000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 5.3999999999999995,
+     "unidad": "un",
+     "total": 386100,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P24",
+   "cod": "RU.ABRE.0028",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "Alisada de Cemento para Vereda perimetral",
+   "obj": 2711520,
+   "insumos": [
+    {
+     "cod": "IN.MACE.0009",
+     "desc": "Murokal",
+     "cant": 2,
+     "unidad": "lt",
+     "total": 28000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOMA.0018",
+     "desc": "SUB. CONTRAPISO -OSCAR FRANCO",
+     "cant": 60,
+     "unidad": "m2",
+     "total": 1800000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 1,
+     "unidad": "m3",
+     "total": 64000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 12,
+     "unidad": "un",
+     "total": 858000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P25",
+   "cod": "RU.ABRE.0012",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "Revoque fino de paredes Exteriores",
+   "obj": 4882004,
+   "insumos": [
+    {
+     "cod": "IN.MAAD.0007",
+     "desc": "Vedacit",
+     "cant": 35,
+     "unidad": "lts",
+     "total": 217000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0002",
+     "desc": "Cal hidratada bolsa de 25kg",
+     "cant": 551,
+     "unidad": "kg",
+     "total": 661200,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBMA.0021",
+     "desc": "Sub. de REVOQUE CON AISLACIÓN",
+     "cant": 138,
+     "unidad": "m2",
+     "total": 3450000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 6,
+     "unidad": "un",
+     "total": 429000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 3,
+     "unidad": "m3",
+     "total": 192000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P26",
+   "cod": "RU.ESHA.0221",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "Piso de H° liso c/epoxy e=12cm",
+   "obj": 344156400,
+   "insumos": [
+    {
+     "cod": "IN.MAHG.0014",
+     "desc": "Hormigon elab fck=300 kg/cm2 As= 18 Descarga directa",
+     "cant": 77,
+     "unidad": "m3",
+     "total": 95480000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.0005",
+     "desc": "Piedra Triturada",
+     "cant": 70,
+     "unidad": "tn",
+     "total": 12110000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBEH.0011",
+     "desc": "SUB. M.O. PISO H°A° - INLUYE JUNTAS TERMINACION, ROMBOS.",
+     "cant": 700,
+     "unidad": "m2",
+     "total": 35000000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 28,
+     "unidad": "un",
+     "total": 2002000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAD.0018",
+     "desc": "Pavidur color NATURAL",
+     "cant": 56,
+     "unidad": "ud",
+     "total": 11872000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBPI.0008",
+     "desc": "SUB. PISO DE ALTO TRAFICO DE POLIURETANO,SISTEMA DE 2 CAPAS. (Provisión e instalación)",
+     "cant": 700,
+     "unidad": "m2",
+     "total": 143500000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0001",
+     "desc": "Varillas Estriada e= 6mm AP 500 Ac Py",
+     "cant": 2240,
+     "unidad": "kg",
+     "total": 19712000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0023",
+     "desc": "Varillas Lisa d=1/2\" 6m",
+     "cant": 84,
+     "unidad": "un",
+     "total": 3360000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAHG.00010",
+     "desc": "Traslado Bomba cargamento mayor a 15m3",
+     "cant": 7,
+     "unidad": "un",
+     "total": 8120000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAD.0019",
+     "desc": "CuraCreto PA20 - 10lts unidad",
+     "cant": 14,
+     "unidad": "ud",
+     "total": 1890000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAIM.0004",
+     "desc": "Aislapol",
+     "cant": 350,
+     "unidad": "m2",
+     "total": 875000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAD.0020",
+     "desc": "Pegaflex PU40",
+     "cant": 122,
+     "unidad": "ud",
+     "total": 3355000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0017",
+     "desc": "Limitador de profundidad - para juntas",
+     "cant": 140,
+     "unidad": "m",
+     "total": 133000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0002",
+     "desc": "Varillas Estriada e= 8mm AP 500 Ac Py",
+     "cant": 140,
+     "unidad": "kg",
+     "total": 1134000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAIM.0007",
+     "desc": "Isopor 100x50x1cm",
+     "cant": 42,
+     "unidad": "un",
+     "total": 210000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0013",
+     "desc": "Clavo 2x11\" gallo",
+     "cant": 119,
+     "unidad": "kg",
+     "total": 1360051,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0001",
+     "desc": "Alambre de atar",
+     "cant": 7,
+     "unidad": "kg",
+     "total": 35000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MASP.0003",
+     "desc": "Caño PVC Tira 6m 1/2\"",
+     "cant": 171,
+     "unidad": "un",
+     "total": 4018500,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P27",
+   "cod": "RU.ESHA.0005",
+   "cap": "H",
+   "cap_nom": "H · Cámara de recolección residuos",
+   "desc": "Platea de hormigon para reservorios.",
+   "obj": 6793812,
+   "insumos": [
+    {
+     "cod": "IN.MAVA.0002",
+     "desc": "Varillas Estriada e= 8mm AP 500 Ac Py",
+     "cant": 187,
+     "unidad": "kg",
+     "total": 1514700,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0012",
+     "desc": "Alambre de trinca nro 9",
+     "cant": 3,
+     "unidad": "kg",
+     "total": 34287,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOEH.0014",
+     "desc": "SUB. Mano de obra Platea de Hormigon Armado. OSCAR FRANCO",
+     "cant": 4,
+     "unidad": "m3",
+     "total": 3400000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 24,
+     "unidad": "un",
+     "total": 1716000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 2,
+     "unidad": "m3",
+     "total": 128000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.0007",
+     "desc": "Piedra triturada IV",
+     "cant": 4,
+     "unidad": "tn",
+     "total": 612000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P28",
+   "cod": "RU.ESHA.0006",
+   "cap": "H",
+   "cap_nom": "H · Cámara de recolección residuos",
+   "desc": "Vigas invertidas hormigon para tapa de reservorio.",
+   "obj": 760874,
+   "insumos": [
+    {
+     "cod": "IN.MAVA.0002",
+     "desc": "Varillas Estriada e= 8mm AP 500 Ac Py",
+     "cant": 3,
+     "unidad": "kg",
+     "total": 24300,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0004",
+     "desc": "Varillas Estriada e= 10mm AP 500 Ac Py",
+     "cant": 13,
+     "unidad": "kg",
+     "total": 105300,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAHG.0005",
+     "desc": "Hormigon elab fck=210 kg/cm2 As= 18 Bombeado en asuncion",
+     "cant": 1,
+     "unidad": "m3",
+     "total": 1110000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOEH.0001",
+     "desc": "SUB. Mano de obra losas y vigas de hormigon armado.",
+     "cant": 1,
+     "unidad": "m3",
+     "total": 750000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0001",
+     "desc": "Alambre de atar",
+     "cant": 1,
+     "unidad": "kg",
+     "total": 5000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0012",
+     "desc": "Alambre de trinca nro 9",
+     "cant": 1,
+     "unidad": "kg",
+     "total": 11429,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0001",
+     "desc": "Varillas Estriada e= 6mm AP 500 Ac Py",
+     "cant": 8,
+     "unidad": "kg",
+     "total": 70400,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0005",
+     "desc": "Varillas Estriada e= 12mm AP 500 Ac Py",
+     "cant": 3,
+     "unidad": "kg",
+     "total": 24408,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P29",
+   "cod": "RU.ESHA.0007",
+   "cap": "H",
+   "cap_nom": "H · Cámara de recolección residuos",
+   "desc": "Losa hormigon para tapa de reservorio.",
+   "obj": 6028590,
+   "insumos": [
+    {
+     "cod": "IN.MAVA.0002",
+     "desc": "Varillas Estriada e= 8mm AP 500 Ac Py",
+     "cant": 167,
+     "unidad": "kg",
+     "total": 1352700,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOEH.0001",
+     "desc": "SUB. Mano de obra losas y vigas de hormigon armado.",
+     "cant": 3,
+     "unidad": "m3",
+     "total": 2250000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0001",
+     "desc": "Alambre de atar",
+     "cant": 2,
+     "unidad": "kg",
+     "total": 10000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0012",
+     "desc": "Alambre de trinca nro 9",
+     "cant": 2,
+     "unidad": "kg",
+     "total": 22858,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0013",
+     "desc": "Clavo 2x11\" gallo",
+     "cant": 1,
+     "unidad": "kg",
+     "total": 11429,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAHG.0005",
+     "desc": "Hormigon elab fck=210 kg/cm2 As= 18 Bombeado en Asunción",
+     "cant": 3,
+     "unidad": "m3",
+     "total": 3330000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P30",
+   "cod": "RU.ESHA.0008",
+   "cap": "H",
+   "cap_nom": "H · Cámara de recolección residuos",
+   "desc": "Tapas  para inspeccion de hormigon reservorio.",
+   "obj": 738541,
+   "insumos": [
+    {
+     "cod": "IN.MAFI.0001",
+     "desc": "Alambre de atar",
+     "cant": 1,
+     "unidad": "kg",
+     "total": 5000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0004",
+     "desc": "Varillas Estriada e= 10mm AP 500 Ac Py",
+     "cant": 9,
+     "unidad": "kg",
+     "total": 72900,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOEH.0016",
+     "desc": "SUB. Tapas de hormigon armado pre fabricadas",
+     "cant": 1,
+     "unidad": "un",
+     "total": 300000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAHG.0005",
+     "desc": "Hormigon elab fck=210 kg/cm2 As= 18 Bombeado en asuncion",
+     "cant": 1,
+     "unidad": "m3",
+     "total": 1110000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0001",
+     "desc": "Varillas Estriada e= 6mm AP 500 Ac Py",
+     "cant": 4,
+     "unidad": "kg",
+     "total": 35200,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P31",
+   "cod": "RU.OBPL.0002",
+   "cap": "H",
+   "cap_nom": "H · Cámara de recolección residuos",
+   "desc": "Excavación para fundaciones (zapatas para cartel)",
+   "obj": 4959918,
+   "insumos": [
+    {
+     "cod": "IN.SBMS.0001",
+     "desc": "Excavación con mini pala.",
+     "cant": 48,
+     "unidad": "m3",
+     "total": 1920000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBMS.0002",
+     "desc": "Retiro en contenedores tierra normal",
+     "cant": 24,
+     "unidad": "u",
+     "total": 1056000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBMS.0003",
+     "desc": "Traslado mini pala",
+     "cant": 2,
+     "unidad": "u",
+     "total": 600000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MEEM.0006",
+     "desc": "ALQ.Motobomba 1 HP",
+     "cant": 4,
+     "unidad": "d",
+     "total": 598400,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOOP.0003",
+     "desc": "SUB. Marcacion y replanteo. OSCAR FRANCO",
+     "cant": 39,
+     "unidad": "m2",
+     "total": 249600,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOOP.0001",
+     "desc": "SUB. Perfilacion de excavacion OSCAR FRANCO",
+     "cant": 45,
+     "unidad": "m2",
+     "total": 900000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P32",
+   "cod": "RU.AISL.0001",
+   "cap": "H",
+   "cap_nom": "H · Cámara de recolección residuos",
+   "desc": "Aisalación  en planta de tratamiento",
+   "obj": 12684739,
+   "insumos": [
+    {
+     "cod": "IN.MOIM.0002",
+     "desc": "SUB. Aislación en paredes y fondo de reservorio",
+     "cant": 141,
+     "unidad": "m2",
+     "total": 4653000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAIM.0003",
+     "desc": "Tramafix",
+     "cant": 141,
+     "unidad": "ml",
+     "total": 2115000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAD.0008",
+     "desc": "Hormifix",
+     "cant": 29,
+     "unidad": "lts",
+     "total": 812000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAD.0009",
+     "desc": "Descal 2C",
+     "cant": 561,
+     "unidad": "kg",
+     "total": 5183640,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P33",
+   "cod": "RU.ABRE.0012",
+   "cap": "H",
+   "cap_nom": "H · Cámara de recolección residuos",
+   "desc": "Revoque fino de paredes Exteriores",
+   "obj": 4968600,
+   "insumos": [
+    {
+     "cod": "IN.MAAD.0007",
+     "desc": "Vedacit",
+     "cant": 35,
+     "unidad": "lts",
+     "total": 217000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0002",
+     "desc": "Cal hidratada bolsa de 25kg",
+     "cant": 560,
+     "unidad": "kg",
+     "total": 672000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBMA.0021",
+     "desc": "Sub. de REVOQUE CON AISLACIÓN",
+     "cant": 140,
+     "unidad": "m2",
+     "total": 3500000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MACE.0001",
+     "desc": "Cemento Yguazu CP32 BOLSA:50kg",
+     "cant": 6,
+     "unidad": "un",
+     "total": 429000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAAR.0002",
+     "desc": "Arena Lavada - Bapesa",
+     "cant": 3,
+     "unidad": "m3",
+     "total": 192000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P34",
+   "cod": "RU.ESHA.00122",
+   "cap": "H",
+   "cap_nom": "H · Cámara de recolección residuos",
+   "desc": "Paredes de tanque reservorio e=15cm",
+   "obj": 14211600,
+   "insumos": [
+    {
+     "cod": "IN.MAVA.0002",
+     "desc": "Varillas Estriada e= 8mm AP 500 Ac Py",
+     "cant": 150,
+     "unidad": "kg",
+     "total": 1215000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAVA.0004",
+     "desc": "Varillas Estriada e= 10mm AP 500 Ac Py",
+     "cant": 216,
+     "unidad": "kg",
+     "total": 1749600,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAHG.0005",
+     "desc": "Hormigon elab fck=210 kg/cm2 As= 18 Bombeado en asuncion",
+     "cant": 6,
+     "unidad": "m3",
+     "total": 6660000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0001",
+     "desc": "Alambre de atar",
+     "cant": 3,
+     "unidad": "kg",
+     "total": 15000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0012",
+     "desc": "Alambre de trinca nro 9",
+     "cant": 5,
+     "unidad": "kg",
+     "total": 57145,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MOEH.0013",
+     "desc": "SUB. Mano de obra Pantalla de Hormigon Armado e=15cm.",
+     "cant": 6,
+     "unidad": "m3",
+     "total": 4500000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MAFI.0013",
+     "desc": "Clavo 2x11\" gallo",
+     "cant": 3,
+     "unidad": "kg",
+     "total": 34287,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P35",
+   "cod": "RU.CATE.0005",
+   "cap": "H",
+   "cap_nom": "H · Cámara de recolección residuos",
+   "desc": "CAÑOS DE BAJADA DE 150MM",
+   "obj": 847760,
+   "insumos": [
+    {
+     "cod": "IN.MOCA.0001",
+     "desc": "SUB.Canaleta Embutidas montaje",
+     "cant": 12,
+     "unidad": "ml",
+     "total": 300000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MASP.0001",
+     "desc": "Caño 150mm de PVC tira de 6mts",
+     "cant": 4,
+     "unidad": "un",
+     "total": 656000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P36",
+   "cod": "CI.GEN",
+   "cap": "CI",
+   "cap_nom": "CI · Costes indirectos",
+   "desc": "Costes indirectos",
+   "obj": 53550000,
+   "insumos": [
+    {
+     "cod": "C.I - PROY",
+     "desc": "TRABAJOS DE PROY",
+     "cant": 1,
+     "unidad": "gl",
+     "total": 19350000,
+     "tipo": ""
+    },
+    {
+     "cod": "C.I - PROY - CE1",
+     "desc": "CALCULO ESTRUCTURAL",
+     "cant": 1,
+     "unidad": "gl",
+     "total": 9350000,
+     "tipo": ""
+    },
+    {
+     "cod": "C.I -  PROY - TOP",
+     "desc": "TOPOGRAFIA",
+     "cant": 1,
+     "unidad": "gl",
+     "total": 2400000,
+     "tipo": ""
+    },
+    {
+     "cod": "INSBOP.0010",
+     "desc": "SUB. GESTIONES",
+     "cant": 8,
+     "unidad": "h",
+     "total": 576000,
+     "tipo": ""
+    },
+    {
+     "cod": "C.I -  PROY - ES1",
+     "desc": "ESTUDIO DE SUELO - TAF",
+     "cant": 1,
+     "unidad": "gl",
+     "total": 4235000,
+     "tipo": ""
+    },
+    {
+     "cod": "C.I -  PROY - GEST1",
+     "desc": "GESTION MUNICIPAL",
+     "cant": 1,
+     "unidad": "gl",
+     "total": 2789000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.MEFL.0001",
+     "desc": "Mov. Torito",
+     "cant": 8,
+     "unidad": "d",
+     "total": 3600000,
+     "tipo": ""
+    },
+    {
+     "cod": "IN.SBDE.0002",
+     "desc": "SUB. Retiro de escombros y residuos.",
+     "cant": 18,
+     "unidad": "u",
+     "total": 8100000,
+     "tipo": ""
+    },
+    {
+     "cod": "C.I.1",
+     "desc": "AYUDANTE LIMPIEZA",
+     "cant": 5,
+     "unidad": "mes",
+     "total": 9000000,
+     "tipo": ""
+    },
+    {
+     "cod": "C.I - RRHH",
+     "desc": "M.O - SEMANA FAUSTO",
+     "cant": 18,
+     "unidad": "SEM",
+     "total": 13500000,
+     "tipo": ""
+    }
+   ]
+  },
+  {
+   "id": "P37",
+   "cod": "A.GEN",
+   "cap": "A",
+   "cap_nom": "A · Trabajos preliminares",
+   "desc": "(genérico del capítulo)",
+   "obj": 0,
+   "insumos": []
+  },
+  {
+   "id": "P38",
+   "cod": "C.GEN",
+   "cap": "C",
+   "cap_nom": "C · Estructura H°A°",
+   "desc": "(genérico del capítulo)",
+   "obj": 0,
+   "insumos": []
+  },
+  {
+   "id": "P39",
+   "cod": "D.GEN",
+   "cap": "D",
+   "cap_nom": "D · Estructura metálica + cubierta",
+   "desc": "(genérico del capítulo)",
+   "obj": 0,
+   "insumos": []
+  },
+  {
+   "id": "P40",
+   "cod": "F.GEN",
+   "cap": "F",
+   "cap_nom": "F · Canaletas y cerramientos",
+   "desc": "(genérico del capítulo)",
+   "obj": 0,
+   "insumos": []
+  },
+  {
+   "id": "P41",
+   "cod": "G.GEN",
+   "cap": "G",
+   "cap_nom": "G · Mampostería, pisos y terminaciones",
+   "desc": "(genérico del capítulo)",
+   "obj": 0,
+   "insumos": []
+  },
+  {
+   "id": "P42",
+   "cod": "H.GEN",
+   "cap": "H",
+   "cap_nom": "H · Cámara de recolección residuos",
+   "desc": "(genérico del capítulo)",
+   "obj": 0,
+   "insumos": []
+  }
+ ],
+ "caps": {
+  "A": "A · Trabajos preliminares",
+  "C": "C · Estructura H°A°",
+  "D": "D · Estructura metálica + cubierta",
+  "F": "F · Canaletas y cerramientos",
+  "G": "G · Mampostería, pisos y terminaciones",
+  "H": "H · Cámara de recolección residuos",
+  "CI": "CI · Costes indirectos"
+ }
+}
