@@ -43,27 +43,6 @@
    "factura": "003-001-0017357",
    "quien": "Nacho",
    "fcarga": "2026-08-18"
-  },
-  {
-   "codigo": "FF26.CP.0003",
-   "fecha": "2026-08-19",
-   "proveedor": "TEST-GHA",
-   "cap": "D",
-   "partida": "RU.TEEM.0013",
-   "insumo": "IN.MACU.0008",
-   "detalle": "Prueba GitHub Actions (sin PC)",
-   "cant": "3",
-   "unidad": "m2",
-   "monto": "450000",
-   "tipo": "Material",
-   "cond": "Contado",
-   "estadoPago": "Pendiente a autorizar",
-   "beneficiario": "",
-   "medio": "",
-   "refPago": "",
-   "factura": "",
-   "quien": "Nacho",
-   "fcarga": "2026-08-19"
   }
  ]
 }
