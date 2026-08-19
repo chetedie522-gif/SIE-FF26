@@ -1,7 +1,7 @@
 {
   "obra": "Ampliación nave refrigerada 20x35",
   "codigo": "FF26",
-  "actualizado": "2026-08-17",
+  "actualizado": "2026-08-19",
   "base": "Contrato y objetivo con IVA. Margen y k en base homogénea.",
   "resumen": {
     "contrato_con_iva": 1439751150,
@@ -23,8 +23,8 @@
       "objetivo": 86707500,
       "comprometido": 0,
       "real": 0,
-      "desvio": 0,
-      "consumido_pct": 0
+      "desvio": -86707500,
+      "consumido_pct": 0.0
     },
     {
       "cap": "C",
@@ -32,17 +32,17 @@
       "objetivo": 55396458,
       "comprometido": 0,
       "real": 0,
-      "desvio": 0,
-      "consumido_pct": 0
+      "desvio": -55396458,
+      "consumido_pct": 0.0
     },
     {
       "cap": "D",
       "nombre": "Estructura metálica + cubierta",
       "objetivo": 225122674,
-      "comprometido": 0,
+      "comprometido": 7815026,
       "real": 0,
-      "desvio": 0,
-      "consumido_pct": 0
+      "desvio": -217307648,
+      "consumido_pct": 3.5
     },
     {
       "cap": "F",
@@ -50,8 +50,8 @@
       "objetivo": 61511142,
       "comprometido": 0,
       "real": 0,
-      "desvio": 0,
-      "consumido_pct": 0
+      "desvio": -61511142,
+      "consumido_pct": 0.0
     },
     {
       "cap": "G",
@@ -59,8 +59,8 @@
       "objetivo": 493637524,
       "comprometido": 0,
       "real": 0,
-      "desvio": 0,
-      "consumido_pct": 0
+      "desvio": -493637524,
+      "consumido_pct": 0.0
     },
     {
       "cap": "H",
@@ -68,8 +68,8 @@
       "objetivo": 51994434,
       "comprometido": 0,
       "real": 0,
-      "desvio": 0,
-      "consumido_pct": 0
+      "desvio": -51994434,
+      "consumido_pct": 0.0
     },
     {
       "cap": "CI",
@@ -77,8 +77,8 @@
       "objetivo": 53550000,
       "comprometido": 0,
       "real": 0,
-      "desvio": 0,
-      "consumido_pct": 0
+      "desvio": -53550000,
+      "consumido_pct": 0.0
     }
   ],
   "flujo": [
