@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pendientes y Alertas — FF26</title>
+<style>
+  :root{
+    --bg:#12161c; --card:#1b212a; --card2:#212a35; --line:#2c3540; --txt:#e8ecf1;
+    --mut:#8c98a8; --ok:#2fa76a; --warn:#d9a020; --bad:#e0555f; --acc:#5b8fd6;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--txt);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;
+       padding:16px;max-width:1000px;margin:0 auto}
+  header{margin-bottom:16px;border-bottom:1px solid var(--line);padding-bottom:12px}
+  h1{font-size:20px;letter-spacing:-.3px}
+  .sub{color:var(--mut);font-size:13px;margin-top:3px}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:16px 0}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;text-align:center}
+  .kpi .v{font-size:26px;font-weight:800;line-height:1}
+  .kpi .l{color:var(--mut);font-size:10px;text-transform:uppercase;letter-spacing:.5px;margin-top:5px}
+  h2{font-size:12px;text-transform:uppercase;letter-spacing:.8px;color:var(--mut);margin:22px 0 10px;
+     display:flex;align-items:center;gap:8px}
+  .item{background:var(--card);border:1px solid var(--line);border-radius:9px;padding:11px 13px;margin-bottom:8px;
+        border-left:3px solid var(--mut)}
+  .item.alta{border-left-color:var(--bad)} .item.media{border-left-color:var(--warn)} .item.baja{border-left-color:var(--mut)}
+  .item.venc{background:linear-gradient(90deg,rgba(224,85,95,.10),transparent)}
+  .item .t{font-weight:600;font-size:14px}
+  .item .m{color:var(--mut);font-size:12.5px;margin-top:3px}
+  .row{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-top:7px}
+  .pill{display:inline-block;padding:2px 8px;border-radius:20px;font-size:11px;font-weight:700}
+  .p-alta{background:rgba(224,85,95,.16);color:var(--bad)} .p-media{background:rgba(217,160,32,.16);color:var(--warn)}
+  .p-baja{background:var(--card2);color:var(--mut)}
+  .chip{background:var(--card2);color:var(--mut);padding:2px 8px;border-radius:6px;font-size:11px}
+  .chip.who{color:var(--acc);font-weight:700}
+  .chip.venc{color:var(--bad);font-weight:700}
+  .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+  .col{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:14px}
+  .col h3{font-size:15px;margin-bottom:2px;display:flex;justify-content:space-between;align-items:center}
+  .col .cnt{font-size:12px;color:var(--mut);font-weight:600;background:var(--card2);padding:1px 8px;border-radius:20px}
+  .col .sub2{color:var(--mut);font-size:11px;margin-bottom:10px}
+  .task{background:var(--card2);border-radius:8px;padding:9px 11px;margin-bottom:7px;border-left:3px solid var(--mut)}
+  .task.alta{border-left-color:var(--bad)} .task.media{border-left-color:var(--warn)} .task.baja{border-left-color:var(--mut)}
+  .task .tt{font-size:13.5px;font-weight:500}
+  .empty{color:var(--mut);font-style:italic;font-size:13px;padding:8px 0}
+  footer{margin-top:26px;color:var(--mut);font-size:11.5px;text-align:center;border-top:1px solid var(--line);padding-top:12px}
+  @media(max-width:560px){.kpis{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<header>
+  <h1 id="obra">—</h1>
+  <div class="sub" id="meta">cargando…</div>
+</header>
+<div id="app"></div>
+<footer>Panel operativo · pendientes, pedidos y alertas para delegar y avisar. No contiene información económica.</footer>
+
+<script>
+const P = {alta:1, media:2, baja:3};
+function dstr(v,h){ if(!v) return null; const d=Math.round((new Date(v)-new Date(h))/86400000); return d; }
+function venceTxt(v,h){ const d=dstr(v,h); if(d===null) return ''; if(d<0) return `vencida hace ${-d} d`; if(d===0) return 'vence hoy'; if(d===1) return 'vence mañana'; return `vence en ${d} d`; }
+
+// Datos embebidos (respaldo para abrir el archivo directo, sin servidor).
+// Si está hosteado junto a pendientes.json, ese archivo lo sobreescribe (versión en vivo).
+const FALLBACK = {"obra": "Ampliación nave refrigerada 20x35", "codigo": "FF26", "actualizado": "2026-08-17", "hoy": "2026-08-17", "alertas": [{"tipo": "info", "titulo": "Anticipo cobrado (20%) el 14/08 · obra iniciada hoy 17/08", "detalle": "287.950.230 Gs recibidos. Plan de pagos semanal confirmado. La obra se autofinancia (caja siempre positiva).", "responsable": "Nacho", "prioridad": "baja"}, {"tipo": "info", "titulo": "Semana 1: limpieza, replanteo y preparación del terreno", "detalle": "En paralelo en taller: placas de anclaje y cabriadas de cubierta. Cargar avance y primeras OC.", "responsable": "Meli", "prioridad": "media"}], "pedidos": [], "tareas": [{"titulo": "Emitir OC de perfiles de acero para cabriadas (a crédito, cheque 30 días)", "responsable": "Nancy", "capitulo": "D · Estructura metálica", "prioridad": "alta", "vence": "2026-08-21", "estado": "Pendiente"}, {"titulo": "Cotizar chapa Kingspan 40mm — 735 m² (se paga 15 días antes del montaje)", "responsable": "Nancy", "capitulo": "D · Estructura metálica", "prioridad": "alta", "vence": "2026-08-25", "estado": "Pendiente"}, {"titulo": "Cargar primer avance físico de Trabajos Preliminares", "responsable": "Meli", "capitulo": "A · Preliminares", "prioridad": "alta", "vence": "2026-08-24", "estado": "Pendiente"}, {"titulo": "Definir qué documento respalda una certificación", "responsable": "Nacho", "capitulo": "Certificaciones", "prioridad": "media", "vence": "2026-08-22", "estado": "Pendiente"}, {"titulo": "Relevar consumo de hormigón de fundaciones vs cómputo", "responsable": "Meli", "capitulo": "C · Estructura H°A°", "prioridad": "media", "vence": "2026-09-05", "estado": "Pendiente"}]};
+
+function render(d){
+  const hoy = d.hoy || d.actualizado;
+  document.getElementById('obra').textContent = `${d.codigo||''} · Pendientes y Alertas`;
+  document.getElementById('meta').textContent = `${d.obra||''} · actualizado ${d.actualizado||'s/f'}`;
+
+  const tareas = d.tareas||[], pedidos = d.pedidos||[], alertas = d.alertas||[];
+  const vencidas = tareas.filter(t=>{const x=dstr(t.vence,hoy); return x!==null && x<0 && t.estado!=='Hecho';}).length;
+  const paradas = pedidos.filter(p=>(p.dias_parado||0)>0).length;
+
+  let h = `<div class="kpis">
+    ${kpi(tareas.filter(t=>t.estado!=='Hecho').length,'Tareas pendientes')}
+    ${kpi(vencidas,'Vencidas', vencidas? 'var(--bad)':'var(--ok)')}
+    ${kpi(paradas,'Pedidos parados', paradas? 'var(--warn)':'var(--ok)')}
+    ${kpi(alertas.length,'Alertas', alertas.length? 'var(--warn)':'var(--ok)')}
+  </div>`;
+
+  // ALERTAS
+  if(alertas.length){
+    h += `<h2>🔔 Alertas — resaltar y avisar</h2>`;
+    h += alertas.map(a=>{
+      const pr=(a.prioridad||'media');
+      return `<div class="item ${pr}">
+        <div class="t">${a.titulo||''}</div>
+        <div class="m">${a.detalle||''}</div>
+        <div class="row">
+          <span class="pill p-${pr}">${pr}</span>
+          ${a.responsable?`<span class="chip who">→ ${a.responsable}</span>`:''}
+        </div></div>`;
+    }).join('');
+  }
+
+  // PEDIDOS
+  h += `<h2>📋 Pedidos y aprobaciones — en quién está parado</h2>`;
+  if(pedidos.length){
+    h += pedidos.map(p=>{
+      const alerta=(p.dias_parado||0)>=5;
+      return `<div class="item ${alerta?'alta venc':''}">
+        <div class="t">${p.codigo?p.codigo+' · ':''}${p.descripcion||''}</div>
+        <div class="row">
+          <span class="chip">${p.estado||'—'}</span>
+          ${p.en_quien?`<span class="chip who">en ${p.en_quien}</span>`:''}
+          ${p.dias_parado!=null?`<span class="chip ${alerta?'venc':''}">${p.dias_parado} d parado</span>`:''}
+        </div></div>`;
+    }).join('');
+  } else {
+    h += `<div class="empty">Sin pedidos cargados todavía. Aparecen acá con su código FF26-PM-#### y en quién están parados.</div>`;
+  }
+
+  // TAREAS POR RESPONSABLE
+  h += `<h2>✅ Tareas por responsable — para delegar</h2>`;
+  const porResp = {};
+  tareas.filter(t=>t.estado!=='Hecho').forEach(t=>{ (porResp[t.responsable||'Sin asignar'] ||= []).push(t); });
+  const nombres = Object.keys(porResp).sort();
+  h += `<div class="cols">` + nombres.map(n=>{
+    const list = porResp[n].sort((a,b)=>(P[a.prioridad]||9)-(P[b.prioridad]||9) || (dstr(a.vence,hoy)??999)-(dstr(b.vence,hoy)??999));
+    return `<div class="col">
+      <h3>${n}<span class="cnt">${list.length}</span></h3>
+      <div class="sub2">tareas pendientes</div>
+      ${list.map(t=>{
+        const vt=venceTxt(t.vence,hoy), venc=(dstr(t.vence,hoy)??9)<0;
+        return `<div class="task ${t.prioridad||'media'}">
+          <div class="tt">${t.titulo||''}</div>
+          <div class="row">
+            <span class="pill p-${t.prioridad||'media'}">${t.prioridad||'media'}</span>
+            ${t.capitulo?`<span class="chip">${t.capitulo}</span>`:''}
+            ${vt?`<span class="chip ${venc?'venc':''}">${vt}</span>`:''}
+          </div></div>`;
+      }).join('')}
+    </div>`;
+  }).join('') + `</div>`;
+
+  document.getElementById('app').innerHTML = h;
+}
+
+function kpi(v,l,c){return `<div class="kpi"><div class="v" style="color:${c||'var(--txt)'}">${v}</div><div class="l">${l}</div></div>`;}
+
+// En vivo si está hosteado junto a pendientes.json; si no, usa el respaldo embebido.
+fetch('pendientes.json?'+Date.now()).then(r=>r.json()).then(render).catch(()=>render(FALLBACK));
+</script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{
+  "obra": "Ampliacion nave refrigerada 20x35",
+  "codigo": "FF26",
+  "actualizado": "2026-08-17",
+  "plazo": {
+    "inicio": "2026-08-17",
+    "dias": 150,
+    "dias_transcurridos": 0
+  },
+  "avance": {
+    "global_real": null,
+    "global_programado": null,
+    "rubros": [
+      {
+        "nombre": "A · Trabajos preliminares",
+        "real": null,
+        "programado": null
+      },
+      {
+        "nombre": "C · Estructura H°A° (fundaciones)",
+        "real": null,
+        "programado": null
+      },
+      {
+        "nombre": "D · Estructura metálica + cubierta",
+        "real": null,
+        "programado": null
+      },
+      {
+        "nombre": "F · Canaletas y cerramientos",
+        "real": null,
+        "programado": null
+      },
+      {
+        "nombre": "G · Mampostería, pisos y terminac.",
+        "real": null,
+        "programado": null
+      },
+      {
+        "nombre": "H · Cámara de recolección residuos",
+        "real": null,
+        "programado": null
+      },
+      {
+        "nombre": "C.I · Costes indirectos",
+        "real": null,
+        "programado": null
+      }
+    ]
+  },
+  "seguridad": {
+    "cumplimiento_epp": null,
+    "incidentes_mes": null,
+    "dias_sin_incidentes": null
+  },
+  "materiales": [
+    {
+      "nombre": "Chapa sandwich Kingspan 40mm (cubierta)",
+      "desvio_pct": null,
+      "estado": "verde"
+    },
+    {
+      "nombre": "Chapa sandwich poliuretano 30mm (cerram.)",
+      "desvio_pct": null,
+      "estado": "verde"
+    },
+    {
+      "nombre": "Hormigón elaborado fck300 (piso+canal)",
+      "desvio_pct": null,
+      "estado": "verde"
+    },
+    {
+      "nombre": "Rejilla galvanizada 0,30x1,00 (canal)",
+      "desvio_pct": null,
+      "estado": "verde"
+    },
+    {
+      "nombre": "Perfil C 125x50x20x2,5 ASTM-A36",
+      "desvio_pct": null,
+      "estado": "verde"
+    }
+  ],
+  "alertas": []
+}
