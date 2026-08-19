@@ -23,7 +23,7 @@
       "objetivo": 86707500,
       "comprometido": 0,
       "real": 0,
-      "desvio": -86707500,
+      "desvio": 0,
       "consumido_pct": 0.0
     },
     {
@@ -32,7 +32,7 @@
       "objetivo": 55396458,
       "comprometido": 0,
       "real": 0,
-      "desvio": -55396458,
+      "desvio": 0,
       "consumido_pct": 0.0
     },
     {
@@ -41,7 +41,7 @@
       "objetivo": 225122674,
       "comprometido": 7815026,
       "real": 0,
-      "desvio": -217307648,
+      "desvio": 0,
       "consumido_pct": 3.5
     },
     {
@@ -50,7 +50,7 @@
       "objetivo": 61511142,
       "comprometido": 0,
       "real": 0,
-      "desvio": -61511142,
+      "desvio": 0,
       "consumido_pct": 0.0
     },
     {
@@ -59,7 +59,7 @@
       "objetivo": 493637524,
       "comprometido": 0,
       "real": 0,
-      "desvio": -493637524,
+      "desvio": 0,
       "consumido_pct": 0.0
     },
     {
@@ -68,7 +68,7 @@
       "objetivo": 51994434,
       "comprometido": 0,
       "real": 0,
-      "desvio": -51994434,
+      "desvio": 0,
       "consumido_pct": 0.0
     },
     {
@@ -77,7 +77,7 @@
       "objetivo": 53550000,
       "comprometido": 0,
       "real": 0,
-      "desvio": -53550000,
+      "desvio": 0,
       "consumido_pct": 0.0
     }
   ],
