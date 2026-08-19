@@ -11,7 +11,7 @@
     "margen_gs": 411831418,
     "margen_pct": 28.6,
     "k": 1.401,
-    "comprometido": 7815026,
+    "comprometido": 8707026,
     "ejecutado": 0,
     "consumido_pct": 0,
     "margen_proyectado": 411831418
@@ -39,10 +39,10 @@
       "cap": "D",
       "nombre": "Estructura metálica + cubierta",
       "objetivo": 225122674,
-      "comprometido": 7815026,
+      "comprometido": 8707026,
       "real": 0,
       "desvio": 0,
-      "consumido_pct": 3.5
+      "consumido_pct": 3.9
     },
     {
       "cap": "F",
@@ -85,57 +85,57 @@
     {
       "mes": "2026-08",
       "ingreso": 359937788,
-      "egreso": 80216037,
+      "egreso": 81037894,
       "ing_acum": 359937788,
-      "egr_acum": 80216037,
-      "neto_acum": 279721751
+      "egr_acum": 81037894,
+      "neto_acum": 278899894
     },
     {
       "mes": "2026-09",
       "ingreso": 287950230,
-      "egreso": 161973693,
+      "egreso": 161838893,
       "ing_acum": 647888018,
-      "egr_acum": 242189730,
-      "neto_acum": 405698288
+      "egr_acum": 242876787,
+      "neto_acum": 405011231
     },
     {
       "mes": "2026-10",
       "ingreso": 323944008,
-      "egreso": 171693690,
+      "egreso": 171543558,
       "ing_acum": 971832026,
-      "egr_acum": 413883420,
-      "neto_acum": 557948606
+      "egr_acum": 414420345,
+      "neto_acum": 557411681
     },
     {
       "mes": "2026-11",
       "ingreso": 251956452,
-      "egreso": 349241327,
+      "egreso": 348935943,
       "ing_acum": 1223788478,
-      "egr_acum": 763124747,
-      "neto_acum": 460663731
+      "egr_acum": 763356288,
+      "neto_acum": 460432190
     },
     {
       "mes": "2026-12",
       "ingreso": 215962672,
-      "egreso": 259867832,
+      "egreso": 259640598,
       "ing_acum": 1439751150,
-      "egr_acum": 1022992579,
-      "neto_acum": 416758571
+      "egr_acum": 1022996886,
+      "neto_acum": 416754264
     },
     {
       "mes": "2027-01",
       "ingreso": 0,
-      "egreso": 4927154,
+      "egreso": 4922846,
       "ing_acum": 1439751150,
-      "egr_acum": 1027919733,
-      "neto_acum": 411831417
+      "egr_acum": 1027919732,
+      "neto_acum": 411831418
     }
   ],
   "flujo_supuesto": false,
   "esquema_cobro": "EN VIVO · cobros = cronograma del cliente · egresos reales por fecha de pago (crédito 30d = +30 días) + resto del objetivo según cronograma",
   "pico_exposicion": {
     "mes": "2026-08",
-    "monto": 279721751
+    "monto": 278899894
   },
   "necesidad_caja": 0,
   "notas_materiales": "Kingspan: pago 15 días antes del montaje (+10 días producción). Perfiles de hierro: a crédito, cheque a 30 días. Ambos suavizan la caja."
