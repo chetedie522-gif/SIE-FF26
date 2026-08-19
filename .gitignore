@@ -2,3 +2,7 @@
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# cache de Python (generada al correr los scripts de engine/)
+__pycache__/
+*.pyc
