@@ -39,12 +39,12 @@ a.back{color:var(--acc);text-decoration:none;font-size:13px}
     <div><label>Proveedor</label><input id="proveedor" placeholder="ej. Hierro Matt"></div>
     <div><label>N° de factura</label><input id="factura" placeholder="ej. 001-0012345"></div>
     <div><label>Fecha</label><input id="fecha" type="date"></div>
-    <div><label>Condición de pago</label><select id="cond"><option>Contado</option><option>Crédito 30 días (cheque)</option><option>Cheque diferido</option><option>Adelanto (antes de entrega)</option></select></div>
+    <div><label>Condición de pago</label><select id="cond"><option>Contado</option><option>Crédito 30 días (cheque)</option><option>Cheque diferido</option><option>Adelanto (antes de entrega)</option></select><div class="hint">el PLAZO acordado — si es a 30 días, elegí acá y abajo en "Medio de pago" marcá Cheque</div></div>
     <div><label>¿Quién carga?</label><select id="quien"><option>Nancy</option><option>Meli</option><option>Nacho</option><option>Elias</option><option>Otro</option></select></div>
     <div id="wrap_venc" style="display:none"><label>Vencimiento del cheque</label><input id="venc" type="date"><div class="hint">se sugiere fecha+30, ajustá si el cheque real vence otro día</div></div>
   </div>
 
-  <h3>¿Cómo se paga?</h3>
+  <h3>¿Cómo se paga? — el INSTRUMENTO (la condición de arriba ya dice el plazo)</h3>
   <div class="g3">
     <div><label>Medio de pago</label><select id="medio"><option value="">— elegir —</option><option>Transferencia</option><option>Cheque</option><option>TC Nacho</option><option>TC Elias</option><option>Efvo Nacho</option><option>Efvo Elias</option><option>Efvo Otro</option></select></div>
     <div><label>Estado de pago</label><select id="estado_pago"><option>Pendiente a autorizar</option><option>Autorizada</option><option>Pagada</option></select></div>
