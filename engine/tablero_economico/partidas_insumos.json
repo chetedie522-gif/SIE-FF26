@@ -397,15 +397,17 @@
      "unidad": "un",
      "total": 2022132,
      "tipo": ""
-    },
-    {
-     "cod": "IN.EMVG.0013",
-     "desc": "Fabricación de Estructura tipo Cabriada Según detalle FF26",
-     "cant": 180,
-     "unidad": "ml",
-     "total": 4959040,
-     "tipo": ""
-    },
+    }
+   ]
+  },
+  {
+   "id": "P09",
+   "cod": "IN.EMVG.0013",
+   "cap": "D",
+   "cap_nom": "D · Estructura metálica + cubierta",
+   "desc": "Fabricación de Estructura tipo Cabriada Según detalle FF26",
+   "obj": 4959040,
+   "insumos": [
     {
      "cod": "IN.MAPI.0007",
      "desc": "Fondo antióxido",
@@ -453,15 +455,17 @@
      "unidad": "un",
      "total": 5942592,
      "tipo": ""
-    },
-    {
-     "cod": "IN.EMVG.0014",
-     "desc": "Fabricación de VIGA RIOSTRA FF26",
-     "cant": 55,
-     "unidad": "ml",
-     "total": 11888580,
-     "tipo": ""
-    },
+    }
+   ]
+  },
+  {
+   "id": "P10",
+   "cod": "IN.EMVG.0014",
+   "cap": "D",
+   "cap_nom": "D · Estructura metálica + cubierta",
+   "desc": "Fabricación de VIGA RIOSTRA FF26",
+   "obj": 11888580,
+   "insumos": [
     {
      "cod": "IN.MAPI.0007",
      "desc": "Fondo antióxido",
@@ -513,7 +517,7 @@
    ]
   },
   {
-   "id": "P09",
+   "id": "P11",
    "cod": "RU.TEEM.0013",
    "cap": "D",
    "cap_nom": "D · Estructura metálica + cubierta",
@@ -547,7 +551,7 @@
    ]
   },
   {
-   "id": "P10",
+   "id": "P12",
    "cod": "RU.EMPL.0015",
    "cap": "D",
    "cap_nom": "D · Estructura metálica + cubierta",
@@ -581,7 +585,7 @@
    ]
   },
   {
-   "id": "P11",
+   "id": "P13",
    "cod": "RU.STME.0006",
    "cap": "D",
    "cap_nom": "D · Estructura metálica + cubierta",
@@ -639,7 +643,7 @@
    ]
   },
   {
-   "id": "P12",
+   "id": "P14",
    "cod": "RU.CATE.0001",
    "cap": "F",
    "cap_nom": "F · Canaletas y cerramientos",
@@ -673,7 +677,7 @@
    ]
   },
   {
-   "id": "P13",
+   "id": "P15",
    "cod": "RU.CATE.0003",
    "cap": "F",
    "cap_nom": "F · Canaletas y cerramientos",
@@ -707,7 +711,7 @@
    ]
   },
   {
-   "id": "P14",
+   "id": "P16",
    "cod": "RU.CATE.0005",
    "cap": "F",
    "cap_nom": "F · Canaletas y cerramientos",
@@ -733,7 +737,7 @@
    ]
   },
   {
-   "id": "P15",
+   "id": "P17",
    "cod": "RU.STME.0005",
    "cap": "F",
    "cap_nom": "F · Canaletas y cerramientos",
@@ -775,7 +779,7 @@
    ]
   },
   {
-   "id": "P16",
+   "id": "P18",
    "cod": "RU.TEEM.0014",
    "cap": "F",
    "cap_nom": "F · Canaletas y cerramientos",
@@ -817,7 +821,7 @@
    ]
   },
   {
-   "id": "P17",
+   "id": "P19",
    "cod": "RU.ABLD.0003",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -859,7 +863,7 @@
    ]
   },
   {
-   "id": "P18",
+   "id": "P20",
    "cod": "RU.ABLD.0015",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -909,7 +913,7 @@
    ]
   },
   {
-   "id": "P19",
+   "id": "P21",
    "cod": "RU.OBPL.0007",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -943,7 +947,7 @@
    ]
   },
   {
-   "id": "P20",
+   "id": "P22",
    "cod": "RU.INSA.0007",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -1009,7 +1013,7 @@
    ]
   },
   {
-   "id": "P21",
+   "id": "P23",
    "cod": "RU.INSA.0008",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -1083,7 +1087,7 @@
    ]
   },
   {
-   "id": "P22",
+   "id": "P24",
    "cod": "RU.PINT.0005",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -1141,7 +1145,7 @@
    ]
   },
   {
-   "id": "P23",
+   "id": "P25",
    "cod": "RU.ABRE.0023",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -1191,7 +1195,7 @@
    ]
   },
   {
-   "id": "P24",
+   "id": "P26",
    "cod": "RU.ABRE.0028",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -1233,7 +1237,7 @@
    ]
   },
   {
-   "id": "P25",
+   "id": "P27",
    "cod": "RU.ABRE.0012",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -1283,7 +1287,7 @@
    ]
   },
   {
-   "id": "P26",
+   "id": "P28",
    "cod": "RU.ESHA.0221",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -1437,7 +1441,7 @@
    ]
   },
   {
-   "id": "P27",
+   "id": "P29",
    "cod": "RU.ESHA.0005",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
@@ -1495,7 +1499,7 @@
    ]
   },
   {
-   "id": "P28",
+   "id": "P30",
    "cod": "RU.ESHA.0006",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
@@ -1569,7 +1573,7 @@
    ]
   },
   {
-   "id": "P29",
+   "id": "P31",
    "cod": "RU.ESHA.0007",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
@@ -1627,7 +1631,7 @@
    ]
   },
   {
-   "id": "P30",
+   "id": "P32",
    "cod": "RU.ESHA.0008",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
@@ -1677,7 +1681,7 @@
    ]
   },
   {
-   "id": "P31",
+   "id": "P33",
    "cod": "RU.OBPL.0002",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
@@ -1735,7 +1739,7 @@
    ]
   },
   {
-   "id": "P32",
+   "id": "P34",
    "cod": "RU.AISL.0001",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
@@ -1777,7 +1781,7 @@
    ]
   },
   {
-   "id": "P33",
+   "id": "P35",
    "cod": "RU.ABRE.0012",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
@@ -1827,7 +1831,7 @@
    ]
   },
   {
-   "id": "P34",
+   "id": "P36",
    "cod": "RU.ESHA.00122",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
@@ -1893,7 +1897,7 @@
    ]
   },
   {
-   "id": "P35",
+   "id": "P37",
    "cod": "RU.CATE.0005",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
@@ -1919,7 +1923,7 @@
    ]
   },
   {
-   "id": "P36",
+   "id": "P38",
    "cod": "CI.GEN",
    "cap": "CI",
    "cap_nom": "CI · Costes indirectos",
@@ -2009,7 +2013,7 @@
    ]
   },
   {
-   "id": "P37",
+   "id": "P39",
    "cod": "A.GEN",
    "cap": "A",
    "cap_nom": "A · Trabajos preliminares",
@@ -2018,7 +2022,7 @@
    "insumos": []
   },
   {
-   "id": "P38",
+   "id": "P40",
    "cod": "C.GEN",
    "cap": "C",
    "cap_nom": "C · Estructura H°A°",
@@ -2027,7 +2031,7 @@
    "insumos": []
   },
   {
-   "id": "P39",
+   "id": "P41",
    "cod": "D.GEN",
    "cap": "D",
    "cap_nom": "D · Estructura metálica + cubierta",
@@ -2036,7 +2040,7 @@
    "insumos": []
   },
   {
-   "id": "P40",
+   "id": "P42",
    "cod": "F.GEN",
    "cap": "F",
    "cap_nom": "F · Canaletas y cerramientos",
@@ -2045,7 +2049,7 @@
    "insumos": []
   },
   {
-   "id": "P41",
+   "id": "P43",
    "cod": "G.GEN",
    "cap": "G",
    "cap_nom": "G · Mampostería, pisos y terminaciones",
@@ -2054,7 +2058,7 @@
    "insumos": []
   },
   {
-   "id": "P42",
+   "id": "P44",
    "cod": "H.GEN",
    "cap": "H",
    "cap_nom": "H · Cámara de recolección residuos",
