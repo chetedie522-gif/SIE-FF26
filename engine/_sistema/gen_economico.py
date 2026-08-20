@@ -27,6 +27,12 @@ tr:last-child td{border-bottom:none}
 .bar{height:6px;border-radius:3px;background:var(--card2);overflow:hidden;min-width:60px;margin-top:3px}
 .bar>i{display:block;height:100%}
 .card{background:var(--card);border:1px solid var(--line);border-radius:11px;padding:16px}
+.wrap{overflow-x:auto}
+table.sem{font-size:11px;white-space:nowrap}
+table.sem th,table.sem td{padding:5px 7px}
+table.sem td.rowlbl,table.sem th.rowlbl{text-align:left;position:sticky;left:0;background:var(--card);min-width:150px}
+table.sem tr.gastos td{font-weight:700;border-top:2px solid var(--line)}
+table.sem tr.gastos td.rowlbl{background:var(--card)}
 .legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--mut);margin-top:8px}
 .legend b{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:5px;vertical-align:middle}
 .note{color:var(--mut);font-size:12px;margin-top:8px;font-style:italic}
@@ -64,6 +70,24 @@ function chart(flujo){
     ${xlab}</svg>`;
 }
 
+function flujoSemanal(fs){
+  const sem=fs.semanas;
+  // agrupar meses consecutivos para el colspan del header
+  const meses=[]; sem.forEach(s=>{const last=meses[meses.length-1]; if(last&&last.mes===s.mes)last.n++; else meses.push({mes:s.mes,n:1});});
+  const Mn2=n=>n?(n/1e6).toFixed(1)+'M':'—';
+  let h='<div class="wrap"><table class="sem"><thead>';
+  h+='<tr><th class="rowlbl">Rubro \\ Semana</th>'+meses.map(m=>`<th colspan="${m.n}">${m.mes.split(' ')[0].slice(0,3)}</th>`).join('')+'</tr>';
+  h+='<tr><th class="rowlbl"></th>'+sem.map(s=>`<th>S${s.semana}</th>`).join('')+'</tr>';
+  h+='</thead><tbody>';
+  fs.filas.forEach(f=>{
+    if(!f.valores.some(v=>v>0)) return;
+    h+=`<tr><td class="rowlbl">${f.cap} · ${f.nombre.slice(0,22)}</td>`+f.valores.map(v=>`<td>${Mn2(v)}</td>`).join('')+'</tr>';
+  });
+  h+=`<tr class="gastos"><td class="rowlbl">💸 Gastos comprometidos / cheques a vencer</td>`+fs.gastos.map(v=>`<td style="color:${v>0?'var(--bad)':'var(--mut)'}">${Mn2(v)}</td>`).join('')+'</tr>';
+  h+='</tbody></table></div>';
+  return h;
+}
+
 function render(d){
   const r=d.resumen;
   document.getElementById('obra').textContent=`${d.codigo} · Control economico y flujo de caja`;
@@ -91,6 +115,10 @@ function render(d){
   const lo=d.flujo.reduce((m,f)=>f.neto_acum<m.neto_acum?f:m,d.flujo[0]);
   h+=`<div class="hl">Punto mas bajo de caja: <b>${gs(lo.neto_acum)}</b> en ${lo.mes}. ${lo.neto_acum>=0?'La obra se autofinancia — no requiere capital propio bajo el esquema de cobro asumido.':'Exposicion negativa: hay que aportar capital propio en ese momento.'}</div>`;
   h+=`<div class="note">Ingresos = ${d.esquema_cobro}. ATENCION: ESQUEMA ASUMIDO — confirmar hitos reales de cobro. Egresos: reparto del objetivo por cronograma (pago ~ ejecucion).</div></div>`;
+  if(d.flujo_semanal){
+    h+=`<h2>Flujo de caja semanal — producción pendiente por rubro y gastos comprometidos</h2><div class="card">${flujoSemanal(d.flujo_semanal)}
+      <div class="note">Producción pendiente = objetivo del rubro menos lo ya comprometido, repartido entre las semanas del cronograma en que ese rubro tiene tareas (fuente: Cronograma_FF2026_EDITABLE1.xlsx). Gastos comprometidos = fecha real de pago de cada compra (vencimiento marcado o +30 días). En millones de Gs.</div></div>`;
+  }
   h+=`<h2>Detalle mensual</h2><div class="card"><table>
     <thead><tr><th>Mes</th><th>Ingreso</th><th>Egreso</th><th>Caja neta acum.</th></tr></thead><tbody>`;
   d.flujo.forEach(f=>{h+=`<tr><td>${f.mes}</td><td style="color:var(--ok)">${f2(f.ingreso)}</td>
