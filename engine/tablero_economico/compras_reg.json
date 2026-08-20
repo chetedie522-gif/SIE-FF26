@@ -461,6 +461,28 @@
    "factura": "001-001-000525",
    "quien": "Nancy",
    "fcarga": "2026-08-20"
+  },
+  {
+   "codigo": "FF26.CP.0022",
+   "fecha": "2026-08-17",
+   "proveedor": "MAS DOS SRL",
+   "cap": "A",
+   "partida": "RU.OBPL.0010",
+   "insumo": "NUEVO",
+   "detalle": "C.I - IMPRESIÓN DE PLANOS",
+   "cant": "1",
+   "unidad": "gl",
+   "monto": "7500",
+   "tipo": "Otro",
+   "cond": "Contado",
+   "estadoPago": "Autorizada",
+   "beneficiario": "GERARDO ANDRES CANDIA FERNANDEZ",
+   "medio": "Transferencia",
+   "refPago": "FF26 -IMPRESIÓN DE PLANOS",
+   "fechaVencimiento": "",
+   "factura": "001-001-0063831",
+   "quien": "Nancy",
+   "fcarga": "2026-08-20"
   }
  ]
 }
