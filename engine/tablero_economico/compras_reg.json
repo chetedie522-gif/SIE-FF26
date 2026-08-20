@@ -87,6 +87,28 @@
    "factura": "004-001-0085116",
    "quien": "Nacho",
    "fcarga": "2026-08-20"
+  },
+  {
+   "codigo": "FF26.CP.0005",
+   "fecha": "2026-08-17",
+   "proveedor": "MV ACEROS S.A.",
+   "cap": "D",
+   "partida": "RU.EMPL.0014",
+   "insumo": "IN.MAAN.0083",
+   "detalle": "Perfil U 150x50x3,00x6mts Estructural  -",
+   "cant": "17",
+   "unidad": "un",
+   "monto": "4377024",
+   "tipo": "Material",
+   "cond": "Contado",
+   "estadoPago": "Autorizada",
+   "beneficiario": "MV ACEROS S.A.",
+   "medio": "Transferencia",
+   "refPago": "FF26 - INS- PILARES",
+   "fechaVencimiento": "",
+   "factura": "001-003-0038533",
+   "quien": "Nacho",
+   "fcarga": "2026-08-20"
   }
  ]
 }

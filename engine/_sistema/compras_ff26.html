@@ -72,8 +72,9 @@ a.back{color:var(--acc);text-decoration:none;font-size:13px}
 </div>
 
 <div class="card">
-  <h2>📋 Últimas compras cargadas (esta sesión)</h2>
-  <div id="recientesWrap"><div class="empty">Todavía no cargaste nada en esta sesión.</div></div>
+  <h2>📋 Compras ya cargadas — para no repetir</h2>
+  <input id="buscar" placeholder="🔎 buscar por proveedor, N° factura o detalle..." style="margin-bottom:10px">
+  <div id="recientesWrap"><div class="empty">Cargando historial…</div></div>
 </div>
 
 <script>
@@ -162,12 +163,29 @@ document.getElementById('draft').addEventListener('click',e=>{if(e.target.classL
 let recientes=[];
 function renderRecientes(){
   const w=document.getElementById('recientesWrap');
-  if(!recientes.length){w.innerHTML='<div class="empty">Todavía no cargaste nada en esta sesión.</div>';return;}
-  let h='<table><thead><tr><th>Proveedor</th><th>Partida</th><th>Detalle</th><th>Monto</th></tr></thead><tbody>';
-  recientes.forEach(r=>{h+=`<tr><td>${r.proveedor}</td><td>${r.partida}</td><td>${r.detalle||r.insumo}</td><td>${f2(r.monto)}</td></tr>`;});
+  const q=(document.getElementById('buscar').value||'').trim().toLowerCase();
+  const filt = q ? recientes.filter(r=>(r.proveedor||'').toLowerCase().includes(q)||(r.factura||'').toLowerCase().includes(q)||(r.detalle||'').toLowerCase().includes(q)) : recientes;
+  if(!filt.length){w.innerHTML=`<div class="empty">${q?'Sin resultados para "'+q+'".':'Todavía no hay compras cargadas.'}</div>`;return;}
+  let h='<table><thead><tr><th>Fecha</th><th>Proveedor</th><th>N° factura</th><th>Partida</th><th>Detalle</th><th>Monto</th></tr></thead><tbody>';
+  filt.forEach(r=>{h+=`<tr><td>${r.fecha||''}</td><td>${r.proveedor||''}</td><td>${r.factura||'<span style="color:var(--warn)">— sin factura —</span>'}</td><td>${r.partida||''}</td><td>${r.detalle||r.insumo||''}</td><td>${f2(r.monto)}</td></tr>`;});
   h+='</tbody></table>';
   w.innerHTML=h;
 }
+document.getElementById('buscar').addEventListener('input',renderRecientes);
+
+async function cargarHistorial(){
+  try{
+    const r = await fetch(SUPABASE_URL + '/rest/v1/compras?select=fecha,proveedor,factura,partida,detalle,insumo,monto&order=creado_en.desc&limit=500', {
+      headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY}
+    });
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    recientes = await r.json();
+    renderRecientes();
+  }catch(e){
+    document.getElementById('recientesWrap').innerHTML='<div class="empty">No se pudo cargar el historial. Revisá tu conexión.</div>';
+  }
+}
+cargarHistorial();
 
 document.getElementById('ok').addEventListener('click', async ()=>{
   const btn=document.getElementById('ok'), msg=document.getElementById('msg');
