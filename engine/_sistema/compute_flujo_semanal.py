@@ -69,8 +69,32 @@ for c in compras:
     gastos[i] += n(c.get("monto"))
 gastos = [round(v) for v in gastos]
 
-eco["flujo_semanal"] = {"semanas": semanas, "filas": filas, "gastos": gastos}
+# --- egresos totales por semana = producción pendiente (todos los rubros) + gastos comprometidos ---
+egresos = [round(sum(f["valores"][i] for f in filas) + gastos[i]) for i in range(len(semanas))]
+
+# --- ingresos (cobros del cliente): mismo cronograma semanal de DESEMBOLSOS que compute_flujo_live.py ---
+DES = [["2026-08-14",287950230],["2026-08-21",35993779],["2026-08-28",35993779],["2026-09-04",35993778],
+       ["2026-09-11",35993779],["2026-09-18",35993779],["2026-09-25",179968894],["2026-10-02",35993778],
+       ["2026-10-09",35993779],["2026-10-16",35993779],["2026-10-23",35993779],["2026-10-30",179968893],
+       ["2026-11-06",35993779],["2026-11-13",35993779],["2026-11-20",35993779],["2026-11-27",143975115],
+       ["2026-12-04",35993778],["2026-12-11",35993779],["2026-12-18",143975115]]
+ingresos = [0.0] * len(semanas)
+for f, mo in DES:
+    ingresos[semana_de(f)] += mo
+ingresos = [round(v) for v in ingresos]
+
+# --- disponibilidad en caja: acumulado ingresos - acumulado egresos ---
+disponibilidad = []
+ia = ea = 0
+for i in range(len(semanas)):
+    ia += ingresos[i]; ea += egresos[i]
+    disponibilidad.append(ia - ea)
+
+eco["flujo_semanal"] = {"semanas": semanas, "filas": filas, "gastos": gastos,
+                         "ingresos": ingresos, "egresos": egresos, "disponibilidad": disponibilidad}
 json.dump(eco, open(os.path.join(base, "economia.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 
 print("OK flujo_semanal ·", len(semanas), "semanas ·", len(filas), "rubros")
 print("Gastos comprometidos por semana:", gastos)
+print("Ingresos por semana:", ingresos)
+print("Disponibilidad en caja (fin de cada semana):", disponibilidad)

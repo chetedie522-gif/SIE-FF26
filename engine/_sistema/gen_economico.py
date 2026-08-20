@@ -86,6 +86,9 @@ function flujoSemanal(fs){
     h+=`<tr><td class="rowlbl">${f.cap} · ${f.nombre.slice(0,22)}</td>`+f.valores.map(v=>`<td>${Mn2(v)}</td>`).join('')+'</tr>';
   });
   h+=`<tr class="gastos"><td class="rowlbl">💸 Gastos comprometidos / cheques a vencer</td>`+fs.gastos.map(v=>`<td style="color:${v>0?'var(--bad)':'var(--mut)'}">${Mn2(v)}</td>`).join('')+'</tr>';
+  h+=`<tr class="gastos"><td class="rowlbl">Egresos totales (pendiente + comprometido)</td>`+fs.egresos.map(v=>`<td style="color:var(--bad)">${Mn2(v)}</td>`).join('')+'</tr>';
+  h+=`<tr class="gastos"><td class="rowlbl">Ingresos (cobros)</td>`+fs.ingresos.map(v=>`<td style="color:var(--ok)">${Mn2(v)}</td>`).join('')+'</tr>';
+  h+=`<tr class="gastos"><td class="rowlbl">💰 Disponibilidad en caja (acum.)</td>`+fs.disponibilidad.map(v=>`<td style="color:${v>=0?'var(--acc)':'var(--bad)'};font-weight:800">${Mn2(v)}</td>`).join('')+'</tr>';
   h+='</tbody></table></div>';
   return h;
 }
