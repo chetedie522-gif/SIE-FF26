@@ -27,8 +27,12 @@ for f,mo in DES:
     k = f[:7]
     if k in ing: ing[k]+=mo
 
-# egresos REALES por fecha de pago (crédito 30d / cheque diferido → +30 días)
-def pago_date(fecha, cond):
+# egresos REALES por fecha de pago. Prioridad: fecha_vencimiento explícita
+# (cheque marcado a mano) > estimación por condición (crédito 30d / cheque dif → +30 días)
+def pago_date(fecha, cond, vencimiento):
+    if vencimiento:
+        try: return dt.date.fromisoformat(vencimiento)
+        except: pass
     try: d = dt.date.fromisoformat(fecha)
     except: d = HOY
     cl = (cond or "").lower()
@@ -38,7 +42,7 @@ egr_real = {m:0.0 for m in meses}
 comprometido = 0.0
 for c in compras:
     comprometido += n(c.get("monto"))
-    k = mk(pago_date(c.get("fecha"), c.get("cond")))
+    k = mk(pago_date(c.get("fecha"), c.get("cond"), c.get("fechaVencimiento")))
     if k in egr_real: egr_real[k]+=n(c.get("monto"))
     else: egr_real[meses[-1]]+=n(c.get("monto"))
 

@@ -41,7 +41,17 @@ a.back{color:var(--acc);text-decoration:none;font-size:13px}
     <div><label>Fecha</label><input id="fecha" type="date"></div>
     <div><label>Condición de pago</label><select id="cond"><option>Contado</option><option>Crédito 30 días (cheque)</option><option>Cheque diferido</option><option>Adelanto (antes de entrega)</option></select></div>
     <div><label>¿Quién carga?</label><select id="quien"><option>Nancy</option><option>Meli</option><option>Nacho</option><option>Elias</option><option>Otro</option></select></div>
+    <div id="wrap_venc" style="display:none"><label>Vencimiento del cheque</label><input id="venc" type="date"><div class="hint">se sugiere fecha+30, ajustá si el cheque real vence otro día</div></div>
   </div>
+
+  <h3>¿Cómo se paga?</h3>
+  <div class="g3">
+    <div><label>Medio de pago</label><select id="medio"><option value="">— elegir —</option><option>Transferencia</option><option>Cheque</option><option>TC Nacho</option><option>TC Elias</option><option>Efvo Nacho</option><option>Efvo Elias</option><option>Efvo Otro</option></select></div>
+    <div><label>Estado de pago</label><select id="estado_pago"><option>Pendiente a autorizar</option><option>Autorizada</option><option>Pagada</option></select></div>
+    <div><label>Beneficiario</label><input id="beneficiario" placeholder="a quién se le paga"></div>
+    <div class="full"><label>Concepto (para conciliar con el extracto del banco)</label><input id="concepto" placeholder="ej. Pago factura 001-0012345 Hierro Matt"></div>
+  </div>
+  <div class="hint" id="devolHint" style="display:none">⚠ Efectivo puesto por una persona → queda pendiente de devolución (se ve en el tablero Control). La TC de Nacho/Elias es de la empresa, no genera devolución.</div>
 
   <h3>Líneas de la factura (un insumo por línea — pueden ser de distinta partida)</h3>
   <div class="grid">
@@ -104,6 +114,24 @@ function hintUpd(){
 const lm=document.getElementById('monto');
 lm.addEventListener('input',()=>{const d=lm.value.replace(/[^0-9]/g,'');lm.value=d?f2(parseInt(d,10)):'';});
 
+// vencimiento del cheque: solo visible con condición a crédito/cheque diferido, sugiere fecha+30
+const selCond=document.getElementById('cond'), wrapVenc=document.getElementById('wrap_venc'), venc=document.getElementById('venc');
+function condChange(){
+  const cl=selCond.value.toLowerCase();
+  const esCredito = cl.includes('crédito') || cl.includes('credito') || cl.includes('cheque dif');
+  wrapVenc.style.display = esCredito ? 'block' : 'none';
+  if(esCredito && !venc.value){
+    const f=new Date(document.getElementById('fecha').value || hoy());
+    f.setDate(f.getDate()+30);
+    venc.value=f.toISOString().slice(0,10);
+  }
+}
+selCond.addEventListener('change',condChange); condChange();
+
+// alarma de devolución: efectivo de una persona (no la TC de la empresa)
+const selMedio=document.getElementById('medio'), devolHint=document.getElementById('devolHint');
+selMedio.addEventListener('change',()=>{devolHint.style.display = selMedio.value.startsWith('Efvo') ? 'block' : 'none';});
+
 document.getElementById('l_add').addEventListener('click',()=>{
   const p=byId[selP.value], ins=selI.value, detalle=document.getElementById('detalle').value.trim();
   const monto=parseFloat((lm.value||'').replace(/[^0-9]/g,''));
@@ -150,8 +178,13 @@ document.getElementById('ok').addEventListener('click', async ()=>{
   const fecha=document.getElementById('fecha').value||hoy();
   const cond=document.getElementById('cond').value, quien=document.getElementById('quien').value;
   const factura=document.getElementById('factura').value.trim();
+  const medio=selMedio.value, estado_pago=document.getElementById('estado_pago').value;
+  const beneficiario=document.getElementById('beneficiario').value.trim();
+  const concepto=document.getElementById('concepto').value.trim();
+  const fecha_vencimiento = wrapVenc.style.display!=='none' ? (venc.value||null) : null;
   const rows = lines.map(l=>({fecha, proveedor, partida:l.partida, insumo:l.insumo, detalle:l.detalle,
-    cant:l.cant, unidad:l.unidad, monto:l.monto, tipo:l.tipo, cond, quien, factura}));
+    cant:l.cant, unidad:l.unidad, monto:l.monto, tipo:l.tipo, cond, quien, factura,
+    medio, estado_pago, beneficiario, concepto, fecha_vencimiento}));
 
   btn.disabled=true; btn.textContent='Guardando...'; msg.className='msg';
   try{
@@ -165,8 +198,10 @@ document.getElementById('ok').addEventListener('click', async ()=>{
     msg.className='msg ok'; msg.textContent=`✓ Factura registrada (${rows.length} línea${rows.length>1?'s':''}). El sitio se va a actualizar en un rato (automático).`;
     recientes.unshift(...rows); renderRecientes();
     lines=[]; renderDraft();
-    ['factura'].forEach(id=>document.getElementById(id).value='');
+    ['factura','beneficiario','concepto'].forEach(id=>document.getElementById(id).value='');
     document.getElementById('fecha').value=hoy();
+    venc.value=''; selMedio.value=''; devolHint.style.display='none';
+    document.getElementById('estado_pago').value='Pendiente a autorizar';
     document.getElementById('proveedor').focus();
   }catch(e){
     msg.className='msg bad'; msg.textContent='✗ No se pudo guardar. Revisá tu conexión e intentá de nuevo. ('+e.message+')';

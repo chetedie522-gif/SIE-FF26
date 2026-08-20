@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-import json, sys
+import json, sys, datetime as dt
 sys.stdout.reconfigure(encoding="utf-8")
 from _paths import SIE, SYS
 tree = json.load(open(SIE + "/tablero_economico/partidas_insumos.json", encoding="utf-8"))
@@ -24,7 +24,8 @@ for c in compras:
     if p and c.get("insumo")!="NUEVO":
         ins = next((i for i in p["insumos"] if i["cod"]==c["insumo"]), None)
     row = {"codigo":c["codigo"],"partida":c["partida"],"insumo":c.get("insumo",""),"detalle":c.get("detalle",""),
-           "cantC":n(c.get("cant")),"un":c.get("unidad",""),"montoC":n(c.get("monto")),"nuevo":c.get("insumo")=="NUEVO"}
+           "cantC":n(c.get("cant")),"un":c.get("unidad",""),"montoC":n(c.get("monto")),"nuevo":c.get("insumo")=="NUEVO",
+           "estado":c.get("estadoPago",""),"medio":c.get("medio","")}
     if ins:
         oc=n(ins.get("cant")); ot=n(ins.get("total"))
         row["objCant"]=oc; row["objMonto"]=ot
@@ -61,10 +62,23 @@ for c in compras:
         devol[per]=devol.get(per,0)+n(c.get("monto"))
 devolList=[{"persona":k,"monto":round(v)} for k,v in sorted(devol.items(),key=lambda x:-x[1])]
 
+# próximos vencimientos de cheques (fechaVencimiento marcada a mano en el formulario)
+HOY = dt.date.today()
+vencList=[]
+for c in compras:
+    v = c.get("fechaVencimiento")
+    if not v: continue
+    try: vd = dt.date.fromisoformat(v)
+    except (ValueError, TypeError): continue
+    vencList.append({"fecha":v,"dias":(vd-HOY).days,"proveedor":c.get("proveedor",""),
+                      "beneficiario":c.get("beneficiario",""),"monto":n(c.get("monto")),
+                      "estado":c.get("estadoPago",""),"vencido":vd<HOY})
+vencList.sort(key=lambda x:x["fecha"])
+
 partidas=[{"cod":p["cod"],"cap":p["cap"],"desc":p["desc"],"obj":p["obj"],"comp":round(comp_part.get(p["cod"],0))} for p in tree["partidas"]]
 objTotal=sum(p["obj"] for p in tree["partidas"])
 DES=[["2026-08-14","Anticipo (pago inicial)",287950230],["2026-08-21","Pago semanal N°2",35993779],["2026-08-28","Pago semanal N°3",35993779],["2026-09-04","Pago semanal N°4",35993778],["2026-09-11","Pago semanal N°5",35993779],["2026-09-18","Pago semanal N°6",35993779],["2026-09-25","Pago semanal N°7",179968894],["2026-10-02","Pago semanal N°8",35993778],["2026-10-09","Pago semanal N°9",35993779],["2026-10-16","Pago semanal N°10",35993779],["2026-10-23","Pago semanal N°11",35993779],["2026-10-30","Pago semanal N°12",179968893],["2026-11-06","Pago semanal N°13",35993779],["2026-11-13","Pago semanal N°14",35993779],["2026-11-20","Pago semanal N°15",35993779],["2026-11-27","Pago semanal N°16",143975115],["2026-12-04","Pago semanal N°17",35993778],["2026-12-11","Pago semanal N°18",35993779],["2026-12-18","Pago semanal N°19 (saldo)",143975115]]
-EMB=json.dumps({"partidas":partidas,"insumos":insumoAn,"consol":consol,"devol":devolList,"cobros":cobros,"cobrado":round(cobrado),
+EMB=json.dumps({"partidas":partidas,"insumos":insumoAn,"consol":consol,"devol":devolList,"venc":vencList,"cobros":cobros,"cobrado":round(cobrado),
                 "contrato":CONTRATO,"objTotal":objTotal,"comprometido":round(sum(comp_part.values())),"umAm":UMB_AM,"umRo":UMB_RO}, ensure_ascii=False)
 
 HTML=r'''<title>Control FF26</title>
@@ -124,6 +138,12 @@ td:nth-child(-n+3){text-align:left}
 </div>
 
 <div class="card">
+  <h2>🗓️ Próximos vencimientos de cheques</h2>
+  <div class="wrap"><table id="tvenc"></table></div>
+  <div class="note">Fecha marcada a mano al cargar la compra (condición crédito/cheque diferido). Ya está reflejado en el flujo de caja del tablero Económico.</div>
+</div>
+
+<div class="card">
   <h2>💰 Comprometido por partida (vs objetivo)</h2>
   <div class="wrap"><table id="tpart"></table></div>
 </div>
@@ -152,8 +172,8 @@ const hoy=()=>new Date().toISOString().slice(0,10);
 
 // insumos
 (function(){
-  let h='<thead><tr><th>Partida</th><th>Insumo / detalle</th><th></th><th>Comprado</th><th>Objetivo</th><th>Desvío cant.</th><th>Desvío $</th></tr></thead><tbody>';
-  if(!D.insumos.length){h+='<tr><td colspan="7" class="empty">Sin compras sincronizadas todavía.</td></tr>';}
+  let h='<thead><tr><th>Partida</th><th>Insumo / detalle</th><th></th><th>Comprado</th><th>Objetivo</th><th>Desvío cant.</th><th>Desvío $</th><th>Pago</th></tr></thead><tbody>';
+  if(!D.insumos.length){h+='<tr><td colspan="8" class="empty">Sin compras sincronizadas todavía.</td></tr>';}
   D.insumos.forEach(i=>{
     let cant,cost;
     if(i.nuevo){cant='<span class="pill new">🆕 no previsto</span>';cost='<span class="pill new">🆕</span>';}
@@ -164,9 +184,11 @@ const hoy=()=>new Date().toISOString().slice(0,10);
       cant=`<span class="pill ${cc}">${dc==null?'—':(dc>=0?'+':'')+(dc*100).toFixed(0)+'%'}</span>`;
       cost=`<span class="pill ${cm}">${dm==null?'—':(dm>=0?'+':'')+(dm*100).toFixed(0)+'%'}</span>`;
     }
+    const eCol = i.estado==='Pagada'?'ok':i.estado==='Autorizada'?'warn':'bad';
+    const pago = i.estado ? `<span class="pill ${eCol}">${i.estado}</span>${i.medio?'<div style="color:var(--mut);font-size:10px;margin-top:2px">'+i.medio+'</div>':''}` : '—';
     h+=`<tr><td>${i.partida}</td><td>${(i.insumo==='NUEVO'?'':i.insumo+' · ')}${i.detalle}</td><td></td>`+
        `<td>${g(i.cantC)} ${i.un} · ${f2(i.montoC)}</td>`+
-       `<td>${i.nuevo?'—':g(i.objCant)+' '+i.un+' · '+f2(i.objMonto)}</td><td>${cant}</td><td>${cost}</td></tr>`;
+       `<td>${i.nuevo?'—':g(i.objCant)+' '+i.un+' · '+f2(i.objMonto)}</td><td>${cant}</td><td>${cost}</td><td>${pago}</td></tr>`;
   });
   h+='</tbody>';document.getElementById('tins').innerHTML=h;
   document.getElementById('insnote').textContent='🔴 rojo = se pasó +'+(D.umRo*100)+'% · 🟡 amarillo = +'+(D.umAm*100)+'% · 🆕 = insumo no previsto. Ojo: si una compra de varilla sirve a varias partidas, conviene repartirla o comparar contra el objetivo total del insumo en la obra.';
@@ -179,6 +201,17 @@ const hoy=()=>new Date().toISOString().slice(0,10);
   let t=0; D.devol.forEach(d=>{t+=d.monto;h+=`<tr><td>${d.persona}</td><td></td><td>${f2(d.monto)}</td></tr>`;});
   if(D.devol.length)h+=`<tr style="font-weight:800"><td>TOTAL a rendir</td><td></td><td>${f2(t)}</td></tr>`;
   h+='</tbody>';document.getElementById('tdev').innerHTML=h;
+})();
+
+// próximos vencimientos de cheques
+(function(){
+  let h='<thead><tr><th>Vencimiento</th><th>Proveedor / beneficiario</th><th></th><th>Estado</th><th>Monto</th></tr></thead><tbody>';
+  if(!D.venc.length){h+='<tr><td colspan="5" class="empty">Sin cheques con vencimiento marcado.</td></tr>';}
+  D.venc.forEach(v=>{
+    const dias = v.vencido ? `<span class="pill bad">vencido</span>` : (v.dias<=7 ? `<span class="pill warn">en ${v.dias} día${v.dias==1?'':'s'}</span>` : `<span class="pill ok">en ${v.dias} días</span>`);
+    h+=`<tr><td>${v.fecha}</td><td>${v.proveedor}${v.beneficiario?' · '+v.beneficiario:''}</td><td>${dias}</td><td>${v.estado}</td><td>${f2(v.monto)}</td></tr>`;
+  });
+  h+='</tbody>';document.getElementById('tvenc').innerHTML=h;
 })();
 
 // partidas con movimiento

@@ -1,6 +1,6 @@
 {
  "obra": "FF26",
- "actualizado": "2026-08-19",
+ "actualizado": "2026-08-20",
  "compras": [
   {
    "codigo": "FF26.CP.0001",
@@ -43,6 +43,50 @@
    "factura": "003-001-0017357",
    "quien": "Nacho",
    "fcarga": "2026-08-18"
+  },
+  {
+   "codigo": "FF26.CP.0003",
+   "fecha": "2026-08-19",
+   "proveedor": "Hierro Matt S.A.C.I.",
+   "cap": "D",
+   "partida": "IN.EMVG.0013",
+   "insumo": "IN.MAAN.0083",
+   "detalle": "PERFIL U 150 X 50 X 3.00MM 6MTS",
+   "cant": "55",
+   "unidad": "un",
+   "monto": "13833325",
+   "tipo": "Material",
+   "cond": "Crédito 30 días (cheque)",
+   "estadoPago": "Pendiente a autorizar",
+   "beneficiario": "",
+   "medio": "",
+   "refPago": "",
+   "fechaVencimiento": "",
+   "factura": "004-001-0085116",
+   "quien": "Nacho",
+   "fcarga": "2026-08-20"
+  },
+  {
+   "codigo": "FF26.CP.0004",
+   "fecha": "2026-08-19",
+   "proveedor": "Hierro Matt S.A.C.I.",
+   "cap": "D",
+   "partida": "IN.EMVG.0013",
+   "insumo": "IN.MAAN.0084",
+   "detalle": "ANGULO 11/2X 1/8",
+   "cant": "20",
+   "unidad": "un",
+   "monto": "1701700",
+   "tipo": "Material",
+   "cond": "Crédito 30 días (cheque)",
+   "estadoPago": "Pendiente a autorizar",
+   "beneficiario": "",
+   "medio": "",
+   "refPago": "",
+   "fechaVencimiento": "",
+   "factura": "004-001-0085116",
+   "quien": "Nacho",
+   "fcarga": "2026-08-20"
   }
  ]
 }
