@@ -510,6 +510,8 @@ function flujoSemanal(fs){
   let h='<div class="wrap"><table class="sem"><thead>';
   h+='<tr><th class="rowlbl">Rubro \\ Semana</th>'+meses.map(m=>`<th colspan="${m.n}">${m.mes.split(' ')[0].slice(0,3)}</th>`).join('')+'</tr>';
   h+='<tr><th class="rowlbl"></th>'+sem.map(s=>`<th>S${s.semana}</th>`).join('')+'</tr>';
+  h+='<tr><th class="rowlbl" style="font-weight:400;color:var(--mut)">lunes de la semana</th>'+
+     sem.map(s=>{const[y,m,dd]=s.fecha.split('-');return `<th style="font-weight:400;color:var(--mut);font-size:10px">${dd}/${m}</th>`;}).join('')+'</tr>';
   h+='</thead><tbody>';
   fs.filas.forEach(f=>{
     if(!f.valores.some(v=>v>0)) return;
