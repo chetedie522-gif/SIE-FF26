@@ -61,16 +61,24 @@ for cap in eco["capitulos"]:
             if i is not None: valores[i] += porSemana
     filas.append({"cap": cap["cap"], "nombre": cap["nombre"], "valores": [round(v) for v in valores]})
 
-# --- gastos comprometidos / cheques a vencer, por semana real ---
+# --- pagos por semana real ---
+# gastos_total: TODAS las compras (pagadas incluidas) → alimenta egresos/disponibilidad,
+#   porque esa plata salió (o va a salir) de caja en esa semana.
+# gastos (fila-alarma "a disponer"): SOLO lo pendiente de pago (estadoPago != Pagada) —
+#   lo ya pagado no es plata que haya que tener disponible a futuro.
+gastos_total = [0.0] * len(semanas)
 gastos = [0.0] * len(semanas)
 for c in compras:
     pd = pago_date(c.get("fecha"), c.get("cond"), c.get("fechaVencimiento"))
     i = semana_de(pd)
-    gastos[i] += n(c.get("monto"))
+    gastos_total[i] += n(c.get("monto"))
+    if (c.get("estadoPago") or "").strip().lower() != "pagada":
+        gastos[i] += n(c.get("monto"))
 gastos = [round(v) for v in gastos]
+gastos_total = [round(v) for v in gastos_total]
 
-# --- egresos totales por semana = producción pendiente (todos los rubros) + gastos comprometidos ---
-egresos = [round(sum(f["valores"][i] for f in filas) + gastos[i]) for i in range(len(semanas))]
+# --- egresos totales por semana = producción pendiente (todos los rubros) + todas las compras ---
+egresos = [round(sum(f["valores"][i] for f in filas) + gastos_total[i]) for i in range(len(semanas))]
 
 # --- ingresos (cobros del cliente): mismo cronograma semanal de DESEMBOLSOS que compute_flujo_live.py ---
 DES = [["2026-08-14",287950230],["2026-08-21",35993779],["2026-08-28",35993779],["2026-09-04",35993778],
@@ -90,7 +98,7 @@ for i in range(len(semanas)):
     ia += ingresos[i]; ea += egresos[i]
     disponibilidad.append(ia - ea)
 
-eco["flujo_semanal"] = {"semanas": semanas, "filas": filas, "gastos": gastos,
+eco["flujo_semanal"] = {"semanas": semanas, "filas": filas, "gastos": gastos, "gastos_total": gastos_total,
                          "ingresos": ingresos, "egresos": egresos, "disponibilidad": disponibilidad}
 json.dump(eco, open(os.path.join(base, "economia.json"), "w", encoding="utf-8"), ensure_ascii=False, indent=2)
 

@@ -453,6 +453,27 @@ const DATA = {
     ],
     "gastos": [
       0,
+      14384524,
+      0,
+      0,
+      0,
+      23350051,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "gastos_total": [
+      0,
       28519073,
       0,
       0,
@@ -581,7 +602,7 @@ function flujoSemanal(fs){
     if(!f.valores.some(v=>v>0)) return;
     h+=`<tr><td class="rowlbl">${f.cap} · ${f.nombre.slice(0,22)}</td>`+f.valores.map(v=>`<td>${Mn2(v)}</td>`).join('')+'</tr>';
   });
-  h+=`<tr class="gastos"><td class="rowlbl">💸 Gastos comprometidos / cheques a vencer</td>`+fs.gastos.map(v=>`<td style="color:${v>0?'var(--bad)':'var(--mut)'}">${Mn2(v)}</td>`).join('')+'</tr>';
+  h+=`<tr class="gastos"><td class="rowlbl">💸 Pagos PENDIENTES / cheques a vencer (a disponer en caja)</td>`+fs.gastos.map(v=>`<td style="color:${v>0?'var(--bad)':'var(--mut)'}">${Mn2(v)}</td>`).join('')+'</tr>';
   h+=`<tr class="gastos"><td class="rowlbl">Egresos totales (pendiente + comprometido)</td>`+fs.egresos.map(v=>`<td style="color:var(--bad)">${Mn2(v)}</td>`).join('')+'</tr>';
   h+=`<tr class="gastos"><td class="rowlbl">Ingresos (cobros)</td>`+fs.ingresos.map(v=>`<td style="color:var(--ok)">${Mn2(v)}</td>`).join('')+'</tr>';
   h+=`<tr class="gastos"><td class="rowlbl">💰 Disponibilidad en caja (acum.)</td>`+fs.disponibilidad.map(v=>`<td style="color:${v>=0?'var(--acc)':'var(--bad)'};font-weight:800">${Mn2(v)}</td>`).join('')+'</tr>';
@@ -618,7 +639,7 @@ function render(d){
   h+=`<div class="note">Ingresos = ${d.esquema_cobro}. ATENCION: ESQUEMA ASUMIDO — confirmar hitos reales de cobro. Egresos: reparto del objetivo por cronograma (pago ~ ejecucion).</div></div>`;
   if(d.flujo_semanal){
     h+=`<h2>Flujo de caja semanal — producción pendiente por rubro y gastos comprometidos</h2><div class="card">${flujoSemanal(d.flujo_semanal)}
-      <div class="note">Producción pendiente = objetivo del rubro menos lo ya comprometido, repartido entre las semanas del cronograma en que ese rubro tiene tareas (fuente: Cronograma_FF2026_EDITABLE1.xlsx). Gastos comprometidos = fecha real de pago de cada compra (vencimiento marcado o +30 días). En millones de Gs.</div></div>`;
+      <div class="note">Producción pendiente = objetivo del rubro menos lo ya comprometido, repartido entre las semanas del cronograma en que ese rubro tiene tareas (fuente: Cronograma_FF2026_EDITABLE1.xlsx). Pagos pendientes = compras aún NO pagadas (autorizadas o por autorizar), ubicadas en su fecha real de pago (vencimiento marcado, +30 días si es crédito, o fecha de factura si es contado). Lo ya pagado no aparece acá pero sí descuenta en Egresos y Disponibilidad. En millones de Gs.</div></div>`;
   }
   h+=`<h2>Detalle mensual</h2><div class="card"><table>
     <thead><tr><th>Mes</th><th>Ingreso</th><th>Egreso</th><th>Caja neta acum.</th></tr></thead><tbody>`;
