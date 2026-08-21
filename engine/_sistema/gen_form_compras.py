@@ -254,3 +254,9 @@ out = HTML.replace("__DATA__", DATA).replace("__SB_URL__", SUPABASE_URL).replace
 outp = SYS + "/compras_ff26.html"
 open(outp, "w", encoding="utf-8").write(out)
 print("OK · compras_ff26.html ·", len(out), "bytes ·", len(data["partidas"]), "partidas")
+
+# Variante "solo carga" (/cargar/): mismo formulario SIN el link de vuelta al hub.
+# Para compartir con quien solo carga compras, sin invitarlo a navegar el resto.
+out2 = out.replace('<a class="back" href="../">← volver al hub</a>', '')
+open(SYS + "/cargar_ff26.html", "w", encoding="utf-8").write(out2)
+print("OK · cargar_ff26.html (variante sin hub)")

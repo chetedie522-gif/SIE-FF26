@@ -53,6 +53,10 @@ shutil.copy2(os.path.join(SYS, "control_ff26.html"), os.path.join(SITE, "control
 fresh(os.path.join(SITE, "compras"))
 shutil.copy2(os.path.join(SYS, "compras_ff26.html"), os.path.join(SITE, "compras", "index.html"))
 
+# cargar: variante del formulario SIN link al hub (para compartir solo-carga)
+fresh(os.path.join(SITE, "cargar"))
+shutil.copy2(os.path.join(SYS, "cargar_ff26.html"), os.path.join(SITE, "cargar", "index.html"))
+
 # --- portada ---
 try:
     logo_uri = "data:image/png;base64," + base64.b64encode(open(LOGO, "rb").read()).decode()
