@@ -75,11 +75,41 @@ for c in compras:
                       "estado":c.get("estadoPago",""),"vencido":vd<HOY})
 vencList.sort(key=lambda x:x["fecha"])
 
+# comprometido dividido: PAGADO (plata que ya salió) vs A PAGAR (cheques emitidos / pendientes).
+# Misma regla que el flujo semanal: Pagada, o Autorizada con fecha de pago ya pasada = pagado;
+# Autorizada con vencimiento futuro (cheque emitido) = a pagar.
+def fecha_pago(c):
+    v = c.get("fechaVencimiento")
+    if v:
+        try: return dt.date.fromisoformat(v)
+        except (ValueError, TypeError): pass
+    try: d = dt.date.fromisoformat(c.get("fecha"))
+    except (ValueError, TypeError): d = HOY
+    cl = (c.get("cond") or "").lower()
+    if "créd" in cl or "cred" in cl or "cheque dif" in cl: return d + dt.timedelta(days=30)
+    return d
+
+pagado = 0.0; porPagar = 0.0; pend_por_fecha = {}
+for c in compras:
+    m = n(c.get("monto")); fp = fecha_pago(c)
+    est = (c.get("estadoPago") or "").strip().lower()
+    if est == "pagada" or (est == "autorizada" and fp <= HOY):
+        pagado += m
+    else:
+        porPagar += m
+        pend_por_fecha[fp.isoformat()] = pend_por_fecha.get(fp.isoformat(), 0.0) + m
+proxVenc = None
+if pend_por_fecha:
+    f0 = min(pend_por_fecha)
+    proxVenc = {"fecha": f0, "monto": round(pend_por_fecha[f0])}
+
 partidas=[{"cod":p["cod"],"cap":p["cap"],"desc":p["desc"],"obj":p["obj"],"comp":round(comp_part.get(p["cod"],0))} for p in tree["partidas"]]
 objTotal=sum(p["obj"] for p in tree["partidas"])
 DES=[["2026-08-14","Anticipo (pago inicial)",287950230],["2026-08-21","Pago semanal N°2",35993779],["2026-08-28","Pago semanal N°3",35993779],["2026-09-04","Pago semanal N°4",35993778],["2026-09-11","Pago semanal N°5",35993779],["2026-09-18","Pago semanal N°6",35993779],["2026-09-25","Pago semanal N°7",179968894],["2026-10-02","Pago semanal N°8",35993778],["2026-10-09","Pago semanal N°9",35993779],["2026-10-16","Pago semanal N°10",35993779],["2026-10-23","Pago semanal N°11",35993779],["2026-10-30","Pago semanal N°12",179968893],["2026-11-06","Pago semanal N°13",35993779],["2026-11-13","Pago semanal N°14",35993779],["2026-11-20","Pago semanal N°15",35993779],["2026-11-27","Pago semanal N°16",143975115],["2026-12-04","Pago semanal N°17",35993778],["2026-12-11","Pago semanal N°18",35993779],["2026-12-18","Pago semanal N°19 (saldo)",143975115]]
 EMB=json.dumps({"partidas":partidas,"insumos":insumoAn,"consol":consol,"devol":devolList,"venc":vencList,"cobros":cobros,"cobrado":round(cobrado),
-                "contrato":CONTRATO,"objTotal":objTotal,"comprometido":round(sum(comp_part.values())),"umAm":UMB_AM,"umRo":UMB_RO}, ensure_ascii=False)
+                "contrato":CONTRATO,"objTotal":objTotal,"comprometido":round(sum(comp_part.values())),
+                "pagado":round(pagado),"porPagar":round(porPagar),"proxVenc":proxVenc,
+                "umAm":UMB_AM,"umRo":UMB_RO}, ensure_ascii=False)
 
 HTML=r'''<title>Control FF26</title>
 <style>
@@ -88,7 +118,7 @@ HTML=r'''<title>Control FF26</title>
 body{background:var(--bg);color:var(--txt);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;padding:14px;max-width:1050px;margin:0 auto}
 .conf{background:rgba(224,85,95,.12);border:1px solid rgba(224,85,95,.35);color:#f0a8ad;border-radius:8px;padding:8px 12px;font-size:12px;font-weight:600;margin-bottom:12px;text-align:center}
 h1{font-size:19px}.sub{color:var(--mut);font-size:12.5px;margin:2px 0 12px}
-.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:16px}
 .kpi{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:11px 13px}
 .kpi .l{color:var(--mut);font-size:10px;text-transform:uppercase;letter-spacing:.5px}.kpi .v{font-size:18px;font-weight:800;margin-top:4px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}
@@ -234,10 +264,20 @@ const hoy=()=>new Date().toISOString().slice(0,10);
   if(D.cobros.length)h+=`<tr style="font-weight:800"><td>TOTAL cobrado</td><td></td><td>${f2(D.cobrado)}</td></tr>`;
   h+='</tbody>';document.getElementById('tcob').innerHTML=h;
 })();
-function kpi(l,v){return `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div></div>`;}
+function kpi(l,v,extra){return `<div class="kpi"><div class="l">${l}</div><div class="v">${v}</div>${extra?'<div style="font-size:11px;margin-top:3px">'+extra+'</div>':''}</div>`;}
+let venAviso='';
+if(D.proxVenc){
+  const dv=Math.round((new Date(D.proxVenc.fecha)-new Date())/86400000);
+  const [y,m,dd]=D.proxVenc.fecha.split('-');
+  venAviso = dv<0 ? `<span style="color:var(--bad);font-weight:700">⚠ ${f2(D.proxVenc.monto)} VENCIDO (${dd}/${m})</span>`
+           : `<span style="color:${dv<=7?'var(--warn)':'var(--mut)'}">próx. venc: ${dd}/${m} · ${f2(D.proxVenc.monto)} Gs${dv<=7?' ⚠':''}</span>`;
+}
 document.getElementById('kpis').innerHTML=
   kpi('Contrato',f2(D.contrato)+' Gs')+kpi('Cobrado',f2(D.cobrado)+' Gs · '+(D.contrato?(D.cobrado/D.contrato*100).toFixed(0):0)+'%')+kpi('Por cobrar',f2(D.contrato-D.cobrado)+' Gs')+
-  kpi('Objetivo material',f2(D.objTotal)+' Gs')+kpi('Comprometido',f2(D.comprometido)+' Gs · '+(D.objTotal?(D.comprometido/D.objTotal*100).toFixed(1):0)+'%')+kpi('Compras sincronizadas',D.insumos.length);
+  kpi('Objetivo material',f2(D.objTotal)+' Gs')+kpi('Comprometido',f2(D.comprometido)+' Gs · '+(D.objTotal?(D.comprometido/D.objTotal*100).toFixed(1):0)+'%')+
+  kpi('✅ Pagado (gasto ejecutado)',f2(D.pagado)+' Gs')+
+  kpi('🕐 A pagar (cheques emitidos / pendientes)',f2(D.porPagar)+' Gs',venAviso)+
+  kpi('Compras sincronizadas',D.insumos.length);
 </script>'''
 out=HTML.replace("__EMB__",EMB)
 open(SYS + "/control_ff26.html","w",encoding="utf-8").write(out)
