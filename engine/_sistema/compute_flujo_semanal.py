@@ -64,15 +64,28 @@ for cap in eco["capitulos"]:
 # --- pagos por semana real ---
 # gastos_total: TODAS las compras (pagadas incluidas) → alimenta egresos/disponibilidad,
 #   porque esa plata salió (o va a salir) de caja en esa semana.
-# gastos (fila-alarma "a disponer"): SOLO lo pendiente de pago (estadoPago != Pagada) —
-#   lo ya pagado no es plata que haya que tener disponible a futuro.
+# gastos (fila-alarma "a disponer"): solo lo que TODAVÍA va a salir de caja.
+#   Regla (pedida por Nacho): "Autorizada" equivale a "Pagada" cuando la fecha de pago
+#   ya pasó (contado ejecutado). PERO un cheque autorizado con vencimiento FUTURO sigue
+#   siendo plata a disponer — el banco la debita al vencimiento, no al autorizar.
+HOY_D = dt.date.today()
+def es_pendiente(c, fecha_pago_iso):
+    est = (c.get("estadoPago") or "").strip().lower()
+    if est == "pagada":
+        return False
+    try: fp = dt.date.fromisoformat(fecha_pago_iso)
+    except (ValueError, TypeError): fp = HOY_D
+    if est == "autorizada" and fp <= HOY_D:
+        return False   # autorizada y ya ejecutada = pagada
+    return True
+
 gastos_total = [0.0] * len(semanas)
 gastos = [0.0] * len(semanas)
 for c in compras:
     pd = pago_date(c.get("fecha"), c.get("cond"), c.get("fechaVencimiento"))
     i = semana_de(pd)
     gastos_total[i] += n(c.get("monto"))
-    if (c.get("estadoPago") or "").strip().lower() != "pagada":
+    if es_pendiente(c, pd):
         gastos[i] += n(c.get("monto"))
 gastos = [round(v) for v in gastos]
 gastos_total = [round(v) for v in gastos_total]
