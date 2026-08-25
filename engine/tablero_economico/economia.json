@@ -11,7 +11,7 @@
     "margen_gs": 411831418,
     "margen_pct": 28.6,
     "k": 1.401,
-    "comprometido": 54258564,
+    "comprometido": 56648004,
     "ejecutado": 0,
     "consumido_pct": 0,
     "margen_proyectado": 411831418
@@ -39,10 +39,10 @@
       "cap": "D",
       "nombre": "Estructura metálica + cubierta",
       "objetivo": 225122674,
-      "comprometido": 40938521,
+      "comprometido": 43327961,
       "real": 0,
       "desvio": 0,
-      "consumido_pct": 18.2
+      "consumido_pct": 19.2
     },
     {
       "cap": "F",
@@ -85,57 +85,57 @@
     {
       "mes": "2026-08",
       "ingreso": 359937788,
-      "egreso": 107472457,
+      "egreso": 109674003,
       "ing_acum": 359937788,
-      "egr_acum": 107472457,
-      "neto_acum": 252465331
+      "egr_acum": 109674003,
+      "neto_acum": 250263785
     },
     {
       "mes": "2026-09",
       "ingreso": 287950230,
-      "egreso": 170490150,
+      "egreso": 170129057,
       "ing_acum": 647888018,
-      "egr_acum": 277962607,
-      "neto_acum": 369925411
+      "egr_acum": 279803060,
+      "neto_acum": 368084958
     },
     {
       "mes": "2026-10",
       "ingreso": 323944008,
-      "egreso": 163876784,
+      "egreso": 163474618,
       "ing_acum": 971832026,
-      "egr_acum": 441839391,
-      "neto_acum": 529992635
+      "egr_acum": 443277678,
+      "neto_acum": 528554348
     },
     {
       "mes": "2026-11",
       "ingreso": 251956452,
-      "egreso": 333340996,
+      "egreso": 332522951,
       "ing_acum": 1223788478,
-      "egr_acum": 775180387,
-      "neto_acum": 448608091
+      "egr_acum": 775800629,
+      "neto_acum": 447987849
     },
     {
       "mes": "2026-12",
       "ingreso": 215962672,
-      "egreso": 248036515,
+      "egreso": 247427814,
       "ing_acum": 1439751150,
-      "egr_acum": 1023216902,
-      "neto_acum": 416534248
+      "egr_acum": 1023228443,
+      "neto_acum": 416522707
     },
     {
       "mes": "2027-01",
       "ingreso": 0,
-      "egreso": 4702830,
+      "egreso": 4691288,
       "ing_acum": 1439751150,
-      "egr_acum": 1027919732,
-      "neto_acum": 411831418
+      "egr_acum": 1027919731,
+      "neto_acum": 411831419
     }
   ],
   "flujo_supuesto": false,
   "esquema_cobro": "EN VIVO · cobros = cronograma del cliente · egresos reales por fecha de pago (crédito 30d = +30 días) + resto del objetivo según cronograma",
   "pico_exposicion": {
     "mes": "2026-08",
-    "monto": 252465331
+    "monto": 250263785
   },
   "necesidad_caja": 0,
   "notas_materiales": "Kingspan: pago 15 días antes del montaje (+10 días producción). Perfiles de hierro: a crédito, cheque a 30 días. Ambos suavizan la caja.",
@@ -292,18 +292,18 @@
         "cap": "D",
         "nombre": "Estructura metálica + cubierta",
         "valores": [
-          15348679,
-          15348679,
-          15348679,
-          15348679,
-          15348679,
-          15348679,
-          15348679,
-          15348679,
-          15348679,
-          15348679,
-          15348679,
-          15348679,
+          15149559,
+          15149559,
+          15149559,
+          15149559,
+          15149559,
+          15149559,
+          15149559,
+          15149559,
+          15149559,
+          15149559,
+          15149559,
+          15149559,
           0,
           0,
           0,
@@ -437,7 +437,7 @@
     ],
     "gastos_total": [
       0,
-      30908513,
+      33297953,
       0,
       0,
       0,
@@ -478,18 +478,18 @@
       143975115
     ],
     "egresos": [
-      18127100,
-      77086592,
-      46178079,
-      28838079,
-      28838079,
-      48904927,
-      25554876,
-      25554876,
-      74918628,
-      95422342,
-      112762342,
-      112762342,
+      17927980,
+      79276912,
+      45978959,
+      28638959,
+      28638959,
+      48705807,
+      25355756,
+      25355756,
+      74719508,
+      95223222,
+      112563222,
+      112563222,
       69482173,
       52142173,
       52142173,
@@ -499,17 +499,17 @@
       2778421
     ],
     "disponibilidad": [
-      269823130,
-      228730317,
-      218546017,
-      225701716,
-      232857416,
-      219946268,
-      374360286,
-      384799188,
-      345874339,
-      286445776,
-      209677213,
+      270022250,
+      226739117,
+      216753937,
+      224108756,
+      231463576,
+      218751548,
+      373364686,
+      384002708,
+      345276979,
+      286047536,
+      209478093,
       276883764,
       243395370,
       227246976,

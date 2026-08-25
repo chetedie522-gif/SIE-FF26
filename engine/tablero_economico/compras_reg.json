@@ -1,6 +1,6 @@
 {
  "obra": "FF26",
- "actualizado": "2026-08-21",
+ "actualizado": "2026-08-25",
  "compras": [
   {
    "codigo": "FF26.CP.0001",
@@ -505,6 +505,28 @@
    "factura": "003-001-0112143",
    "quien": "Nancy",
    "fcarga": "2026-08-21"
+  },
+  {
+   "codigo": "FF26.CP.0024",
+   "fecha": "2026-08-21",
+   "proveedor": "Elin Aceros yAleaciones S.A.",
+   "cap": "D",
+   "partida": "IN.EMVG.0013",
+   "insumo": "IN.MAAN.0084",
+   "detalle": "Angulo < 1.1/2  x 3 mm - 1/8",
+   "cant": "30",
+   "unidad": "un",
+   "monto": "2389440",
+   "tipo": "Material",
+   "cond": "Contado",
+   "estadoPago": "Pagada",
+   "beneficiario": "Elin Aceros yAleaciones S.A.",
+   "medio": "Transferencia",
+   "refPago": "OBRA FF26-ANGULO PARA CABRIADAS",
+   "fechaVencimiento": "",
+   "factura": "003-001-0112143",
+   "quien": "Nacho",
+   "fcarga": "2026-08-25"
   }
  ]
 }
