@@ -1,12 +1,16 @@
 # -*- coding: utf-8 -*-
 """
-Sincroniza las compras cargadas en el FORMULARIO PÚBLICO (Supabase) hacia el
-registro durable `compras_reg.json`. Reemplaza el paso manual de "pegame el
-export de la app" — ahora es 100% automático.
+Sincroniza las compras del FORMULARIO PÚBLICO (Supabase) hacia el registro
+`compras_reg.json`.
 
-Lee de Supabase solo las filas con sincronizado=false, las agrega al registro
-(con código FF26.CP.#### correlativo y el capítulo resuelto desde la partida),
-y las marca como sincronizadas para no duplicarlas en la próxima corrida.
+MODO RECONSTRUCCIÓN TOTAL (desde 2026-08-26): Supabase es la fuente de verdad.
+En cada corrida se leen TODAS las filas y el registro se reescribe completo.
+Así las EDICIONES y BORRADOS hechos desde el formulario web se reflejan solos
+en los tableros (antes solo entraban filas nuevas y quedaban selladas).
+
+El código FF26.CP.#### se asigna una sola vez por fila (columna `codigo` en
+Supabase, se escribe con service_role) y nunca se renumera — si se borra una
+fila, su número queda como hueco, no se reutiliza.
 """
 import sys, os, json, datetime, requests
 sys.stdout.reconfigure(encoding="utf-8")
@@ -20,7 +24,6 @@ if not SERVICE_ROLE_KEY:
     from _supabase_secret import SERVICE_ROLE_KEY
 
 def admin_headers(prefer=None):
-    """service_role: bypassa RLS. Solo para el paso de marcar sincronizado (server-side)."""
     h = {"apikey": SERVICE_ROLE_KEY, "Authorization": "Bearer " + SERVICE_ROLE_KEY,
          "Content-Type": "application/json"}
     if prefer: h["Prefer"] = prefer
@@ -29,86 +32,71 @@ def admin_headers(prefer=None):
 REG = os.path.join(SIE, "tablero_economico", "compras_reg.json")
 TREE = os.path.join(SIE, "tablero_economico", "partidas_insumos.json")
 
-def n(x):
-    try: return float(x)
-    except: return 0.0
-
 def cap_de(partida, byPart):
     p = byPart.get(partida)
     return p["cap"] if p else ""
 
-def next_codigo(existentes):
-    mx = 0
-    for c in existentes:
-        cod = c.get("codigo", "")
-        if cod.startswith("FF26.CP."):
-            try: mx = max(mx, int(cod.split(".")[-1]))
-            except ValueError: pass
-    return mx
-
 def main():
-    try:
-        reg = json.load(open(REG, encoding="utf-8"))
-    except FileNotFoundError:
-        reg = {"obra": "FF26", "actualizado": "", "compras": []}
     tree = json.load(open(TREE, encoding="utf-8"))
     byPart = {p["cod"]: p for p in tree["partidas"]}
 
-    r = requests.get(REST_URL + "/compras", params={"sincronizado": "eq.false", "order": "id.asc"},
-                      headers=headers(), timeout=20)
+    r = requests.get(REST_URL + "/compras", params={"order": "id.asc"},
+                     headers=headers(), timeout=30)
     r.raise_for_status()
-    pendientes = r.json()
+    rows = r.json()
 
-    if not pendientes:
-        print("Sin compras nuevas del formulario web.")
-        return 0
-
-    hoy = datetime.date.today().isoformat()
-    mx = next_codigo(reg["compras"])
-    ids_ok = []
-    for row in pendientes:
+    # asignar código a las filas que no lo tienen (una sola vez, correlativo)
+    mx = 0
+    for row in rows:
+        cod = row.get("codigo") or ""
+        if cod.startswith("FF26.CP."):
+            try: mx = max(mx, int(cod.split(".")[-1]))
+            except ValueError: pass
+    nuevas = 0
+    for row in rows:
+        if row.get("codigo"):
+            continue
         mx += 1
-        entry = {
-            "codigo": f"FF26.CP.{mx:04d}",
-            "fecha": row.get("fecha") or hoy,
-            "proveedor": row.get("proveedor", ""),
-            "cap": cap_de(row.get("partida", ""), byPart),
-            "partida": row.get("partida", ""),
-            "insumo": row.get("insumo", ""),
-            "detalle": row.get("detalle", ""),
-            "cant": str(row.get("cant", "")),
-            "unidad": row.get("unidad", ""),
-            "monto": str(row.get("monto", "")),
-            "tipo": row.get("tipo", ""),
-            "cond": row.get("cond", ""),
-            "estadoPago": row.get("estado_pago") or "Pendiente a autorizar",
-            "beneficiario": row.get("beneficiario", ""),
-            "medio": row.get("medio", ""),
-            "refPago": row.get("concepto", ""),
-            "fechaVencimiento": row.get("fecha_vencimiento") or "",
-            "factura": row.get("factura", ""),
-            "quien": row.get("quien", ""),
-            "fcarga": hoy,
-        }
-        reg["compras"].append(entry)
-        ids_ok.append(row["id"])
-        print(f"  + {entry['codigo']}  {entry['proveedor']} · {entry['detalle'][:40]} · {entry['monto']} Gs")
-
-    reg["actualizado"] = hoy
-    json.dump(reg, open(REG, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
-
-    # marcar como sincronizadas (service_role: bypassa RLS, no lo puede hacer la clave pública)
-    for rid in ids_ok:
-        pr = requests.patch(REST_URL + "/compras", params={"id": f"eq.{rid}"},
-                             headers=admin_headers(prefer="return=representation"),
-                             json={"sincronizado": True}, timeout=20)
+        row["codigo"] = f"FF26.CP.{mx:04d}"
+        pr = requests.patch(REST_URL + "/compras", params={"id": f"eq.{row['id']}"},
+                            headers=admin_headers(prefer="return=representation"),
+                            json={"codigo": row["codigo"]}, timeout=20)
         pr.raise_for_status()
         if not pr.json():
-            print(f"   ⚠ ADVERTENCIA: no se pudo confirmar el marcado de sincronizado para id={rid}"
-                  " (revisá que _supabase_secret.py tenga la service_role key correcta)")
+            print(f"   ⚠ no se pudo guardar el código de id={row['id']} (revisar service_role key)")
+        nuevas += 1
+        print(f"  + {row['codigo']}  {row.get('proveedor','')} · {(row.get('detalle') or '')[:40]} · {row.get('monto')} Gs")
 
-    print(f"OK · {len(ids_ok)} compra(s) sincronizada(s) al registro.")
-    return len(ids_ok)
+    hoy = datetime.date.today().isoformat()
+    compras = []
+    for row in rows:
+        compras.append({
+            "codigo": row.get("codigo") or "",
+            "fecha": row.get("fecha") or hoy,
+            "proveedor": row.get("proveedor", "") or "",
+            "cap": cap_de(row.get("partida", ""), byPart),
+            "partida": row.get("partida", "") or "",
+            "insumo": row.get("insumo", "") or "",
+            "detalle": row.get("detalle", "") or "",
+            "cant": str(row.get("cant") or ""),
+            "unidad": row.get("unidad", "") or "",
+            "monto": str(row.get("monto") or ""),
+            "tipo": row.get("tipo", "") or "",
+            "cond": row.get("cond", "") or "",
+            "estadoPago": row.get("estado_pago") or "Pendiente a autorizar",
+            "beneficiario": row.get("beneficiario", "") or "",
+            "medio": row.get("medio", "") or "",
+            "refPago": row.get("concepto", "") or "",
+            "fechaVencimiento": row.get("fecha_vencimiento") or "",
+            "factura": row.get("factura", "") or "",
+            "quien": row.get("quien", "") or "",
+            "fcarga": (row.get("creado_en") or hoy)[:10],
+        })
+
+    reg = {"obra": "FF26", "actualizado": hoy, "compras": compras}
+    json.dump(reg, open(REG, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+    print(f"OK · registro reconstruido: {len(compras)} compras ({nuevas} nuevas con código asignado).")
+    return nuevas
 
 if __name__ == "__main__":
     main()

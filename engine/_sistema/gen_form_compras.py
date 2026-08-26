@@ -39,6 +39,18 @@ button.add{background:var(--card2);color:var(--txt);border:1px solid var(--acc);
 .dline{display:flex;justify-content:space-between;gap:10px;align-items:center;background:var(--card2);border-radius:8px;padding:8px 11px;margin-bottom:6px;font-size:13px}
 .dline .x{background:transparent;border:none;color:var(--mut);cursor:pointer;font-size:14px}
 .subt{display:flex;justify-content:space-between;font-weight:800;padding:8px 11px;font-size:14px}
+details.conv{background:var(--card2);border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-top:6px}
+details.conv summary{cursor:pointer;font-size:12.5px;color:var(--acc);font-weight:600}
+details.conv input[readonly]{background:var(--card);font-weight:700}
+td.ed{cursor:text;outline:none}
+td.ed:focus{background:rgba(91,143,214,.12)}
+td.est{cursor:pointer;font-weight:700;font-size:11px;white-space:nowrap}
+td.est[data-v="Pendiente a autorizar"]{color:var(--bad)}
+td.est[data-v="Autorizada"]{color:var(--warn)}
+td.est[data-v="Pagada"]{color:var(--ok)}
+button.mini{background:transparent;border:none;cursor:pointer;font-size:14px;padding:2px 4px}
+button.mini.save{display:none}
+tr.dirty button.mini.save{display:inline-block}
 .hint{color:var(--mut);font-size:11px;margin-top:2px}
 .msg{border-radius:8px;padding:10px 12px;font-size:13px;margin-top:12px;display:none}
 .msg.ok{background:rgba(47,167,106,.14);border:1px solid rgba(47,167,106,.4);color:#8fe0b6;display:block}
@@ -81,6 +93,14 @@ a.back{color:var(--acc);text-decoration:none;font-size:13px}
     <div class="full"><label id="lbldesc">Detalle (opcional)</label><input id="detalle" placeholder="marca / observación; o descripción del insumo nuevo"></div>
     <div><label>Cantidad</label><input id="cant" inputmode="decimal" placeholder="ej. 40"></div>
     <div><label>Unidad</label><input id="unidad" placeholder="auto del insumo"></div>
+    <details class="full conv" id="cv"><summary>🔧 ¿Comprás varillas por unidad (12 m)? Convertí a kg</summary>
+      <div class="g3" style="margin-top:8px">
+        <div><label>Diámetro</label><select id="cv_dia"><option value="">—</option><option value="6">6 mm</option><option value="8">8 mm</option><option value="10">10 mm</option><option value="12">12 mm</option><option value="14">14 mm</option><option value="16">16 mm</option><option value="18">18 mm</option><option value="20">20 mm</option><option value="25">25 mm</option><option value="32">32 mm</option></select></div>
+        <div><label>N° de varillas (12 m)</label><input id="cv_n" inputmode="numeric" placeholder="ej. 50"></div>
+        <div><label>Equivale a</label><input id="cv_out" readonly value="0 kg"></div>
+      </div>
+      <button class="add" id="cv_use" type="button">Usar como cantidad (kg)</button>
+    </details>
     <div class="full"><label>Tipo</label><select id="tipo"><option>Material</option><option>Subcontrato</option><option>Alquiler de equipo</option><option>Mano de obra</option><option>Otro</option></select></div>
     <div class="full"><label>TOTAL de esta línea (Gs, con IVA)</label><input id="monto" inputmode="numeric" placeholder="ej. 3.200.000"><div class="hint">el total que suma esta línea (cantidad × precio unitario), no el precio unitario.</div></div>
   </div>
@@ -131,10 +151,24 @@ function hintUpd(){
   if(v==='NUEVO'){lbl.textContent='Descripción del insumo NUEVO (obligatorio)';h.textContent='Se imputa a la partida como no previsto → aparecerá como desvío.';un.value='';un.readOnly=false;}
   else{lbl.textContent='Detalle (opcional)';const i=p&&p.ins.find(x=>x.cod===v);
     h.textContent=i&&i.cant?`Objetivo planificado: ${fc(i.cant)} ${i.un||''}`:'';
-    if(i){un.value=i.un||'';} else {un.value='';}}
+    if(i){un.value=i.un||'';
+      const mm=(i.desc||'').match(/(\d{1,2})\s*mm/i);
+      if(/varilla/i.test(i.desc||'') && mm && PV[+mm[1]]){document.getElementById('cv_dia').value=mm[1]; document.getElementById('cv').open=true; cvCalc();}
+    } else {un.value='';}}
 }
 const lm=document.getElementById('monto');
 lm.addEventListener('input',()=>{const d=lm.value.replace(/[^0-9]/g,'');lm.value=d?f2(parseInt(d,10)):'';});
+
+// conversor de varillas: kg por varilla de 12 m según diámetro
+const PV={6:2.66,8:4.74,10:7.40,12:10.66,14:14.52,16:18.96,18:24.00,20:29.64,25:46.20,32:75.72};
+function cvCalc(){const d=+document.getElementById('cv_dia').value,nv=parseFloat((document.getElementById('cv_n').value||'').replace(',','.'))||0;
+  const kg=d&&PV[d]?nv*PV[d]:0; document.getElementById('cv_out').value=fc(kg)+' kg'; return kg;}
+document.getElementById('cv_dia').addEventListener('change',cvCalc);
+document.getElementById('cv_n').addEventListener('input',cvCalc);
+document.getElementById('cv_use').addEventListener('click',()=>{const kg=cvCalc();
+  if(!kg){alert('Elegí el diámetro y el N° de varillas.');return;}
+  document.getElementById('cant').value=Math.round(kg*100)/100; document.getElementById('unidad').value='kg';
+  document.getElementById('cv').open=false;});
 
 // vencimiento del cheque: solo visible con condición a crédito/cheque diferido, sugiere fecha+30
 const selCond=document.getElementById('cond'), wrapVenc=document.getElementById('wrap_venc'), venc=document.getElementById('venc');
@@ -182,21 +216,69 @@ function renderDraft(){
 document.getElementById('draft').addEventListener('click',e=>{if(e.target.classList.contains('x')){lines.splice(+e.target.dataset.i,1);renderDraft();}});
 
 let recientes=[];
+const ESC=s=>String(s??'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
 function renderRecientes(){
   const w=document.getElementById('recientesWrap');
   const q=(document.getElementById('buscar').value||'').trim().toLowerCase();
   const filt = q ? recientes.filter(r=>(r.proveedor||'').toLowerCase().includes(q)||(r.factura||'').toLowerCase().includes(q)||(r.detalle||'').toLowerCase().includes(q)) : recientes;
   if(!filt.length){w.innerHTML=`<div class="empty">${q?'Sin resultados para "'+q+'".':'Todavía no hay compras cargadas.'}</div>`;return;}
-  let h='<table><thead><tr><th>Fecha</th><th>Proveedor</th><th>N° factura</th><th>Partida</th><th>Detalle</th><th>Monto</th></tr></thead><tbody>';
-  filt.forEach(r=>{h+=`<tr><td>${r.fecha||''}</td><td>${r.proveedor||''}</td><td>${r.factura||'<span style="color:var(--warn)">— sin factura —</span>'}</td><td>${r.partida||''}</td><td>${r.detalle||r.insumo||''}</td><td>${f2(r.monto)}</td></tr>`;});
-  h+='</tbody></table>';
+  let h='<div style="overflow-x:auto"><table><thead><tr><th>Fecha</th><th>Proveedor</th><th>N° factura</th><th>Partida</th><th>Detalle</th><th>Cant</th><th>Monto</th><th>Pago</th><th></th></tr></thead><tbody>';
+  filt.forEach(r=>{
+    const est=r.estado_pago||'Pendiente a autorizar';
+    h+=`<tr data-id="${r.id}">`+
+      `<td class="ed" data-f="fecha" contenteditable>${ESC(r.fecha)}</td>`+
+      `<td class="ed" data-f="proveedor" contenteditable>${ESC(r.proveedor)}</td>`+
+      `<td class="ed" data-f="factura" contenteditable>${ESC(r.factura)||''}</td>`+
+      `<td>${ESC(r.partida)}</td>`+
+      `<td class="ed" data-f="detalle" contenteditable>${ESC(r.detalle||r.insumo)}</td>`+
+      `<td class="ed" data-f="cant" contenteditable>${ESC(r.cant)}${r.unidad?' '+ESC(r.unidad):''}</td>`+
+      `<td class="ed" data-f="monto" contenteditable>${f2(r.monto)}</td>`+
+      `<td class="est" data-v="${ESC(est)}" title="tocá para cambiar el estado">${ESC(est)}</td>`+
+      `<td style="white-space:nowrap"><button class="mini save" title="guardar cambios">💾</button><button class="mini del" title="borrar esta línea">🗑</button></td>`+
+      `</tr>`;
+  });
+  h+='</tbody></table></div><div class="hint" style="margin-top:6px">✏️ Tocá una celda para corregirla y apretá 💾. Tocá la columna Pago para marcar Pendiente → Autorizada → Pagada. 🗑 borra la línea (¡no tiene deshacer!).</div>';
   w.innerHTML=h;
 }
 document.getElementById('buscar').addEventListener('input',renderRecientes);
 
+const wrapReg=document.getElementById('recientesWrap');
+wrapReg.addEventListener('input',e=>{const tr=e.target.closest('tr[data-id]'); if(tr) tr.classList.add('dirty');});
+wrapReg.addEventListener('click',async e=>{
+  const tr=e.target.closest('tr[data-id]'); if(!tr) return;
+  const id=tr.dataset.id;
+  const HDRS={'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Content-Type':'application/json','Prefer':'return=minimal'};
+  if(e.target.classList.contains('est')){
+    const o=['Pendiente a autorizar','Autorizada','Pagada'];
+    const c=e.target; const nx=o[(o.indexOf(c.dataset.v)+1)%o.length];
+    c.dataset.v=nx; c.textContent=nx; tr.classList.add('dirty'); return;
+  }
+  if(e.target.classList.contains('del')){
+    if(!confirm('¿Borrar esta línea definitivamente?')) return;
+    const r=await fetch(`${SUPABASE_URL}/rest/v1/compras?id=eq.${id}`,{method:'DELETE',headers:HDRS});
+    if(r.ok){recientes=recientes.filter(x=>String(x.id)!==String(id)); renderRecientes();}
+    else alert('No se pudo borrar (HTTP '+r.status+'). Avisale a Nacho/Claude.');
+    return;
+  }
+  if(e.target.classList.contains('save')){
+    const get=f=>{const c=tr.querySelector(`[data-f="${f}"]`);return c?c.textContent.trim():null;};
+    const body={
+      fecha:get('fecha')||null, proveedor:get('proveedor'), factura:get('factura'),
+      detalle:get('detalle'), estado_pago:tr.querySelector('.est').dataset.v,
+      monto:parseFloat((get('monto')||'').replace(/[^0-9]/g,''))||0,
+    };
+    const cantRaw=(get('cant')||'').trim(); const mCant=cantRaw.match(/^([\d.,]+)\s*(.*)$/);
+    if(mCant){body.cant=mCant[1].replace(',','.'); if(mCant[2]) body.unidad=mCant[2];}
+    const r=await fetch(`${SUPABASE_URL}/rest/v1/compras?id=eq.${id}`,{method:'PATCH',headers:HDRS,body:JSON.stringify(body)});
+    if(r.ok){tr.classList.remove('dirty'); e.target.textContent='✅'; setTimeout(()=>{e.target.textContent='💾';},1200);
+      const it=recientes.find(x=>String(x.id)===String(id)); if(it) Object.assign(it,body);}
+    else alert('No se pudo guardar (HTTP '+r.status+'). Avisale a Nacho/Claude.');
+  }
+});
+
 async function cargarHistorial(){
   try{
-    const r = await fetch(SUPABASE_URL + '/rest/v1/compras?select=fecha,proveedor,factura,partida,detalle,insumo,monto&order=creado_en.desc&limit=500', {
+    const r = await fetch(SUPABASE_URL + '/rest/v1/compras?select=id,codigo,fecha,proveedor,factura,partida,detalle,insumo,cant,unidad,monto,estado_pago,medio&order=creado_en.desc&limit=500', {
       headers:{'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY}
     });
     if(!r.ok) throw new Error('HTTP '+r.status);
@@ -235,7 +317,7 @@ document.getElementById('ok').addEventListener('click', async ()=>{
     });
     if(!r.ok) throw new Error('HTTP '+r.status);
     msg.className='msg ok'; msg.textContent=`✓ Factura registrada (${rows.length} línea${rows.length>1?'s':''}). El sitio se va a actualizar en un rato (automático).`;
-    recientes.unshift(...rows); renderRecientes();
+    cargarHistorial();
     lines=[]; renderDraft();
     ['factura','beneficiario','concepto'].forEach(id=>document.getElementById(id).value='');
     document.getElementById('fecha').value=hoy();
