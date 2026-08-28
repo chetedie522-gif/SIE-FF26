@@ -859,6 +859,28 @@
    "factura": "001-001-0063629",
    "quien": "Meli",
    "fcarga": "2026-08-27"
+  },
+  {
+   "codigo": "FF26.CP.0040",
+   "fecha": "2026-08-28",
+   "proveedor": "Elin Aceros y Aleaciones S.A",
+   "cap": "D",
+   "partida": "IN.EMVG.0013",
+   "insumo": "IN.MAFI.0004",
+   "detalle": "Caja 25kg Electrodos - 3.25mm",
+   "cant": "1",
+   "unidad": "kg",
+   "monto": "381506",
+   "tipo": "Material",
+   "cond": "Contado",
+   "estadoPago": "Pagada",
+   "beneficiario": "ELIN ACEROS Y ALEACIONES S.A",
+   "medio": "Transferencia",
+   "refPago": "OBRA FF26 - INS - ELECTRODOS CABRIADA",
+   "fechaVencimiento": "",
+   "factura": "003-001-0112758",
+   "quien": "Meli",
+   "fcarga": "2026-08-28"
   }
  ]
 }
