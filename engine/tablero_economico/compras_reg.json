@@ -881,6 +881,28 @@
    "factura": "003-001-0112758",
    "quien": "Meli",
    "fcarga": "2026-08-28"
+  },
+  {
+   "codigo": "FF26.CP.0041",
+   "fecha": "2026-08-29",
+   "proveedor": "Elin Aceros y Aleaciones S.A",
+   "cap": "D",
+   "partida": "IN.EMVG.0013",
+   "insumo": "IN.MAAN.0084",
+   "detalle": "",
+   "cant": "50",
+   "unidad": "un",
+   "monto": "3982400",
+   "tipo": "Material",
+   "cond": "Contado",
+   "estadoPago": "Pagada",
+   "beneficiario": "ELIN ACEROS Y ALEACIONES S.A",
+   "medio": "Transferencia",
+   "refPago": "OBRA FF26 - INS - ANGULO PARA CABRIADAS",
+   "fechaVencimiento": "",
+   "factura": "003-001-0112831",
+   "quien": "Meli",
+   "fcarga": "2026-08-31"
   }
  ]
 }
