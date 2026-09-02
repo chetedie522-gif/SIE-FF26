@@ -14,7 +14,24 @@
     "comprometido": 92207076,
     "ejecutado": 0,
     "consumido_pct": 0,
-    "margen_proyectado": 411831418
+    "margen_proyectado": 411831418,
+    "adicionales": [
+      {
+        "cod": "AD1",
+        "nombre": "Reubicación y adecuación acometida eléctrica (sector generadores)",
+        "venta_con_iva": 135198000,
+        "objetivo_con_iva": 117742576,
+        "margen_gs": 17455424,
+        "margen_pct": 12.9,
+        "cobro": "60% al inicio · 40% al término",
+        "estado": "aprobado",
+        "oferta": "N° 20260820/1 (corregida 22/08/2026)"
+      }
+    ],
+    "total_con_iva": 1574949150,
+    "total_objetivo_con_iva": 1145662308,
+    "total_margen_gs": 429286842,
+    "total_margen_pct": 27.3
   },
   "capitulos": [
     {
@@ -79,6 +96,15 @@
       "real": 0,
       "desvio": 0,
       "consumido_pct": 37.6
+    },
+    {
+      "cap": "AD1",
+      "nombre": "ADICIONAL · Acometida eléctrica",
+      "objetivo": 117742576,
+      "comprometido": 0,
+      "real": 0,
+      "desvio": 0,
+      "consumido_pct": 0.0
     }
   ],
   "flujo": [

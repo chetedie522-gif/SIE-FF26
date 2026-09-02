@@ -98,21 +98,47 @@ function render(d){
   const r=d.resumen;
   document.getElementById('obra').textContent=`${d.codigo} · Control economico y flujo de caja`;
   document.getElementById('meta').textContent=`${d.obra} · actualizado ${d.actualizado}`;
-  let h=`<div class="kpis">
+  const ads=r.adicionales||[];
+  const adV=ads.reduce((a,x)=>a+x.venta_con_iva,0), adO=ads.reduce((a,x)=>a+x.objetivo_con_iva,0);
+  let h;
+  if(ads.length){
+    h=`<div class="kpis">
+      ${kpi('Contrato BASE (venta, c/IVA)', gs(r.contrato_con_iva), true)}
+      ${kpi('➕ Adicional '+ads.map(a=>a.cod).join('+')+' (aprobado)', gs(adV), true)}
+      ${kpi('Venta TOTAL (base + adic.)', gs(r.contrato_con_iva+adV), true)}
+      ${kpi('Costo objetivo TOTAL', gs(r.objetivo_con_iva+adO), true)}
+      ${kpi('Margen base', gs(r.margen_gs)+' · '+r.margen_pct+'%')}
+      ${kpi('Margen adicional', gs(adV-adO)+' · '+(adV?((adV-adO)/adV*100).toFixed(1):0)+'%')}
+      ${kpi('Margen TOTAL', gs(r.margen_gs+adV-adO)+' · '+((r.margen_gs+adV-adO)/(r.contrato_con_iva+adV)*100).toFixed(1)+'%')}
+      ${kpi('k / consumido', 'k '+r.k+' · '+r.consumido_pct+'%')}
+    </div>
+    <div class="note">Adicionales identificados APARTE del contrato base: ${ads.map(a=>`<b>${a.cod}</b> · ${a.nombre} · ${gs(a.venta_con_iva)} · cobro ${a.cobro} (${a.oferta||''})`).join(' — ')}.</div>`;
+  }else{
+    h=`<div class="kpis">
     ${kpi('Contrato (venta, c/IVA)', gs(r.contrato_con_iva), true)}
     ${kpi('Costo objetivo (c/IVA)', gs(r.objetivo_con_iva), true)}
     ${kpi('Margen objetivo', gs(r.margen_gs)+' · '+r.margen_pct+'%')}
     ${kpi('k / consumido', 'k '+r.k+' · '+r.consumido_pct+'%')}
   </div>`;
+  }
   h+=`<h2>Se me va el costo? — Objetivo vs. comprometido por capitulo</h2><div class="card"><table>
     <thead><tr><th>Capitulo</th><th>Objetivo</th><th>Comprometido</th><th>% consumido</th><th>Desvio</th></tr></thead><tbody>`;
-  d.capitulos.forEach(c=>{const pc=c.objetivo? c.comprometido/c.objetivo*100:0;
+  const esAd=c=>c.cap.startsWith('AD');
+  const caps=[...d.capitulos.filter(c=>!esAd(c)),...d.capitulos.filter(esAd)];
+  const fila=c=>{const pc=c.objetivo? c.comprometido/c.objetivo*100:0;
     const col=pc>100?'var(--bad)':pc>90?'var(--warn)':'var(--ok)';
-    h+=`<tr><td>${c.cap} · ${c.nombre}</td><td>${f2(c.objetivo)}</td><td>${f2(c.comprometido)}</td>
+    return `<tr style="${esAd(c)?'background:rgba(91,143,214,.08)':''}"><td>${esAd(c)?'➕ ':''}${c.cap} · ${c.nombre}</td><td>${f2(c.objetivo)}</td><td>${f2(c.comprometido)}</td>
       <td>${pc.toFixed(0)}%<div class="bar"><i style="width:${Math.min(pc,100)}%;background:${col}"></i></div></td>
-      <td style="color:${c.desvio>0?'var(--bad)':'var(--mut)'}">${c.desvio>0?'+':''}${f2(c.desvio)}</td></tr>`;});
-  const to=d.capitulos.reduce((a,c)=>a+c.objetivo,0), tc=d.capitulos.reduce((a,c)=>a+c.comprometido,0);
-  h+=`<tr class="tot"><td>TOTAL</td><td>${f2(to)}</td><td>${f2(tc)}</td><td>${to?(tc/to*100).toFixed(0):0}%</td><td></td></tr>`;
+      <td style="color:${c.desvio>0?'var(--bad)':'var(--mut)'}">${c.desvio>0?'+':''}${f2(c.desvio)}</td></tr>`;};
+  const hayAd=caps.some(esAd);
+  caps.filter(c=>!esAd(c)).forEach(c=>{h+=fila(c);});
+  if(hayAd){
+    const bo=caps.filter(c=>!esAd(c)).reduce((a,c)=>a+c.objetivo,0), bc=caps.filter(c=>!esAd(c)).reduce((a,c)=>a+c.comprometido,0);
+    h+=`<tr class="tot"><td>Subtotal CONTRATO BASE</td><td>${f2(bo)}</td><td>${f2(bc)}</td><td>${bo?(bc/bo*100).toFixed(0):0}%</td><td></td></tr>`;
+    caps.filter(esAd).forEach(c=>{h+=fila(c);});
+  }
+  const to=caps.reduce((a,c)=>a+c.objetivo,0), tc=caps.reduce((a,c)=>a+c.comprometido,0);
+  h+=`<tr class="tot"><td>TOTAL${hayAd?' (base + adicionales)':''}</td><td>${f2(to)}</td><td>${f2(tc)}</td><td>${to?(tc/to*100).toFixed(0):0}%</td><td></td></tr>`;
   h+=`</tbody></table></div>`;
   h+=`<h2>Flujo de caja proyectado</h2><div class="card">${chart(d.flujo)}
     <div class="legend"><span><b style="background:#2fa76a"></b>Ingresos acum.</span>

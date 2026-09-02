@@ -1,258 +1,301 @@
 {
-  "partidas": [
-    {
-      "codigo": "RU.OBPL.0010",
-      "capitulo": "A",
-      "cap_nombre": "A · Trabajos preliminares",
-      "descripcion": "Marcación y Replanteo",
-      "objetivo": 16450000
-    },
-    {
-      "codigo": "A.1",
-      "capitulo": "A",
-      "cap_nombre": "A · Trabajos preliminares",
-      "descripcion": "Movimiento de Suelo",
-      "objetivo": 56000000
-    },
-    {
-      "codigo": "RU.OBPL.0005",
-      "capitulo": "A",
-      "cap_nombre": "A · Trabajos preliminares",
-      "descripcion": "Relleno y Compactación - arena gorda",
-      "objetivo": 12337500
-    },
-    {
-      "codigo": "RU.OBPL.0008",
-      "capitulo": "C",
-      "cap_nombre": "C · Estructura H°A°",
-      "descripcion": "Excavación para fundaciones - con minipala",
-      "objetivo": 2824320
-    },
-    {
-      "codigo": "RU.ESHA.00118",
-      "capitulo": "C",
-      "cap_nombre": "C · Estructura H°A°",
-      "descripcion": "Tubulones. Campana 120. H°A° + 30% PB",
-      "objetivo": 26129232
-    },
-    {
-      "codigo": "RU.ESHA.0120",
-      "capitulo": "C",
-      "cap_nombre": "C · Estructura H°A°",
-      "descripcion": "Fustes de H°A°20X60",
-      "objetivo": 4532155
-    },
-    {
-      "codigo": "RU.ESHA.0121",
-      "capitulo": "C",
-      "cap_nombre": "C · Estructura H°A°",
-      "descripcion": "VigasFundación H°A°. fck= 210 kg/cm2",
-      "objetivo": 17322140
-    },
-    {
-      "codigo": "RU.EMPL.0014",
-      "capitulo": "D",
-      "cap_nombre": "D · Estructura metálica + cubierta",
-      "descripcion": "Pilares metálicos RETICULADO 50X15",
-      "objetivo": 14148960
-    },
-    {
-      "codigo": "RU.TEEM.0013",
-      "capitulo": "D",
-      "cap_nombre": "D · Estructura metálica + cubierta",
-      "descripcion": "Cubierta de Chapa Kingspan e=40mm",
-      "objetivo": 188100500
-    },
-    {
-      "codigo": "RU.EMPL.0015",
-      "capitulo": "D",
-      "cap_nombre": "D · Estructura metálica + cubierta",
-      "descripcion": "Pilares metálicos RETICULADO 40X15 - DET: FF26",
-      "objetivo": 2554980
-    },
-    {
-      "codigo": "RU.STME.0006",
-      "capitulo": "D",
-      "cap_nombre": "D · Estructura metálica + cubierta",
-      "descripcion": "Placa de Anclaje 200x600",
-      "objetivo": 3470614
-    },
-    {
-      "codigo": "RU.CATE.0001",
-      "capitulo": "F",
-      "cap_nombre": "F · Canaletas y cerramientos",
-      "descripcion": "Canaletas",
-      "objetivo": 5295500
-    },
-    {
-      "codigo": "RU.CATE.0003",
-      "capitulo": "F",
-      "cap_nombre": "F · Canaletas y cerramientos",
-      "descripcion": "Boqueta",
-      "objetivo": 1916736
-    },
-    {
-      "codigo": "RU.CATE.0005",
-      "capitulo": "F",
-      "cap_nombre": "F · Canaletas y cerramientos",
-      "descripcion": "CAÑOS DE BAJADA DE 150MM",
-      "objetivo": 1695520
-    },
-    {
-      "codigo": "RU.STME.0005",
-      "capitulo": "F",
-      "cap_nombre": "F · Canaletas y cerramientos",
-      "descripcion": "CRUCE SAN ANDRES",
-      "objetivo": 4185396
-    },
-    {
-      "codigo": "RU.TEEM.0014",
-      "capitulo": "F",
-      "cap_nombre": "F · Canaletas y cerramientos",
-      "descripcion": "Cerramiento de chapa de +1,2 a +5,00. Chapa EPS30mm.",
-      "objetivo": 48417990
-    },
-    {
-      "codigo": "RU.ABLD.0003",
-      "capitulo": "G",
-      "cap_nombre": "G · Mampostería, pisos y terminaciones",
-      "descripcion": "Aislación horizontal 0,15 con pintura asfaltica",
-      "objetivo": 2086700
-    },
-    {
-      "codigo": "RU.ABLD.0015",
-      "capitulo": "G",
-      "cap_nombre": "G · Mampostería, pisos y terminaciones",
-      "descripcion": "Mamposteria 0.15 con ladrillo hueco.",
-      "objetivo": 6547888
-    },
-    {
-      "codigo": "RU.OBPL.0007",
-      "capitulo": "G",
-      "cap_nombre": "G · Mampostería, pisos y terminaciones",
-      "descripcion": "Relleno y Compactación",
-      "objetivo": 9100000
-    },
-    {
-      "codigo": "RU.INSA.0007",
-      "capitulo": "G",
-      "cap_nombre": "G · Mampostería, pisos y terminaciones",
-      "descripcion": "Canal de desague con rejilla galvanizada",
-      "objetivo": 104805420
-    },
-    {
-      "codigo": "RU.INSA.0008",
-      "capitulo": "G",
-      "cap_nombre": "G · Mampostería, pisos y terminaciones",
-      "descripcion": "Registro 40x40x40",
-      "objetivo": 8880432
-    },
-    {
-      "codigo": "RU.PINT.0005",
-      "capitulo": "G",
-      "cap_nombre": "G · Mampostería, pisos y terminaciones",
-      "descripcion": "Pintura de paredes exterior al latex con enduido",
-      "objetivo": 8048500
-    },
-    {
-      "codigo": "RU.ABRE.0023",
-      "capitulo": "G",
-      "cap_nombre": "G · Mampostería, pisos y terminaciones",
-      "descripcion": "Contrapiso de H° de cascotes e=10 act",
-      "objetivo": 2418660
-    },
-    {
-      "codigo": "RU.ABRE.0028",
-      "capitulo": "G",
-      "cap_nombre": "G · Mampostería, pisos y terminaciones",
-      "descripcion": "Alisada de Cemento para Vereda perimetral",
-      "objetivo": 2711520
-    },
-    {
-      "codigo": "RU.ABRE.0012",
-      "capitulo": "G",
-      "cap_nombre": "G · Mampostería, pisos y terminaciones",
-      "descripcion": "Revoque fino de paredes Exteriores",
-      "objetivo": 4882004
-    },
-    {
-      "codigo": "RU.ESHA.0221",
-      "capitulo": "G",
-      "cap_nombre": "G · Mampostería, pisos y terminaciones",
-      "descripcion": "Piso de H° liso c/epoxy e=12cm",
-      "objetivo": 344156400
-    },
-    {
-      "codigo": "RU.ESHA.0005",
-      "capitulo": "H",
-      "cap_nombre": "H · Cámara de recolección residuos",
-      "descripcion": "Platea de hormigon para reservorios.",
-      "objetivo": 6793812
-    },
-    {
-      "codigo": "RU.ESHA.0006",
-      "capitulo": "H",
-      "cap_nombre": "H · Cámara de recolección residuos",
-      "descripcion": "Vigas invertidas hormigon para tapa de reservorio.",
-      "objetivo": 760874
-    },
-    {
-      "codigo": "RU.ESHA.0007",
-      "capitulo": "H",
-      "cap_nombre": "H · Cámara de recolección residuos",
-      "descripcion": "Losa hormigon para tapa de reservorio.",
-      "objetivo": 6028590
-    },
-    {
-      "codigo": "RU.ESHA.0008",
-      "capitulo": "H",
-      "cap_nombre": "H · Cámara de recolección residuos",
-      "descripcion": "Tapas  para inspeccion de hormigon reservorio.",
-      "objetivo": 738541
-    },
-    {
-      "codigo": "RU.OBPL.0002",
-      "capitulo": "H",
-      "cap_nombre": "H · Cámara de recolección residuos",
-      "descripcion": "Excavación para fundaciones (zapatas para cartel)",
-      "objetivo": 4959918
-    },
-    {
-      "codigo": "RU.AISL.0001",
-      "capitulo": "H",
-      "cap_nombre": "H · Cámara de recolección residuos",
-      "descripcion": "Aisalación  en planta de tratamiento",
-      "objetivo": 12684739
-    },
-    {
-      "codigo": "RU.ABRE.0012",
-      "capitulo": "H",
-      "cap_nombre": "H · Cámara de recolección residuos",
-      "descripcion": "Revoque fino de paredes Exteriores",
-      "objetivo": 4968600
-    },
-    {
-      "codigo": "RU.ESHA.00122",
-      "capitulo": "H",
-      "cap_nombre": "H · Cámara de recolección residuos",
-      "descripcion": "Paredes de tanque reservorio e=15cm",
-      "objetivo": 14211600
-    },
-    {
-      "codigo": "RU.CATE.0005",
-      "capitulo": "H",
-      "cap_nombre": "H · Cámara de recolección residuos",
-      "descripcion": "CAÑOS DE BAJADA DE 150MM",
-      "objetivo": 847760
-    }
-  ],
-  "cap_totales": {
-    "A": 86707500.0,
-    "C": 55396458.0,
-    "D": 225122674.0,
-    "F": 61511142.0,
-    "G": 493637524.0,
-    "H": 51994434.0,
-    "C.I": 53550000.0
+ "partidas": [
+  {
+   "codigo": "RU.OBPL.0010",
+   "capitulo": "A",
+   "cap_nombre": "A · Trabajos preliminares",
+   "descripcion": "Marcación y Replanteo",
+   "objetivo": 16450000
+  },
+  {
+   "codigo": "A.1",
+   "capitulo": "A",
+   "cap_nombre": "A · Trabajos preliminares",
+   "descripcion": "Movimiento de Suelo",
+   "objetivo": 56000000
+  },
+  {
+   "codigo": "RU.OBPL.0005",
+   "capitulo": "A",
+   "cap_nombre": "A · Trabajos preliminares",
+   "descripcion": "Relleno y Compactación - arena gorda",
+   "objetivo": 12337500
+  },
+  {
+   "codigo": "RU.OBPL.0008",
+   "capitulo": "C",
+   "cap_nombre": "C · Estructura H°A°",
+   "descripcion": "Excavación para fundaciones - con minipala",
+   "objetivo": 2824320
+  },
+  {
+   "codigo": "RU.ESHA.00118",
+   "capitulo": "C",
+   "cap_nombre": "C · Estructura H°A°",
+   "descripcion": "Tubulones. Campana 120. H°A° + 30% PB",
+   "objetivo": 26129232
+  },
+  {
+   "codigo": "RU.ESHA.0120",
+   "capitulo": "C",
+   "cap_nombre": "C · Estructura H°A°",
+   "descripcion": "Fustes de H°A°20X60",
+   "objetivo": 4532155
+  },
+  {
+   "codigo": "RU.ESHA.0121",
+   "capitulo": "C",
+   "cap_nombre": "C · Estructura H°A°",
+   "descripcion": "VigasFundación H°A°. fck= 210 kg/cm2",
+   "objetivo": 17322140
+  },
+  {
+   "codigo": "RU.EMPL.0014",
+   "capitulo": "D",
+   "cap_nombre": "D · Estructura metálica + cubierta",
+   "descripcion": "Pilares metálicos RETICULADO 50X15",
+   "objetivo": 14148960
+  },
+  {
+   "codigo": "RU.TEEM.0013",
+   "capitulo": "D",
+   "cap_nombre": "D · Estructura metálica + cubierta",
+   "descripcion": "Cubierta de Chapa Kingspan e=40mm",
+   "objetivo": 188100500
+  },
+  {
+   "codigo": "RU.EMPL.0015",
+   "capitulo": "D",
+   "cap_nombre": "D · Estructura metálica + cubierta",
+   "descripcion": "Pilares metálicos RETICULADO 40X15 - DET: FF26",
+   "objetivo": 2554980
+  },
+  {
+   "codigo": "RU.STME.0006",
+   "capitulo": "D",
+   "cap_nombre": "D · Estructura metálica + cubierta",
+   "descripcion": "Placa de Anclaje 200x600",
+   "objetivo": 3470614
+  },
+  {
+   "codigo": "RU.CATE.0001",
+   "capitulo": "F",
+   "cap_nombre": "F · Canaletas y cerramientos",
+   "descripcion": "Canaletas",
+   "objetivo": 5295500
+  },
+  {
+   "codigo": "RU.CATE.0003",
+   "capitulo": "F",
+   "cap_nombre": "F · Canaletas y cerramientos",
+   "descripcion": "Boqueta",
+   "objetivo": 1916736
+  },
+  {
+   "codigo": "RU.CATE.0005",
+   "capitulo": "F",
+   "cap_nombre": "F · Canaletas y cerramientos",
+   "descripcion": "CAÑOS DE BAJADA DE 150MM",
+   "objetivo": 1695520
+  },
+  {
+   "codigo": "RU.STME.0005",
+   "capitulo": "F",
+   "cap_nombre": "F · Canaletas y cerramientos",
+   "descripcion": "CRUCE SAN ANDRES",
+   "objetivo": 4185396
+  },
+  {
+   "codigo": "RU.TEEM.0014",
+   "capitulo": "F",
+   "cap_nombre": "F · Canaletas y cerramientos",
+   "descripcion": "Cerramiento de chapa de +1,2 a +5,00. Chapa EPS30mm.",
+   "objetivo": 48417990
+  },
+  {
+   "codigo": "RU.ABLD.0003",
+   "capitulo": "G",
+   "cap_nombre": "G · Mampostería, pisos y terminaciones",
+   "descripcion": "Aislación horizontal 0,15 con pintura asfaltica",
+   "objetivo": 2086700
+  },
+  {
+   "codigo": "RU.ABLD.0015",
+   "capitulo": "G",
+   "cap_nombre": "G · Mampostería, pisos y terminaciones",
+   "descripcion": "Mamposteria 0.15 con ladrillo hueco.",
+   "objetivo": 6547888
+  },
+  {
+   "codigo": "RU.OBPL.0007",
+   "capitulo": "G",
+   "cap_nombre": "G · Mampostería, pisos y terminaciones",
+   "descripcion": "Relleno y Compactación",
+   "objetivo": 9100000
+  },
+  {
+   "codigo": "RU.INSA.0007",
+   "capitulo": "G",
+   "cap_nombre": "G · Mampostería, pisos y terminaciones",
+   "descripcion": "Canal de desague con rejilla galvanizada",
+   "objetivo": 104805420
+  },
+  {
+   "codigo": "RU.INSA.0008",
+   "capitulo": "G",
+   "cap_nombre": "G · Mampostería, pisos y terminaciones",
+   "descripcion": "Registro 40x40x40",
+   "objetivo": 8880432
+  },
+  {
+   "codigo": "RU.PINT.0005",
+   "capitulo": "G",
+   "cap_nombre": "G · Mampostería, pisos y terminaciones",
+   "descripcion": "Pintura de paredes exterior al latex con enduido",
+   "objetivo": 8048500
+  },
+  {
+   "codigo": "RU.ABRE.0023",
+   "capitulo": "G",
+   "cap_nombre": "G · Mampostería, pisos y terminaciones",
+   "descripcion": "Contrapiso de H° de cascotes e=10 act",
+   "objetivo": 2418660
+  },
+  {
+   "codigo": "RU.ABRE.0028",
+   "capitulo": "G",
+   "cap_nombre": "G · Mampostería, pisos y terminaciones",
+   "descripcion": "Alisada de Cemento para Vereda perimetral",
+   "objetivo": 2711520
+  },
+  {
+   "codigo": "RU.ABRE.0012",
+   "capitulo": "G",
+   "cap_nombre": "G · Mampostería, pisos y terminaciones",
+   "descripcion": "Revoque fino de paredes Exteriores",
+   "objetivo": 4882004
+  },
+  {
+   "codigo": "RU.ESHA.0221",
+   "capitulo": "G",
+   "cap_nombre": "G · Mampostería, pisos y terminaciones",
+   "descripcion": "Piso de H° liso c/epoxy e=12cm",
+   "objetivo": 344156400
+  },
+  {
+   "codigo": "RU.ESHA.0005",
+   "capitulo": "H",
+   "cap_nombre": "H · Cámara de recolección residuos",
+   "descripcion": "Platea de hormigon para reservorios.",
+   "objetivo": 6793812
+  },
+  {
+   "codigo": "RU.ESHA.0006",
+   "capitulo": "H",
+   "cap_nombre": "H · Cámara de recolección residuos",
+   "descripcion": "Vigas invertidas hormigon para tapa de reservorio.",
+   "objetivo": 760874
+  },
+  {
+   "codigo": "RU.ESHA.0007",
+   "capitulo": "H",
+   "cap_nombre": "H · Cámara de recolección residuos",
+   "descripcion": "Losa hormigon para tapa de reservorio.",
+   "objetivo": 6028590
+  },
+  {
+   "codigo": "RU.ESHA.0008",
+   "capitulo": "H",
+   "cap_nombre": "H · Cámara de recolección residuos",
+   "descripcion": "Tapas  para inspeccion de hormigon reservorio.",
+   "objetivo": 738541
+  },
+  {
+   "codigo": "RU.OBPL.0002",
+   "capitulo": "H",
+   "cap_nombre": "H · Cámara de recolección residuos",
+   "descripcion": "Excavación para fundaciones (zapatas para cartel)",
+   "objetivo": 4959918
+  },
+  {
+   "codigo": "RU.AISL.0001",
+   "capitulo": "H",
+   "cap_nombre": "H · Cámara de recolección residuos",
+   "descripcion": "Aisalación  en planta de tratamiento",
+   "objetivo": 12684739
+  },
+  {
+   "codigo": "RU.ABRE.0012",
+   "capitulo": "H",
+   "cap_nombre": "H · Cámara de recolección residuos",
+   "descripcion": "Revoque fino de paredes Exteriores",
+   "objetivo": 4968600
+  },
+  {
+   "codigo": "RU.ESHA.00122",
+   "capitulo": "H",
+   "cap_nombre": "H · Cámara de recolección residuos",
+   "descripcion": "Paredes de tanque reservorio e=15cm",
+   "objetivo": 14211600
+  },
+  {
+   "codigo": "RU.CATE.0005",
+   "capitulo": "H",
+   "cap_nombre": "H · Cámara de recolección residuos",
+   "descripcion": "CAÑOS DE BAJADA DE 150MM",
+   "objetivo": 847760
+  },
+  {
+   "codigo": "AD1.1.1",
+   "capitulo": "AD1",
+   "cap_nombre": "AD1 · Adicional: Acometida eléctrica y generadores",
+   "descripcion": "AD Preparación del terreno (sala de máquinas)",
+   "objetivo": 2855103
+  },
+  {
+   "codigo": "AD1.1.2",
+   "capitulo": "AD1",
+   "cap_nombre": "AD1 · Adicional: Acometida eléctrica y generadores",
+   "descripcion": "AD Base generadores — platea H°A° 4,10x6,50",
+   "objetivo": 7851535
+  },
+  {
+   "codigo": "AD1.1.3",
+   "capitulo": "AD1",
+   "cap_nombre": "AD1 · Adicional: Acometida eléctrica y generadores",
+   "descripcion": "AD Registros 40x40x70 cm",
+   "objetivo": 2141328
+  },
+  {
+   "codigo": "AD1.1.4",
+   "capitulo": "AD1",
+   "cap_nombre": "AD1 · Adicional: Acometida eléctrica y generadores",
+   "descripcion": "AD Techo metálico zona de máquinas",
+   "objetivo": 6995004
+  },
+  {
+   "codigo": "AD1.1.5",
+   "capitulo": "AD1",
+   "cap_nombre": "AD1 · Adicional: Acometida eléctrica y generadores",
+   "descripcion": "AD Marcación y replanteo de platea",
+   "objetivo": 890792
+  },
+  {
+   "codigo": "AD1.2",
+   "capitulo": "AD1",
+   "cap_nombre": "AD1 · Adicional: Acometida eléctrica y generadores",
+   "descripcion": "AD Instalación eléctrica (subcontrato electricista)",
+   "objetivo": 97008814
   }
+ ],
+ "cap_totales": {
+  "A": 86707500.0,
+  "C": 55396458.0,
+  "D": 225122674.0,
+  "F": 61511142.0,
+  "G": 493637524.0,
+  "H": 51994434.0,
+  "C.I": 53550000.0,
+  "AD1": 117742576
+ }
 }

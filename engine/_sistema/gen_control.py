@@ -6,7 +6,13 @@ tree = json.load(open(SIE + "/tablero_economico/partidas_insumos.json", encoding
 byPart = {p["cod"]: p for p in tree["partidas"]}
 try: compras = json.load(open(SIE + "/tablero_economico/compras_reg.json", encoding="utf-8"))["compras"]
 except: compras = []
-CONTRATO = 1439751150
+CONTRATO = 1439751150   # contrato BASE; los adicionales aprobados se leen de economia.json
+try:
+    _eco = json.load(open(SIE + "/tablero_economico/economia.json", encoding="utf-8"))
+    ADICIONALES = _eco["resumen"].get("adicionales", [])
+except Exception:
+    ADICIONALES = []
+AD_VENTA = round(sum(a.get("venta_con_iva", 0) for a in ADICIONALES))
 UMB_AM, UMB_RO = 0.08, 0.15
 def n(x):
     try: return float(x)
@@ -107,7 +113,9 @@ partidas=[{"cod":p["cod"],"cap":p["cap"],"desc":p["desc"],"obj":p["obj"],"comp":
 objTotal=sum(p["obj"] for p in tree["partidas"])
 DES=[["2026-08-14","Anticipo (pago inicial)",287950230],["2026-08-21","Pago semanal N°2",35993779],["2026-08-28","Pago semanal N°3",35993779],["2026-09-04","Pago semanal N°4",35993778],["2026-09-11","Pago semanal N°5",35993779],["2026-09-18","Pago semanal N°6",35993779],["2026-09-25","Pago semanal N°7",179968894],["2026-10-02","Pago semanal N°8",35993778],["2026-10-09","Pago semanal N°9",35993779],["2026-10-16","Pago semanal N°10",35993779],["2026-10-23","Pago semanal N°11",35993779],["2026-10-30","Pago semanal N°12",179968893],["2026-11-06","Pago semanal N°13",35993779],["2026-11-13","Pago semanal N°14",35993779],["2026-11-20","Pago semanal N°15",35993779],["2026-11-27","Pago semanal N°16",143975115],["2026-12-04","Pago semanal N°17",35993778],["2026-12-11","Pago semanal N°18",35993779],["2026-12-18","Pago semanal N°19 (saldo)",143975115]]
 EMB=json.dumps({"partidas":partidas,"insumos":insumoAn,"consol":consol,"devol":devolList,"venc":vencList,"cobros":cobros,"cobrado":round(cobrado),
-                "contrato":CONTRATO,"objTotal":objTotal,"comprometido":round(sum(comp_part.values())),
+                "contrato":CONTRATO,"adVenta":AD_VENTA,
+                "ads":[{"cod":a.get("cod"),"nombre":a.get("nombre"),"venta":a.get("venta_con_iva")} for a in ADICIONALES],
+                "objTotal":objTotal,"comprometido":round(sum(comp_part.values())),
                 "pagado":round(pagado),"porPagar":round(porPagar),"proxVenc":proxVenc,
                 "umAm":UMB_AM,"umRo":UMB_RO}, ensure_ascii=False)
 
@@ -272,8 +280,12 @@ if(D.proxVenc){
   venAviso = dv<0 ? `<span style="color:var(--bad);font-weight:700">⚠ ${f2(D.proxVenc.monto)} VENCIDO (${dd}/${m})</span>`
            : `<span style="color:${dv<=7?'var(--warn)':'var(--mut)'}">próx. venc: ${dd}/${m} · ${f2(D.proxVenc.monto)} Gs${dv<=7?' ⚠':''}</span>`;
 }
+const contratoTotal=D.contrato+(D.adVenta||0);
 document.getElementById('kpis').innerHTML=
-  kpi('Contrato',f2(D.contrato)+' Gs')+kpi('Cobrado',f2(D.cobrado)+' Gs · '+(D.contrato?(D.cobrado/D.contrato*100).toFixed(0):0)+'%')+kpi('Por cobrar',f2(D.contrato-D.cobrado)+' Gs')+
+  kpi('Contrato base',f2(D.contrato)+' Gs')+
+  (D.adVenta?kpi('➕ Adicional '+(D.ads||[]).map(a=>a.cod).join('+'),f2(D.adVenta)+' Gs','trabajo aparte · aprobado'):'')+
+  (D.adVenta?kpi('Contrato TOTAL',f2(contratoTotal)+' Gs'):'')+
+  kpi('Cobrado',f2(D.cobrado)+' Gs · '+(contratoTotal?(D.cobrado/contratoTotal*100).toFixed(0):0)+'%')+kpi('Por cobrar',f2(contratoTotal-D.cobrado)+' Gs')+
   kpi('Objetivo material',f2(D.objTotal)+' Gs')+kpi('Comprometido',f2(D.comprometido)+' Gs · '+(D.objTotal?(D.comprometido/D.objTotal*100).toFixed(1):0)+'%')+
   kpi('✅ Pagado (gasto ejecutado)',f2(D.pagado)+' Gs')+
   kpi('🕐 A pagar (cheques emitidos / pendientes)',f2(D.porPagar)+' Gs',venAviso)+

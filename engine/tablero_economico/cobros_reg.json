@@ -1,7 +1,16 @@
 {
  "obra": "FF26",
- "actualizado": "2026-08-18",
+ "actualizado": "2026-08-26",
  "cobros": [
-  {"fecha": "2026-08-14", "concepto": "Anticipo (pago inicial)", "monto": 287950230}
+  {
+   "fecha": "2026-08-14",
+   "concepto": "Anticipo (pago inicial)",
+   "monto": 287950230
+  },
+  {
+   "fecha": "2026-08-21",
+   "concepto": "Pago semanal N°2",
+   "monto": 35993779
+  }
  ]
 }

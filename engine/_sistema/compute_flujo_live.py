@@ -7,8 +7,11 @@ try: compras = json.load(open(SIE + "/tablero_economico/compras_reg.json", encod
 except: compras = []
 HOY = dt.date(2026,8,18)
 
-objTotal = eco["resumen"]["objetivo_con_iva"]          # egreso total con IVA
-contrato = eco["resumen"]["contrato_con_iva"]
+adicionales = eco["resumen"].get("adicionales", [])
+adObj = sum(a["objetivo_con_iva"] for a in adicionales)
+adVenta = sum(a["venta_con_iva"] for a in adicionales)
+objTotal = eco["resumen"]["objetivo_con_iva"] + adObj  # egreso total con IVA (base + adicionales)
+contrato = eco["resumen"]["contrato_con_iva"] + adVenta
 def n(x):
     try: return float(x)
     except: return 0.0
@@ -18,10 +21,14 @@ mk = lambda d: f"{d.year}-{d.month:02d}"
 
 # curva de egreso del objetivo (según cronograma) — pesos por mes
 E = {"2026-08":80830572,"2026-09":155339677,"2026-10":173009036,"2026-11":351916866,"2026-12":261858680,"2027-01":4964901,"2027-02":0}
+# AD1: ejecución asumida sep (60%) / oct (40%) — mismo reparto que su cobro
+E["2026-09"] += round(adObj*0.6); E["2026-10"] += round(adObj*0.4)
 totE = sum(E.values())
 
 # cobros: cronograma de pagos del cliente (con IVA)
 DES = [["2026-08-14",287950230],["2026-08-21",35993779],["2026-08-28",35993779],["2026-09-04",35993778],["2026-09-11",35993779],["2026-09-18",35993779],["2026-09-25",179968894],["2026-10-02",35993778],["2026-10-09",35993779],["2026-10-16",35993779],["2026-10-23",35993779],["2026-10-30",179968893],["2026-11-06",35993779],["2026-11-13",35993779],["2026-11-20",35993779],["2026-11-27",143975115],["2026-12-04",35993778],["2026-12-11",35993779],["2026-12-18",143975115]]
+# ADICIONAL AD1: 60% inicio / 40% término (fechas asumidas — ajustar con el plan real)
+DES += [["2026-09-07",81118800],["2026-10-12",54079200]]
 ing = {m:0.0 for m in meses}
 for f,mo in DES:
     k = f[:7]

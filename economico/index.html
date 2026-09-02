@@ -52,7 +52,24 @@ const DATA = {
     "comprometido": 92207076,
     "ejecutado": 0,
     "consumido_pct": 0,
-    "margen_proyectado": 411831418
+    "margen_proyectado": 411831418,
+    "adicionales": [
+      {
+        "cod": "AD1",
+        "nombre": "Reubicación y adecuación acometida eléctrica (sector generadores)",
+        "venta_con_iva": 135198000,
+        "objetivo_con_iva": 117742576,
+        "margen_gs": 17455424,
+        "margen_pct": 12.9,
+        "cobro": "60% al inicio · 40% al término",
+        "estado": "aprobado",
+        "oferta": "N° 20260820/1 (corregida 22/08/2026)"
+      }
+    ],
+    "total_con_iva": 1574949150,
+    "total_objetivo_con_iva": 1145662308,
+    "total_margen_gs": 429286842,
+    "total_margen_pct": 27.3
   },
   "capitulos": [
     {
@@ -117,71 +134,80 @@ const DATA = {
       "real": 0,
       "desvio": 0,
       "consumido_pct": 37.6
+    },
+    {
+      "cap": "AD1",
+      "nombre": "ADICIONAL · Acometida eléctrica",
+      "objetivo": 117742576,
+      "comprometido": 0,
+      "real": 0,
+      "desvio": 0,
+      "consumido_pct": 0.0
     }
   ],
   "flujo": [
     {
       "mes": "2026-08",
       "ingreso": 359937788,
-      "egreso": 133913076,
+      "egreso": 134658250,
       "ing_acum": 359937788,
-      "egr_acum": 133913076,
-      "neto_acum": 226024712
+      "egr_acum": 134658250,
+      "neto_acum": 225279538
     },
     {
       "mes": "2026-09",
-      "ingreso": 287950230,
-      "egreso": 167964163,
-      "ing_acum": 647888018,
-      "egr_acum": 301877239,
-      "neto_acum": 346010779
+      "ingreso": 369069030,
+      "egreso": 234355968,
+      "ing_acum": 729006818,
+      "egr_acum": 369014218,
+      "neto_acum": 359992600
     },
     {
       "mes": "2026-10",
-      "ingreso": 323944008,
-      "egreso": 157489675,
-      "ing_acum": 971832026,
-      "egr_acum": 459366914,
-      "neto_acum": 512465112
+      "ingreso": 378023208,
+      "egreso": 202391128,
+      "ing_acum": 1107030026,
+      "egr_acum": 571405346,
+      "neto_acum": 535624680
     },
     {
       "mes": "2026-11",
       "ingreso": 251956452,
-      "egreso": 320349007,
-      "ing_acum": 1223788478,
-      "egr_acum": 779715921,
-      "neto_acum": 444072557
+      "egreso": 323593315,
+      "ing_acum": 1358986478,
+      "egr_acum": 894998661,
+      "neto_acum": 463987817
     },
     {
       "mes": "2026-12",
       "ingreso": 215962672,
-      "egreso": 238369275,
-      "ing_acum": 1439751150,
-      "egr_acum": 1018085196,
-      "neto_acum": 421665954
+      "egreso": 240783340,
+      "ing_acum": 1574949150,
+      "egr_acum": 1135782001,
+      "neto_acum": 439167149
     },
     {
       "mes": "2027-01",
       "ingreso": 0,
-      "egreso": 4519536,
-      "ing_acum": 1439751150,
-      "egr_acum": 1022604732,
-      "neto_acum": 417146418
+      "egreso": 4565308,
+      "ing_acum": 1574949150,
+      "egr_acum": 1140347309,
+      "neto_acum": 434601841
     },
     {
       "mes": "2027-02",
       "ingreso": 0,
       "egreso": 5315000,
-      "ing_acum": 1439751150,
-      "egr_acum": 1027919732,
-      "neto_acum": 411831418
+      "ing_acum": 1574949150,
+      "egr_acum": 1145662309,
+      "neto_acum": 429286841
     }
   ],
   "flujo_supuesto": false,
   "esquema_cobro": "EN VIVO · cobros = cronograma del cliente · egresos reales por fecha de pago (crédito 30d = +30 días) + resto del objetivo según cronograma",
   "pico_exposicion": {
     "mes": "2026-08",
-    "monto": 226024712
+    "monto": 225279538
   },
   "necesidad_caja": 0,
   "notas_materiales": "Kingspan: pago 15 días antes del montaje (+10 días producción). Perfiles de hierro: a crédito, cheque a 30 días. Ambos suavizan la caja.",
@@ -458,6 +484,31 @@ const DATA = {
           1759474,
           1759474
         ]
+      },
+      {
+        "cap": "AD1",
+        "nombre": "ADICIONAL · Acometida eléctrica",
+        "valores": [
+          0,
+          0,
+          0,
+          0,
+          19623763,
+          19623763,
+          19623763,
+          19623763,
+          19623763,
+          19623763,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ]
       }
     ],
     "gastos": [
@@ -507,12 +558,12 @@ const DATA = {
       35993779,
       35993779,
       35993778,
-      35993779,
+      117112579,
       35993779,
       179968894,
       35993778,
       35993779,
-      35993779,
+      90072979,
       35993779,
       179968893,
       35993779,
@@ -528,12 +579,12 @@ const DATA = {
       76586209,
       58273520,
       29007064,
-      25798256,
-      46572854,
-      23222803,
-      23222803,
-      72586555,
-      93090269,
+      45422019,
+      66196617,
+      42846566,
+      42846566,
+      92210318,
+      112714032,
       110430269,
       110430269,
       68463226,
@@ -549,21 +600,21 @@ const DATA = {
       214497773,
       192218032,
       199204746,
-      209400269,
-      198821194,
-      355567285,
-      368338260,
-      331745484,
-      274648994,
-      200212504,
-      269751128,
-      237281681,
-      222152234,
-      207022787,
-      299874676,
-      284745228,
-      269615781,
-      411831422
+      270895306,
+      240692468,
+      377814796,
+      370962008,
+      314745469,
+      292104416,
+      217667926,
+      287206550,
+      254737103,
+      239607656,
+      224478209,
+      317330098,
+      302200650,
+      287071203,
+      429286844
     ]
   }
 };
@@ -623,21 +674,47 @@ function render(d){
   const r=d.resumen;
   document.getElementById('obra').textContent=`${d.codigo} · Control economico y flujo de caja`;
   document.getElementById('meta').textContent=`${d.obra} · actualizado ${d.actualizado}`;
-  let h=`<div class="kpis">
+  const ads=r.adicionales||[];
+  const adV=ads.reduce((a,x)=>a+x.venta_con_iva,0), adO=ads.reduce((a,x)=>a+x.objetivo_con_iva,0);
+  let h;
+  if(ads.length){
+    h=`<div class="kpis">
+      ${kpi('Contrato BASE (venta, c/IVA)', gs(r.contrato_con_iva), true)}
+      ${kpi('➕ Adicional '+ads.map(a=>a.cod).join('+')+' (aprobado)', gs(adV), true)}
+      ${kpi('Venta TOTAL (base + adic.)', gs(r.contrato_con_iva+adV), true)}
+      ${kpi('Costo objetivo TOTAL', gs(r.objetivo_con_iva+adO), true)}
+      ${kpi('Margen base', gs(r.margen_gs)+' · '+r.margen_pct+'%')}
+      ${kpi('Margen adicional', gs(adV-adO)+' · '+(adV?((adV-adO)/adV*100).toFixed(1):0)+'%')}
+      ${kpi('Margen TOTAL', gs(r.margen_gs+adV-adO)+' · '+((r.margen_gs+adV-adO)/(r.contrato_con_iva+adV)*100).toFixed(1)+'%')}
+      ${kpi('k / consumido', 'k '+r.k+' · '+r.consumido_pct+'%')}
+    </div>
+    <div class="note">Adicionales identificados APARTE del contrato base: ${ads.map(a=>`<b>${a.cod}</b> · ${a.nombre} · ${gs(a.venta_con_iva)} · cobro ${a.cobro} (${a.oferta||''})`).join(' — ')}.</div>`;
+  }else{
+    h=`<div class="kpis">
     ${kpi('Contrato (venta, c/IVA)', gs(r.contrato_con_iva), true)}
     ${kpi('Costo objetivo (c/IVA)', gs(r.objetivo_con_iva), true)}
     ${kpi('Margen objetivo', gs(r.margen_gs)+' · '+r.margen_pct+'%')}
     ${kpi('k / consumido', 'k '+r.k+' · '+r.consumido_pct+'%')}
   </div>`;
+  }
   h+=`<h2>Se me va el costo? — Objetivo vs. comprometido por capitulo</h2><div class="card"><table>
     <thead><tr><th>Capitulo</th><th>Objetivo</th><th>Comprometido</th><th>% consumido</th><th>Desvio</th></tr></thead><tbody>`;
-  d.capitulos.forEach(c=>{const pc=c.objetivo? c.comprometido/c.objetivo*100:0;
+  const esAd=c=>c.cap.startsWith('AD');
+  const caps=[...d.capitulos.filter(c=>!esAd(c)),...d.capitulos.filter(esAd)];
+  const fila=c=>{const pc=c.objetivo? c.comprometido/c.objetivo*100:0;
     const col=pc>100?'var(--bad)':pc>90?'var(--warn)':'var(--ok)';
-    h+=`<tr><td>${c.cap} · ${c.nombre}</td><td>${f2(c.objetivo)}</td><td>${f2(c.comprometido)}</td>
+    return `<tr style="${esAd(c)?'background:rgba(91,143,214,.08)':''}"><td>${esAd(c)?'➕ ':''}${c.cap} · ${c.nombre}</td><td>${f2(c.objetivo)}</td><td>${f2(c.comprometido)}</td>
       <td>${pc.toFixed(0)}%<div class="bar"><i style="width:${Math.min(pc,100)}%;background:${col}"></i></div></td>
-      <td style="color:${c.desvio>0?'var(--bad)':'var(--mut)'}">${c.desvio>0?'+':''}${f2(c.desvio)}</td></tr>`;});
-  const to=d.capitulos.reduce((a,c)=>a+c.objetivo,0), tc=d.capitulos.reduce((a,c)=>a+c.comprometido,0);
-  h+=`<tr class="tot"><td>TOTAL</td><td>${f2(to)}</td><td>${f2(tc)}</td><td>${to?(tc/to*100).toFixed(0):0}%</td><td></td></tr>`;
+      <td style="color:${c.desvio>0?'var(--bad)':'var(--mut)'}">${c.desvio>0?'+':''}${f2(c.desvio)}</td></tr>`;};
+  const hayAd=caps.some(esAd);
+  caps.filter(c=>!esAd(c)).forEach(c=>{h+=fila(c);});
+  if(hayAd){
+    const bo=caps.filter(c=>!esAd(c)).reduce((a,c)=>a+c.objetivo,0), bc=caps.filter(c=>!esAd(c)).reduce((a,c)=>a+c.comprometido,0);
+    h+=`<tr class="tot"><td>Subtotal CONTRATO BASE</td><td>${f2(bo)}</td><td>${f2(bc)}</td><td>${bo?(bc/bo*100).toFixed(0):0}%</td><td></td></tr>`;
+    caps.filter(esAd).forEach(c=>{h+=fila(c);});
+  }
+  const to=caps.reduce((a,c)=>a+c.objetivo,0), tc=caps.reduce((a,c)=>a+c.comprometido,0);
+  h+=`<tr class="tot"><td>TOTAL${hayAd?' (base + adicionales)':''}</td><td>${f2(to)}</td><td>${f2(tc)}</td><td>${to?(tc/to*100).toFixed(0):0}%</td><td></td></tr>`;
   h+=`</tbody></table></div>`;
   h+=`<h2>Flujo de caja proyectado</h2><div class="card">${chart(d.flujo)}
     <div class="legend"><span><b style="background:#2fa76a"></b>Ingresos acum.</span>
