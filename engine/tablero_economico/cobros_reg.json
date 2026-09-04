@@ -1,6 +1,6 @@
 {
  "obra": "FF26",
- "actualizado": "2026-08-26",
+ "actualizado": "2026-09-04",
  "cobros": [
   {
    "fecha": "2026-08-14",
@@ -11,6 +11,11 @@
    "fecha": "2026-08-21",
    "concepto": "Pago semanal N°2",
    "monto": 35993779
+  },
+  {
+   "fecha": "2026-09-04",
+   "concepto": "Adicional AD1 — cobro 60% inicio",
+   "monto": 81118800
   }
  ]
 }
