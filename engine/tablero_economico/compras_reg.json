@@ -1387,6 +1387,28 @@
    "factura": "001-002-0081154",
    "quien": "Meli",
    "fcarga": "2026-09-03"
+  },
+  {
+   "codigo": "FF26.CP.0064",
+   "fecha": "2026-09-04",
+   "proveedor": "Depósito de Materiales \"SANTA CRUZ\" S.R.L",
+   "cap": "AD1",
+   "partida": "AD1.1.2",
+   "insumo": "NUEVO",
+   "detalle": "Arena lavada",
+   "cant": "5",
+   "unidad": "m3",
+   "monto": "450000",
+   "tipo": "Material",
+   "cond": "Contado",
+   "estadoPago": "Pagada",
+   "beneficiario": "CONSTRULUQUE E.A.S UNIPERSONAL",
+   "medio": "Transferencia",
+   "refPago": "OBRA FF26 - ARENA LAVADA",
+   "fechaVencimiento": "",
+   "factura": "001-002-0081263",
+   "quien": "Meli",
+   "fcarga": "2026-09-04"
   }
  ]
 }

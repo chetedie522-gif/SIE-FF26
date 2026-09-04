@@ -11,7 +11,7 @@
     "margen_gs": 411831418,
     "margen_pct": 28.6,
     "k": 1.401,
-    "comprometido": 151202364,
+    "comprometido": 151652364,
     "ejecutado": 0,
     "consumido_pct": 0,
     "margen_proyectado": 411831418,
@@ -101,57 +101,57 @@
       "cap": "AD1",
       "nombre": "ADICIONAL · Acometida eléctrica",
       "objetivo": 117742576,
-      "comprometido": 58605288,
+      "comprometido": 59055288,
       "real": 0,
       "desvio": 0,
-      "consumido_pct": 49.8
+      "consumido_pct": 50.2
     }
   ],
   "flujo": [
     {
       "mes": "2026-08",
       "ingreso": 359937788,
-      "egreso": 130885922,
+      "egreso": 130854173,
       "ing_acum": 359937788,
-      "egr_acum": 130885922,
-      "neto_acum": 229051866
+      "egr_acum": 130854173,
+      "neto_acum": 229083615
     },
     {
       "mes": "2026-09",
       "ingreso": 369069030,
-      "egreso": 281324264,
+      "egreso": 281685500,
       "ing_acum": 729006818,
-      "egr_acum": 412210186,
-      "neto_acum": 316796632
+      "egr_acum": 412539673,
+      "neto_acum": 316467145
     },
     {
       "mes": "2026-10",
       "ingreso": 378023208,
-      "egreso": 191056880,
+      "egreso": 190970425,
       "ing_acum": 1107030026,
-      "egr_acum": 603267066,
-      "neto_acum": 503762960
+      "egr_acum": 603510098,
+      "neto_acum": 503519928
     },
     {
       "mes": "2026-11",
       "ingreso": 251956452,
-      "egreso": 305471538,
+      "egreso": 305333310,
       "ing_acum": 1358986478,
-      "egr_acum": 908738604,
-      "neto_acum": 450247874
+      "egr_acum": 908843408,
+      "neto_acum": 450143070
     },
     {
       "mes": "2026-12",
       "ingreso": 215962672,
-      "egreso": 227299062,
+      "egreso": 227196208,
       "ing_acum": 1574949150,
-      "egr_acum": 1136037666,
-      "neto_acum": 438911484
+      "egr_acum": 1136039616,
+      "neto_acum": 438909534
     },
     {
       "mes": "2027-01",
       "ingreso": 0,
-      "egreso": 4309643,
+      "egreso": 4307693,
       "ing_acum": 1574949150,
       "egr_acum": 1140347309,
       "neto_acum": 434601841
@@ -169,7 +169,7 @@
   "esquema_cobro": "EN VIVO · cobros = cronograma del cliente · egresos reales por fecha de pago (crédito 30d = +30 días) + resto del objetivo según cronograma",
   "pico_exposicion": {
     "mes": "2026-08",
-    "monto": 229051866
+    "monto": 229083615
   },
   "necesidad_caja": 0,
   "notas_materiales": "Kingspan: pago 15 días antes del montaje (+10 días producción). Perfiles de hierro: a crédito, cheque a 30 días. Ambos suavizan la caja.",
@@ -454,12 +454,12 @@
           0,
           0,
           0,
-          9856215,
-          9856215,
-          9856215,
-          9856215,
-          9856215,
-          9856215,
+          9781215,
+          9781215,
+          9781215,
+          9781215,
+          9781215,
+          9781215,
           0,
           0,
           0,
@@ -498,7 +498,7 @@
       17065000,
       33537953,
       15435264,
-      61814096,
+      62264096,
       0,
       23350051,
       0,
@@ -540,12 +540,12 @@
       32836737,
       76652919,
       58550230,
-      97445277,
-      35631181,
-      56405779,
-      33055728,
-      33055728,
-      82419480,
+      97820277,
+      35556181,
+      56330779,
+      32980728,
+      32980728,
+      82344480,
       93066979,
       110406979,
       110406979,
@@ -561,11 +561,11 @@
       255113493,
       214454353,
       191897902,
-      211565203,
-      211927801,
-      191515801,
-      338428967,
-      341367017,
+      211190203,
+      211627801,
+      191290801,
+      338278967,
+      341292017,
       349020516,
       291947316,
       217534116,
