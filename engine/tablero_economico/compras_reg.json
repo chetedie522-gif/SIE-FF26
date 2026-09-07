@@ -1497,6 +1497,28 @@
    "factura": "001-002-0002965",
    "quien": "Meli",
    "fcarga": "2026-09-04"
+  },
+  {
+   "codigo": "FF26.CP.0069",
+   "fecha": "2026-09-07",
+   "proveedor": "MV ACEROS S.A.",
+   "cap": "G",
+   "partida": "RU.ABRE.0028",
+   "insumo": "NUEVO",
+   "detalle": "Caño rectangular L/F MV 20x40x0,90mmx6mts",
+   "cant": "5",
+   "unidad": "un",
+   "monto": "196530",
+   "tipo": "Material",
+   "cond": "Contado",
+   "estadoPago": "Pagada",
+   "beneficiario": "MV Aceros S.A",
+   "medio": "Transferencia",
+   "refPago": "OBRA FF26 - INS - VEREDA EXTERIOR REGLA",
+   "fechaVencimiento": "",
+   "factura": "015-001-0033933",
+   "quien": "Meli",
+   "fcarga": "2026-09-07"
   }
  ]
 }
