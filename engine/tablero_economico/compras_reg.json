@@ -680,7 +680,7 @@
    "medio": "Transferencia",
    "refPago": "Devolucion",
    "fechaVencimiento": "",
-   "factura": "",
+   "factura": "016-001-0064690",
    "quien": "Meli",
    "fcarga": "2026-08-25"
   },
@@ -1203,7 +1203,7 @@
    "monto": "75000",
    "tipo": "Otro",
    "cond": "Contado",
-   "estadoPago": "Pendiente a autorizar",
+   "estadoPago": "Pagada",
    "beneficiario": "",
    "medio": "",
    "refPago": "OBRA FF26 - CI - MANTENIMIENTO HINO",
