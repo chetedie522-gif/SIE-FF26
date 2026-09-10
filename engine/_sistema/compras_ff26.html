@@ -226,7 +226,10 @@ wrapReg.addEventListener('input',e=>{const tr=e.target.closest('tr[data-id]'); i
 wrapReg.addEventListener('click',async e=>{
   const tr=e.target.closest('tr[data-id]'); if(!tr) return;
   const id=tr.dataset.id;
-  const HDRS={'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Content-Type':'application/json','Prefer':'return=minimal'};
+  // return=representation: si el permiso (RLS) bloquea la edición, Supabase devuelve 200 con []
+  // — con eso detectamos el "guardado fantasma" y avisamos en vez de mostrar ✅ falso.
+  const HDRS={'apikey':SUPABASE_ANON_KEY,'Authorization':'Bearer '+SUPABASE_ANON_KEY,'Content-Type':'application/json','Prefer':'return=representation'};
+  const MSG_PERM='⚠ NO SE GUARDÓ: Supabase rechazó el cambio (falta el permiso de edición/borrado — hay que correr el SQL de políticas). Avisale a Nacho.';
   if(e.target.classList.contains('est')){
     const o=['Pendiente a autorizar','Autorizada','Pagada'];
     const c=e.target; const nx=o[(o.indexOf(c.dataset.v)+1)%o.length];
@@ -235,7 +238,9 @@ wrapReg.addEventListener('click',async e=>{
   if(e.target.classList.contains('del')){
     if(!confirm('¿Borrar esta línea definitivamente?')) return;
     const r=await fetch(`${SUPABASE_URL}/rest/v1/compras?id=eq.${id}`,{method:'DELETE',headers:HDRS});
-    if(r.ok){recientes=recientes.filter(x=>String(x.id)!==String(id)); renderRecientes();}
+    const filas=r.ok?await r.json().catch(()=>[]):[];
+    if(r.ok&&filas.length){recientes=recientes.filter(x=>String(x.id)!==String(id)); renderRecientes();}
+    else if(r.ok) alert(MSG_PERM);
     else alert('No se pudo borrar (HTTP '+r.status+'). Avisale a Nacho/Claude.');
     return;
   }
@@ -249,8 +254,10 @@ wrapReg.addEventListener('click',async e=>{
     const cantRaw=(get('cant')||'').trim(); const mCant=cantRaw.match(/^([\d.,]+)\s*(.*)$/);
     if(mCant){body.cant=mCant[1].replace(',','.'); if(mCant[2]) body.unidad=mCant[2];}
     const r=await fetch(`${SUPABASE_URL}/rest/v1/compras?id=eq.${id}`,{method:'PATCH',headers:HDRS,body:JSON.stringify(body)});
-    if(r.ok){tr.classList.remove('dirty'); e.target.textContent='✅'; setTimeout(()=>{e.target.textContent='💾';},1200);
+    const filas=r.ok?await r.json().catch(()=>[]):[];
+    if(r.ok&&filas.length){tr.classList.remove('dirty'); e.target.textContent='✅'; setTimeout(()=>{e.target.textContent='💾';},1200);
       const it=recientes.find(x=>String(x.id)===String(id)); if(it) Object.assign(it,body);}
+    else if(r.ok) alert(MSG_PERM);
     else alert('No se pudo guardar (HTTP '+r.status+'). Avisale a Nacho/Claude.');
   }
 });
