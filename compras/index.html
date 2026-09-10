@@ -28,8 +28,8 @@ td.est[data-v="Pendiente a autorizar"]{color:var(--bad)}
 td.est[data-v="Autorizada"]{color:var(--warn)}
 td.est[data-v="Pagada"]{color:var(--ok)}
 button.mini{background:transparent;border:none;cursor:pointer;font-size:14px;padding:2px 4px}
-button.mini.save{display:none}
-tr.dirty button.mini.save{display:inline-block}
+button.mini.save{opacity:.25}
+tr.dirty button.mini.save{opacity:1;filter:drop-shadow(0 0 4px rgba(91,143,214,.9))}
 .hint{color:var(--mut);font-size:11px;margin-top:2px}
 .msg{border-radius:8px;padding:10px 12px;font-size:13px;margin-top:12px;display:none}
 .msg.ok{background:rgba(47,167,106,.14);border:1px solid rgba(47,167,106,.4);color:#8fe0b6;display:block}
@@ -216,7 +216,7 @@ function renderRecientes(){
       `<td style="white-space:nowrap"><button class="mini save" title="guardar cambios">💾</button><button class="mini del" title="borrar esta línea">🗑</button></td>`+
       `</tr>`;
   });
-  h+='</tbody></table></div><div class="hint" style="margin-top:6px">✏️ Tocá una celda para corregirla y apretá 💾. Tocá la columna Pago para marcar Pendiente → Autorizada → Pagada. 🗑 borra la línea (¡no tiene deshacer!).</div>';
+  h+='</tbody></table></div><div class="hint" style="margin-top:6px">✏️ Tocá una celda para corregirla — el 💾 del final de la fila se enciende: apretalo para guardar. Tocá la columna Pago para marcar Pendiente → Autorizada → Pagada (también se guarda con 💾). 🗑 borra la línea (¡no tiene deshacer!).</div>';
   w.innerHTML=h;
 }
 document.getElementById('buscar').addEventListener('input',renderRecientes);
