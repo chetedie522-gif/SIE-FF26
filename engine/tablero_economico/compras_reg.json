@@ -1915,6 +1915,28 @@
    "factura": "001-002-0000095",
    "quien": "Meli",
    "fcarga": "2026-09-11"
+  },
+  {
+   "codigo": "FF26.CP.0088",
+   "fecha": "2026-09-09",
+   "proveedor": "Gallo Ind. y Com. de Hierros S.R.L.",
+   "cap": "G",
+   "partida": "RU.ABRE.0028",
+   "insumo": "NUEVO",
+   "detalle": "Malla esolada 4/15 x 15/3 x 2 Verde",
+   "cant": "10",
+   "unidad": "un",
+   "monto": "546830",
+   "tipo": "Material",
+   "cond": "Contado",
+   "estadoPago": "Pagada",
+   "beneficiario": "GALLO INDUSTRIA Y COMERCIO DE HIERROS SRL",
+   "medio": "Transferencia",
+   "refPago": "OBRA FF26 - INS - VEREDA PERIMETRAL",
+   "fechaVencimiento": "",
+   "factura": "001-003-0029132",
+   "quien": "Meli",
+   "fcarga": "2026-09-17"
   }
  ]
 }
