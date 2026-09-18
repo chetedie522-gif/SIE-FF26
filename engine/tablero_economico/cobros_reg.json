@@ -1,6 +1,6 @@
 {
  "obra": "FF26",
- "actualizado": "2026-09-04",
+ "actualizado": "2026-09-18",
  "cobros": [
   {
    "fecha": "2026-08-14",
@@ -21,6 +21,11 @@
    "fecha": "2026-09-04",
    "concepto": "Pago semanal N°4",
    "monto": 35993778
+  },
+  {
+   "fecha": "2026-09-18",
+   "concepto": "Pago semanal N°6",
+   "monto": 35993779
   }
  ]
 }
