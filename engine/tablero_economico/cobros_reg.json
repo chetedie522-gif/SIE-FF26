@@ -13,6 +13,11 @@
    "monto": 35993779
   },
   {
+   "fecha": "2026-08-28",
+   "concepto": "Pago semanal N°3",
+   "monto": 35993779
+  },
+  {
    "fecha": "2026-09-04",
    "concepto": "Adicional AD1 — cobro 60% inicio",
    "monto": 81118800
@@ -21,6 +26,11 @@
    "fecha": "2026-09-04",
    "concepto": "Pago semanal N°4",
    "monto": 35993778
+  },
+  {
+   "fecha": "2026-09-11",
+   "concepto": "Pago semanal N°5",
+   "monto": 35993779
   },
   {
    "fecha": "2026-09-18",
