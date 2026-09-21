@@ -1898,9 +1898,9 @@
    "codigo": "FF26.CP.0087",
    "fecha": "2026-09-11",
    "proveedor": "VOLCARGA PARAGUAY E.A.S",
-   "cap": "CI",
-   "partida": "CI.GEN",
-   "insumo": "NUEVO",
+   "cap": "A",
+   "partida": "A.1",
+   "insumo": "IN.SBMS.0008",
    "detalle": "MOVIMIENTO DE SUELO",
    "cant": "1",
    "unidad": "gl",
@@ -1937,6 +1937,28 @@
    "factura": "001-003-0029132",
    "quien": "Meli",
    "fcarga": "2026-09-17"
+  },
+  {
+   "codigo": "FF26.CP.0089",
+   "fecha": "2026-09-18",
+   "proveedor": "VOLCARGA PARAGUAY E.A.S",
+   "cap": "A",
+   "partida": "A.1",
+   "insumo": "IN.SBMS.0008",
+   "detalle": "Movimiento de suelo",
+   "cant": "800",
+   "unidad": "m2",
+   "monto": "12110000",
+   "tipo": "Alquiler de equipo",
+   "cond": "Contado",
+   "estadoPago": "Pagada",
+   "beneficiario": "VOLCARGA PARAGUAY E.A.S",
+   "medio": "Transferencia",
+   "refPago": "OBRA FF26 - SUB - MOV TIERRAS CANCELACION",
+   "fechaVencimiento": "",
+   "factura": "001-002-0000112",
+   "quien": "Meli",
+   "fcarga": "2026-09-21"
   }
  ]
 }
