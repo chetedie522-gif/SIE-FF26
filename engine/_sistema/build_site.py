@@ -41,10 +41,14 @@ def copy_only(src, dst, names):
 os.makedirs(SITE, exist_ok=True)
 
 # --- copiar los tableros de VISTA · SOLO index.html + el JSON que cada uno fetchea ---
-copy_only(os.path.join(SIE, "dashboard"),          os.path.join(SITE, "dashboard"),  ["index.html", "datos.json"])
+# dashboard (avance físico) y pendientes: SACADOS del hub a pedido de Nacho (2026-10-01).
+# Para restaurarlos: volver a agregar su copy_only + su botón en la portada.
+import shutil as _sh
+for _old in ("dashboard", "pendientes"):
+    _d = os.path.join(SITE, _old)
+    if os.path.isdir(_d): _sh.rmtree(_d)
 # económico: SOLO economia.json (NO partidas_insumos/compras_reg/partidas/cobros_reg → tienen plata cruda)
 copy_only(os.path.join(SIE, "tablero_economico"),  os.path.join(SITE, "economico"),  ["index.html", "economia.json"])
-copy_only(os.path.join(SIE, "tablero_pendientes"), os.path.join(SITE, "pendientes"), ["index.html", "pendientes.json"])
 # control: fuente única es el .html del _sistema (datos embebidos, sin JSON suelto)
 fresh(os.path.join(SITE, "control"))
 shutil.copy2(os.path.join(SYS, "control_ff26.html"), os.path.join(SITE, "control", "index.html"))
@@ -84,11 +88,9 @@ def btn(href, ico, t, d, conf=False):
             f'<span><span class="t">{t}</span>{c}<div class="d">{d}</div></span></a>')
 
 botones = (
-    btn("compras/",    "🛒", "Cargar compras",        "Registrar las facturas de la obra") +
-    btn("dashboard/",  "📈", "Avance de obra",        "Avance físico por rubro (sin plata) — para compartir con el cliente") +
-    btn("pendientes/", "📋", "Pendientes y alertas",  "Tareas del equipo, en quién está cada cosa") +
+    btn("compras/",    "🛒", "Cargar compras",        "Registrar las facturas de la obra · abajo está el listado de todo lo comprado") +
     btn("economico/",  "💰", "Económico y flujo",     "Objetivo vs comprometido, margen, caja", True) +
-    btn("control/",    "📊", "Control de material",   "Comprometido por insumo, cobros, alarmas", True)
+    btn("control/",    "📊", "Control de material",   "Detalle de cada compra, comprometido por insumo, cobros, alarmas", True)
 )
 
 portada = (
