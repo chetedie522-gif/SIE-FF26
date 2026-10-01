@@ -7,6 +7,12 @@ on:
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
 
 jobs:
   publish:
@@ -31,3 +37,11 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
           SIE_SITE_DIR: ${{ github.workspace }}
         run: python engine/_sistema/publish_site.py
+
+      # Deploy de Pages acá mismo: los push del bot NO disparan otros workflows
+      # (regla anti-recursión de GitHub), así que el sitio se despliega en este run.
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: .
+      - uses: actions/deploy-pages@v4
