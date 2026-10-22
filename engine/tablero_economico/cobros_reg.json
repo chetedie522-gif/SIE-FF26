@@ -1,6 +1,6 @@
 {
  "obra": "FF26",
- "actualizado": "2026-09-21",
+ "actualizado": "2026-10-22",
  "cobros": [
   {
    "fecha": "2026-08-14",
@@ -41,6 +41,31 @@
    "fecha": "2026-09-21",
    "concepto": "Adicional AD1 — cobro 40% saldo final",
    "monto": 54079200
+  },
+  {
+   "fecha": "2026-09-25",
+   "concepto": "Pago semanal N°7 (hito)",
+   "monto": 179968894
+  },
+  {
+   "fecha": "2026-10-02",
+   "concepto": "Pago semanal N°8",
+   "monto": 35993778
+  },
+  {
+   "fecha": "2026-10-09",
+   "concepto": "Pago semanal N°9",
+   "monto": 35993779
+  },
+  {
+   "fecha": "2026-10-16",
+   "concepto": "Pago semanal N°10",
+   "monto": 35993779
+  },
+  {
+   "fecha": "2026-10-23",
+   "concepto": "Pago semanal N°11",
+   "monto": 35993779
   }
  ]
 }
