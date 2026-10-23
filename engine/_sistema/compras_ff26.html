@@ -208,7 +208,7 @@ function renderRecientes(){
       `<td class="ed" data-f="fecha" contenteditable>${ESC(r.fecha)}</td>`+
       `<td class="ed" data-f="proveedor" contenteditable>${ESC(r.proveedor)}</td>`+
       `<td class="ed" data-f="factura" contenteditable>${ESC(r.factura)||''}</td>`+
-      `<td>${ESC(r.partida)}</td>`+
+      `<td class="ed" data-f="partida" contenteditable title="código de partida — editá para re-imputar (ej. RU.TEEM.0013, G.GEN, AD1.2)">${ESC(r.partida)}</td>`+
       `<td class="ed" data-f="detalle" contenteditable>${ESC(r.detalle||r.insumo)}</td>`+
       `<td class="ed" data-f="cant" contenteditable>${ESC(r.cant)}${r.unidad?' '+ESC(r.unidad):''}</td>`+
       `<td class="ed" data-f="monto" contenteditable>${f2(r.monto)}</td>`+
@@ -251,6 +251,11 @@ wrapReg.addEventListener('click',async e=>{
       detalle:get('detalle'), estado_pago:tr.querySelector('.est').dataset.v,
       monto:parseFloat((get('monto')||'').replace(/[^0-9]/g,''))||0,
     };
+    const np=(get('partida')||'').trim();
+    if(np){
+      if(D.partidas.some(p=>p.cod===np)) body.partida=np;
+      else { alert('La partida "'+np+'" no existe. Usá un código del desplegable de arriba (ej. '+D.partidas[0].cod+').'); return; }
+    }
     const cantRaw=(get('cant')||'').trim(); const mCant=cantRaw.match(/^([\d.,]+)\s*(.*)$/);
     if(mCant){body.cant=mCant[1].replace(',','.'); if(mCant[2]) body.unidad=mCant[2];}
     const r=await fetch(`${SUPABASE_URL}/rest/v1/compras?id=eq.${id}`,{method:'PATCH',headers:HDRS,body:JSON.stringify(body)});
